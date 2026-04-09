@@ -1,0 +1,174 @@
+/* ============================================
+   Resource Hub — Base Design System
+   Juan Diego Villacís | Practitioner-Scholar
+   ============================================ */
+
+/* --- Reset & Variables --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand palette — warm earth + Amazon green */
+  --primary: #1a5632;
+  --primary-light: #2d7a4a;
+  --primary-dark: #0f3a20;
+  --accent: #d4a843;
+  --accent-light: #e8c76a;
+
+  /* Neutrals */
+  --bg: #fafaf8;
+  --bg-dark: #0f1f15;
+  --text: #1a1a1a;
+  --text-light: #5a5a5a;
+  --text-on-dark: #f0f0ec;
+  --border: #e0ddd6;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #0f1f15 0%, #1a3a28 50%, #1a5632 100%);
+  --gradient-card: rgba(255,255,255,0.08);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-sm: 0.85rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.15rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  /* Layout */
+  --max-width: 1100px;
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+
+/* --- Base Typography --- */
+body {
+  font-family: var(--font);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+h1 { font-size: var(--font-size-3xl); font-weight: 800; }
+h2 { font-size: var(--font-size-2xl); font-weight: 700; }
+h3 { font-size: var(--font-size-xl); font-weight: 600; }
+h4 { font-size: var(--font-size-lg); font-weight: 600; }
+
+p { margin-bottom: 1em; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--primary-light); }
+
+/* --- Utility Classes --- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.text-center { text-align: center; }
+.text-light { color: var(--text-light); }
+.text-sm { font-size: var(--font-size-sm); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* --- Badge / Tag --- */
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge--governance { background: #e8f5e9; color: #1a5632; }
+.badge--finance { background: #fff3e0; color: #b87a00; }
+.badge--trade { background: #e3f2fd; color: #1565c0; }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em 1.5em;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--primary-light);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn--outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn--small {
+  padding: 0.5em 1em;
+  font-size: var(--font-size-sm);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --font-size-3xl: 1.8rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+  }
+  .container { padding: 0 var(--space-sm); }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.3rem;
+  }
+}

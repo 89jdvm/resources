@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Diego Villacís — Practitioner Tools</title>
+  <meta name="description" content="Free tools, frameworks, and guides for conservation practitioners, DFI program officers, and indigenous governance organizations. Built from field experience in the Ecuadorian Amazon.">
+  <meta name="author" content="Juan Diego Villacís">
+  <meta property="og:title" content="Practitioner Tools for Conservation & Governance">
+  <meta property="og:description" content="10 free tools built from direct field experience in the Ecuadorian Amazon.">
+  <meta property="og:type" content="website">
+  <meta name="keywords" content="cooperation table, multi-stakeholder governance, conservation finance, EUDR compliance, indigenous fund, DFI funding, bioeconomy, Amazon, Ecuador, territorial governance, blended finance">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: rgba(180, 160, 120, 0.3); }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black: #080808;
+      --surface: #0e0e0e;
+      --surface-up: #151514;
+      --surface-hover: #1a1a18;
+      --line: rgba(255,255,255,0.06);
+      --line-bright: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.85);
+      --text-mid: rgba(255,255,255,0.50);
+      --text-dim: rgba(255,255,255,0.25);
+      --text-ghost: rgba(255,255,255,0.10);
+      --warm: #b4a078;
+      --warm-dim: rgba(180,160,120,0.25);
+      --canopy: #6b8f72;
+      --canopy-dim: rgba(107,143,114,0.15);
+      --river: #7a9aba;
+      --river-dim: rgba(122,154,186,0.15);
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,8,8,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      transition: opacity 0.4s ease;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--warm);
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .nav-links a:hover { color: var(--text-mid); }
+    .nav-links a:hover::after { width: 100%; }
+
+    @media (max-width: 640px) {
+      .nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 6rem 2rem 4rem;
+    }
+    .hero-content {
+      max-width: 680px;
+      text-align: center;
+    }
+    .hero-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--warm);
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-number {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .hero-stat-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: pulse-down 2.5s ease-in-out infinite;
+    }
+    .scroll-hint svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-dim);
+    }
+    @keyframes pulse-down {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.6; transform: translateX(-50%) translateY(4px); }
+    }
+
+    /* ---- SVG LINE ART ---- */
+
+    /* ---- SECTIONS ---- */
+    .section {
+      position: relative;
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-label.governance { color: var(--canopy); }
+    .section-label.finance { color: var(--warm); }
+    .section-label.trade { color: var(--river); }
+
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-head p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ---- CARDS ---- */
+    .cards { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .card {
+      display: block;
+      background: var(--surface-up);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-bright);
+      box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
+    }
+    .card:focus-visible {
+      outline: 1px solid var(--warm);
+      outline-offset: 2px;
+    }
+    .card:active { transform: translateY(0); }
+
+    .card-soon {
+      opacity: 0.4;
+      cursor: default;
+    }
+    .card-soon:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .card-num {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .card-tag {
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+    }
+    .tag-live { background: var(--canopy-dim); color: var(--canopy); }
+    .tag-soon { background: rgba(255,255,255,0.04); color: var(--text-dim); }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
+    }
+    .card p {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+    .card-formats {
+      margin-top: 0.75rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .card-fmt {
+      font-size: 0.55rem;
+      padding: 0.2em 0.5em;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.04);
+      color: var(--text-dim);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 0.75rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--warm); }
+    .footer-end {
+      margin-top: 4rem;
+      font-size: 0.6rem;
+      color: var(--text-ghost);
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .section-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .section { padding: 4rem 1.25rem; }
+      .hero { padding: 5rem 1.25rem 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .footer { padding: 3rem 1.25rem; }
+      .section-art { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">Juan Diego Villacís</a>
+    <div class="nav-links">
+      <a href="#governance">Governance</a>
+      <a href="#finance">Finance</a>
+      <a href="#trade">Trade</a>
+      <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-label">Practitioner Tools</p>
+      <h1>Operational frameworks for <em>conservation governance</em>.</h1>
+      <p class="hero-sub">
+        Ten resources built from running multi-stakeholder platforms in the Ecuadorian Amazon, shipping goods to Europe, and sitting across the table from DFIs. Not theory. The scaffolding that survived contact with reality.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">3</span>
+          <span class="hero-stat-label">Cooperation Tables</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">22+</span>
+          <span class="hero-stat-label">Organizations each</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">$270K</span>
+          <span class="hero-stat-label">EU Export Revenue</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">~30</span>
+          <span class="hero-stat-label">Indigenous Nations</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 14 M3 9 L8 14 L13 9" stroke="currentColor" stroke-width="1.2"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== GOVERNANCE ===== -->
+  <section class="section" id="governance">
+
+
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="section-label governance">Governance & Coordination</p>
+        <h2>Platforms that coordinate. Not platforms that meet.</h2>
+        <p>Most die within two years. The problem is never funding. It is that nobody designed the governance architecture before the first meeting.</p>
+      </div>
+
+      <div class="cards">
+        <a href="governance-canvas/" class="card">
+          <div class="card-top">
+            <span class="card-num">01</span>
+            <span class="card-tag tag-live">Available</span>
+          </div>
+          <h3>The Governance Canvas</h3>
+          <p>Design your multi-stakeholder platform in one page. Eight structural questions that determine whether 22 organizations will coordinate or just meet quarterly until everyone stops coming.</p>
+          <div class="card-formats">
+            <span class="card-fmt">Interactive</span>
+            <span class="card-fmt">Markdown</span>
+          </div>
+        </a>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">02</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>The Cooperation Table Blueprint</h3>
+          <p>Full replication guide. Governance architecture, constitutive agreements, management model, and the part nobody writes about: the political choreography of getting organizations to commit.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">03</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>The First 90 Days</h3>
+          <p>Week-by-week operator's playbook. First meeting design. How to handle the government official who wants to control everything. What breaks in week four.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">04</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>Power Mapping for Conservation Platforms</h3>
+          <p>Map who actually holds influence before the first meeting. Built for contexts where legitimacy, authority, and funding live in different organizations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+
+
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="section-label finance">Funding & Finance</p>
+        <h2>DFI funding from both sides of the table.</h2>
+        <p>The same project gets funded or rejected based on framing. I have written proposals and reviewed them. The gap between those two chairs is where most indigenous organizations get stuck.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">05</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>The DFI Decoder</h3>
+          <p>What grant reviewers actually evaluate. Before-and-after examples of framing the same conservation project for GEF, IDB, and EU mechanisms. The difference is never the project. It is the language.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">06</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>Direct Funding Readiness Score</h3>
+          <p>Fifteen questions that tell you whether your indigenous fund can receive direct DFI funding. And if it cannot, exactly which administrative and governance gaps are blocking it.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">07</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>The Direct Recipient Roadmap</h3>
+          <p>What indigenous organizations need to graduate from sub-awardee to direct DFI recipient. What "administrative capacity" means in practice, not in theory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRADE ===== -->
+  <section class="section" id="trade">
+
+
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="section-label trade">Bioeconomy & Trade</p>
+        <h2>From the Amazon to European shelves. Real numbers.</h2>
+        <p>Nine containers to Spain. $270K in EU revenue. 50+ smallholder families coordinated. Every certification, every cost, every customs failure. The supply chain nobody maps.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">08</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>Seed to Shelf</h3>
+          <p>Every step from smallholder family to European retail. Certifications, timelines, costs, logistics. Built from doing it, not from reading the regulations.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">09</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>EUDR From the Amazon Side</h3>
+          <p>Every EUDR guide is written by European law firms for importers. This one is written by an exporter who shipped nine containers. What traceability looks like when your producers are smallholder families.</p>
+        </div>
+
+        <div class="card card-soon">
+          <div class="card-top">
+            <span class="card-num">10</span>
+            <span class="card-tag tag-soon">Soon</span>
+          </div>
+          <h3>Capital Stack Templates</h3>
+          <p>How conservation projects actually get financed. How concessional capital, first-loss layers, guarantees, and revenue streams stack. From four published playbooks on exactly this.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>All resources are free. No email gates. No signup.</p>
+    <p>If you are implementing any of this and need someone who has done it three times across three provinces, I am that person.</p>
+    <div class="footer-links">
+      <a href="mailto:jdvillacism@gmail.com">jdvillacism@gmail.com</a>
+      <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="footer-end">Juan Diego Villacís. Quito, Ecuador.</p>
+  </footer>
+
+
+</body>
+</html>

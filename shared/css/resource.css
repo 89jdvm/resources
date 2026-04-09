@@ -1,0 +1,288 @@
+/* ============================================
+   Resource Hub — Individual Resource Pages
+   ============================================ */
+
+/* --- Resource Page Layout --- */
+.resource-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Resource Header --- */
+.resource-header {
+  background: var(--gradient-hero);
+  color: var(--text-on-dark);
+  padding: var(--space-2xl) 0;
+}
+
+.resource-header .container {
+  max-width: 800px;
+}
+
+.resource-header .breadcrumb {
+  font-size: var(--font-size-sm);
+  opacity: 0.6;
+  margin-bottom: var(--space-md);
+}
+
+.resource-header .breadcrumb a {
+  color: var(--text-on-dark);
+  opacity: 0.8;
+}
+.resource-header .breadcrumb a:hover { opacity: 1; }
+
+.resource-header h1 {
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.resource-header .subtitle {
+  font-size: var(--font-size-lg);
+  opacity: 0.8;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.resource-header .author-line {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  opacity: 0.6;
+}
+
+.resource-header .download-links {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.resource-header .download-links .btn {
+  background: rgba(255,255,255,0.15);
+  color: var(--text-on-dark);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.resource-header .download-links .btn:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+
+/* --- Resource Body --- */
+.resource-body {
+  flex: 1;
+  padding: var(--space-2xl) 0;
+}
+
+.resource-body .container {
+  max-width: 800px;
+}
+
+.resource-body h2 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.resource-body h2:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.resource-body h3 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.resource-body ul, .resource-body ol {
+  margin: 0.5em 0 1em 1.5em;
+}
+
+.resource-body li {
+  margin-bottom: 0.4em;
+}
+
+.resource-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+  background: #faf8f3;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.resource-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-size: var(--font-size-sm);
+}
+
+.resource-body th {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.75em 1em;
+  text-align: left;
+  font-weight: 600;
+}
+
+.resource-body td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--border);
+}
+
+.resource-body tr:nth-child(even) td {
+  background: #f8f7f4;
+}
+
+/* --- Callout Boxes --- */
+.callout {
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  margin: var(--space-lg) 0;
+}
+
+.callout--tip {
+  background: #e8f5e9;
+  border-left: 4px solid var(--primary);
+}
+
+.callout--warning {
+  background: #fff3e0;
+  border-left: 4px solid var(--accent);
+}
+
+.callout--insight {
+  background: #e3f2fd;
+  border-left: 4px solid #1565c0;
+}
+
+.callout h4 {
+  margin-bottom: 0.5em;
+}
+
+/* --- Author CTA Section --- */
+.author-cta {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-2xl);
+}
+
+.author-cta .container {
+  max-width: 700px;
+  text-align: center;
+}
+
+.author-cta h2 {
+  color: var(--text-on-dark);
+  border: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.author-cta p {
+  opacity: 0.85;
+  max-width: 550px;
+  margin: 0 auto var(--space-md);
+}
+
+.author-cta .contact-links {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+
+.author-cta .contact-links a {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+.author-cta .contact-links a:hover { color: var(--accent); }
+
+/* --- Related Resources --- */
+.related-resources {
+  padding: var(--space-2xl) 0;
+  background: #f5f4f0;
+}
+
+.related-resources h3 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.related-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.related-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--primary-light);
+  color: var(--text);
+}
+
+.related-card h4 {
+  margin-bottom: 0.3em;
+  font-size: var(--font-size-base);
+}
+
+.related-card p {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* --- Site Footer --- */
+.site-footer {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer a {
+  color: var(--text-light);
+}
+.site-footer a:hover { color: var(--primary); }
+
+/* --- Print Styles (for PDF generation) --- */
+@media print {
+  .resource-header { background: #1a5632 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .resource-header .download-links { display: none; }
+  .author-cta { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .related-resources { display: none; }
+  .site-footer { display: none; }
+  nav { display: none; }
+  .resource-body { padding: 1rem 0; }
+  body { font-size: 11pt; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .resource-header { padding: var(--space-lg) 0; }
+  .resource-body { padding: var(--space-lg) 0; }
+  .author-cta { padding: var(--space-lg) 0; }
+  .related-resources { padding: var(--space-lg) 0; }
+  .resource-header .download-links { flex-direction: column; }
+}
