@@ -2,7 +2,7 @@
 title: "Capital Stack Templates: How Conservation Projects Actually Get Financed"
 author: "Juan Diego Villacís"
 author_credentials: "Strategic counterpart for the $1M FIEDS/SEMBRAR fund. Published 4 investor playbooks on conservation finance and bioeconomy value chains (2025-2026). Worked with the $600M Amazon Bioeconomy Fund concept. Raised $125K across founding partners for MOONSHOT S.A."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-guide"
 domain: ["conservation finance", "blended finance", "capital stacking", "bioeconomy investment", "climate finance", "de-risking"]
@@ -401,7 +401,7 @@ This guide gives you the structural framework. If you are designing a capital st
 
 Four investor playbooks published. Strategic counterpart for a $1M fund. Worked with the $600M Amazon Bioeconomy Fund concept. Built and financed a bioeconomy export company from zero.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

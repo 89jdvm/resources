@@ -2,7 +2,7 @@
 title: "The First 90 Days: Week-by-Week Playbook for Launching a Multi-Stakeholder Governance Platform"
 author: "Juan Diego Villacís"
 author_credentials: "Designed and institutionalized 3 Cooperation Tables across the Ecuadorian Amazon (Morona Santiago, Orellana, Sucumbíos), each coordinating 22+ organizations across public sector, indigenous authorities, NGOs, academia, and private sector."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-playbook"
 domain: ["multi-stakeholder governance", "cooperation tables", "territorial governance", "conservation platforms", "platform launch"]
@@ -375,7 +375,7 @@ That is a different playbook. This one got you to the starting line.
 
 I built these platforms. I have made every mistake described in this playbook, and I fixed them in real time with real stakeholders. If you are launching a multi-stakeholder governance platform and need someone who has done it before, I am available for advisory, design, and implementation support.
 
-**Email:** jdvillacism@gmail.com
+**Email:** 89.jdvm@gmail.com
 **LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

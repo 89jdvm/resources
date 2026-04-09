@@ -2,7 +2,7 @@
 title: "The Direct Recipient Roadmap: Graduate From Sub-Awardee to Direct DFI Funding"
 author: "Juan Diego Villacís"
 author_credentials: "Executive Director of Fundación IKIAM, securing $70K+ in direct grants for the Achuar Nation. Project Coordinator at Sacred Headwaters Alliance (ASHA), coordinating with ~30 indigenous nations across Ecuador and Peru. Strategic counterpart for the $1M FIEDS/SEMBRAR fund."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-roadmap"
 domain: ["indigenous fund capacity", "direct DFI access", "organizational development", "fiduciary readiness", "conservation finance"]
@@ -153,7 +153,7 @@ This roadmap gives you the sequence. The operational reality of navigating each 
 
 I have done this as Executive Director of Fundación IKIAM with the Achuar Nation. I have seen it from the coordination side at ASHA with ~30 indigenous nations. I know where these roadmaps break in practice and what to do when they break.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

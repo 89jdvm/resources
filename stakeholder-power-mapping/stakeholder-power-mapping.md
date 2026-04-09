@@ -2,7 +2,7 @@
 title: "Power Mapping for Conservation Platforms: See Who Actually Holds Influence Before Your First Meeting"
 author: "Juan Diego Villacís"
 author_credentials: "Coordinated 22+ organizations per Cooperation Table across 5 sectors (public sector, indigenous authorities, civil society/NGOs, academia, private sector) in 3 provinces of the Ecuadorian Amazon. Navigated power structures involving provincial governments, Shuar and Achuar nations, CONFENIAE, Conservation International, WWF, and dozens of local organizations."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-tool"
 domain: ["stakeholder analysis", "power mapping", "multi-stakeholder platforms", "conservation governance", "territorial governance", "political economy"]
@@ -321,7 +321,7 @@ Share your completed map with one person from the public sector and one from the
 │  TOTAL: ____  (target: 18-25)                                               │
 │                                                                             │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  Author: Juan Diego Villacís | jdvillacism@gmail.com                        │
+│  Author: Juan Diego Villacís | 89.jdvm@gmail.com                        │
 │  linkedin.com/in/jdv42/ | CC BY 4.0 | v1.0 April 2026                     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -334,7 +334,7 @@ If you are about to launch a multi-stakeholder conservation platform, do the pow
 
 The 16 days outlined in the mapping process above will save you 6 months of political repair work. I learned that the hard way in Morona Santiago, where a poorly mapped stakeholder landscape led to a first meeting that excluded a key indigenous federation, and the next two months were spent rebuilding trust that should never have been broken.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

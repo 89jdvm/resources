@@ -2,7 +2,7 @@
 title: "The Governance Canvas: Design Your Multi-Stakeholder Platform in One Page"
 author: "Juan Diego Villacís"
 author_credentials: "Designed and institutionalized 3 Cooperation Tables across the Ecuadorian Amazon (Morona Santiago, Orellana, Sucumbíos), each coordinating 22+ organizations across public sector, indigenous authorities, NGOs, academia, and private sector."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-framework"
 domain: ["multi-stakeholder governance", "cooperation tables", "territorial governance", "conservation platforms", "coordination architecture"]
@@ -306,7 +306,7 @@ Example from practice: The Morona Santiago Cooperation Table was institutionaliz
 │                                                                         │
 │ Legal instrument for continuity:                                        │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ Author: Juan Diego Villacís | jdvillacism@gmail.com                     │
+│ Author: Juan Diego Villacís | 89.jdvm@gmail.com                     │
 │ linkedin.com/in/jdv42/ | CC BY 4.0 | v1.0 April 2026                  │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -319,7 +319,7 @@ This canvas gives you the framework. If you're implementing this with real stake
 
 I've built this across 3 provinces with 22+ organizations each. I've made the mistakes so you don't have to.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

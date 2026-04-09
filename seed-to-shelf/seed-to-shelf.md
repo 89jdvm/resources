@@ -2,7 +2,7 @@
 title: "Seed to Shelf: The Complete Export Roadmap From Amazon Producers to European Markets"
 author: "Juan Diego Villacís"
 author_credentials: "Founder of MOONSHOT S.A. (Kitu Snacks). $270K in EU export revenue. 9 containers shipped to Spain. 50+ smallholder families coordinated across Ecuador and Peru. HACCP and BPM certified. EU food safety, labelling, and EUDR deforestation-free compliant."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-roadmap"
 domain: ["bioeconomy export", "supply chain", "EU compliance", "agricultural trade", "Amazon products", "smallholder coordination"]
@@ -189,7 +189,7 @@ This roadmap gives you the sequence and the real numbers. The operational realit
 
 I have shipped nine containers. I know where this breaks.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

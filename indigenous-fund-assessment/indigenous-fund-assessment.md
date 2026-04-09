@@ -2,7 +2,7 @@
 title: "Direct Funding Readiness Score: Can Your Indigenous Fund Bypass the INGO Middleman?"
 author: "Juan Diego Villacís"
 author_credentials: "International Project Coordinator at Sacred Headwaters Alliance (ASHA), coordinating with ~30 indigenous nations across Ecuador and Peru. Executive Director of Fundación IKIAM, securing $70K+ in direct grants for the Achuar Nation. Strategic counterpart for the $1M FIEDS/SEMBRAR fund."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "diagnostic-assessment"
 domain: ["indigenous fund management", "direct DFI funding", "organizational capacity", "fiduciary assessment", "conservation finance"]
@@ -210,7 +210,7 @@ If your organization scored 8-23 and wants to close the gaps, I have done this w
 
 Executive Director of Fundación IKIAM, securing $70K+ in direct grants for the Achuar Nation. Project Coordinator at ASHA, coordinating with ~30 indigenous nations. I know exactly where these assessments fail and what it takes to pass them.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

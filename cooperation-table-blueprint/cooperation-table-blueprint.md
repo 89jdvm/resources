@@ -2,7 +2,7 @@
 title: "The Cooperation Table Blueprint: A Replication Guide for Multi-Stakeholder Conservation Platforms"
 author: "Juan Diego Villacís"
 author_credentials: "Designed and institutionalized 3 Cooperation Tables for Conservation and Sustainable Development in the Ecuadorian Amazon (Morona Santiago, Orellana, Sucumbíos). Strategic counterpart for the $1M FIEDS/SEMBRAR project with COSPE Foundation. Current freelance consultant with Conservation International."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "replication-guide"
 domain: ["multi-stakeholder governance", "cooperation tables", "territorial coordination", "conservation platforms", "Latin American governance"]
@@ -269,7 +269,7 @@ I have done this 3 times across 3 provinces, coordinating 22-23 organizations in
 
 If you are building a multi-stakeholder coordination platform and need someone who has already made the mistakes, I can help.
 
-**Email:** jdvillacism@gmail.com
+**Email:** 89.jdvm@gmail.com
 **LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---

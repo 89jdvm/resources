@@ -2,7 +2,7 @@
 title: "EUDR From the Amazon Side: A Compliance Field Guide Written by an Exporter, Not a Lawyer"
 author: "Juan Diego Villacís"
 author_credentials: "Founder of MOONSHOT S.A. (Kitu Snacks). $270K in EU export revenue. 9 containers shipped to Spain. 50+ smallholder families coordinated across Ecuador and Peru. HACCP and BPM certified. Led BRCGS implementation. Navigated EU food safety, labelling, and EUDR deforestation-free compliance from the producer side."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-field-guide"
 domain: ["EUDR compliance", "deforestation-free supply chains", "Amazon exports", "traceability", "geolocation", "smallholder coordination", "EU regulation"]
@@ -270,7 +270,7 @@ I have been through this process. Here is what will break.
 I built these systems in the field, not in a boardroom. If you are navigating EUDR compliance from the producer or exporter side and need operational guidance, reach out.
 
 **Juan Diego Villacís**
-Email: jdvillacism@gmail.com
+Email: 89.jdvm@gmail.com
 LinkedIn: [linkedin.com/in/jdv42](https://linkedin.com/in/jdv42/)
 
 I work with producer organizations, cooperatives, and exporters on supply chain compliance, traceability systems, and EU market access for Amazon-origin products.

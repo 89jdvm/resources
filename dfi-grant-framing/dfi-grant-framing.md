@@ -2,7 +2,7 @@
 title: "The DFI Decoder: What Grant Reviewers Actually Look For"
 author: "Juan Diego Villacís"
 author_credentials: "Strategic counterpart for the $1M FIEDS/SEMBRAR fund. Published 4 investor playbooks on conservation finance (2025-2026). Has written grant proposals for GEF, EU, and bilateral mechanisms, and reviewed project designs from the institutional side."
-contact_email: "jdvillacism@gmail.com"
+contact_email: "89.jdvm@gmail.com"
 contact_linkedin: "https://linkedin.com/in/jdv42/"
 type: "practitioner-guide"
 domain: ["conservation finance", "grant writing", "DFI funding", "proposal design", "donor compliance"]
@@ -173,7 +173,7 @@ This guide gives you the framing principles. If you are working on a specific pr
 
 Four investor playbooks published. Strategic counterpart for a $1M fund. Three Cooperation Tables designed and funded.
 
-**Reach me at:** jdvillacism@gmail.com
+**Reach me at:** 89.jdvm@gmail.com
 **Connect on LinkedIn:** [linkedin.com/in/jdv42/](https://linkedin.com/in/jdv42/)
 
 ---
