@@ -23,7 +23,7 @@ date: "2026-04"
 
 **By Juan Diego Villacís** | Practitioner-Scholar for AI + Amazonian Governance
 
-I built 3 Cooperation Tables for Conservation and Sustainable Development across the Ecuadorian Amazon. Morona Santiago with the GAD Provincial in 2024. Orellana and Sucumbíos with Conservation International in 2025. Each one coordinates 22-23 organizations across 5 sectors around a shared multi-year roadmap. This guide documents the exact process so you can replicate it.
+I built 3 Cooperation Tables for Conservation and Sustainable Development across the Ecuadorian Amazon. Morona Santiago with the GAD Provincial in 2024. Orellana and Sucumbíos with Conservation International in 2025. The Sucumbios table launched on July 30, 2025, with 50 representatives across 3 strategic axes in a single workshop. Each table coordinates 22-23 organizations across 5 sectors around a shared multi-year roadmap. This guide documents the exact process so you can replicate it.
 
 ---
 
@@ -123,7 +123,7 @@ The person who signs must have institutional authority to commit their organizat
 
 A signed constitutive agreement creates three forms of accountability: legal (the document can be referenced in administrative and institutional processes), social (no signatory wants to be publicly identified as the organization that defected from a 22-organization commitment), and operational (it provides the basis for tracking execution against the roadmap).
 
-In Morona Santiago, 22 organizations signed. That collective signature created enough institutional gravity that the platform survived a political transition at the provincial level.
+In Morona Santiago, 22 organizations signed. That collective signature created enough institutional gravity that the platform survived a political transition at the provincial level and produced the first 7 Conservation Agreements (signed June 27, 2025), delivering solar internet, energy kits, and water purification to Shuar and Achuar communities. The constitutive agreement made those agreements possible. Without the governance structure, no single organization could have brokered them.
 
 ---
 
@@ -258,6 +258,15 @@ I have built three of these. Every one of them hit problems. Here is what to exp
 **Political transitions will test everything.** Elections happen. Prefects change. New officials arrive with no institutional memory of the Cooperation Table. Counter: this is why the decree matters. It is also why the constitutive agreement must be signed at the institutional level, not the personal level. When the new official arrives, 21 other organizations are still committed. The social cost of abandoning the platform is higher than the cost of continuing it.
 
 **Attendance will drop after month 6.** The first 2-3 meetings are well-attended because they are novel. By month 6, only the committed organizations show up. Counter: sub-tables with focused agendas maintain engagement better than plenaries with generic updates. Only call plenaries when there are real decisions to make.
+
+---
+
+## Related Publications
+
+For the full documented case studies behind this blueprint, including how the model scales regionally:
+
+- [Strengthening Amazonian Governance Through Local Cooperation Tables](../publications/Strengthening-Amazonian-Governance-Through-Local-Cooperation-Tables.pdf) (PDF, 14 pages) -- The Morona Santiago breakthrough, the Sucumbios replication, the ASHA regional model spanning 86 million acres and 30+ indigenous nations, and how Biocultural Jaguar Credits raised $43.5K in their first month after launching in March 2024.
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) (PDF, 10 pages) -- The deal design framework for embedding indigenous governance into market partnerships. Covers the 5-component architecture (Governance, Consent, Transparency, Grievance, Measurement) and why deal design beats good intentions.
 
 ---
 

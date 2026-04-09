@@ -97,7 +97,7 @@ You have one shot at the first plenary. If it feels like a waste of time, half t
 
 ### The agenda (4 blocks)
 
-**Block 1 (90 minutes): Territorial diagnosis.** Present the coordination gap data you gathered in Weeks 1-2. Use stakeholders' own words. "When we spoke with [federation president], they identified X as their top coordination challenge. The prefectura identified Y. The largest NGO identified Z." Show the overlap. This validates their input and demonstrates that the platform is responding to real needs, not an imported agenda.
+**Block 1 (90 minutes): Territorial diagnosis.** Present the coordination gap data you gathered in Weeks 1-2. Use stakeholders' own words. "When we spoke with [federation president], they identified X as their top coordination challenge. The prefectura identified Y. The largest NGO identified Z." Show the overlap. This validates their input and demonstrates that the platform is responding to real needs, not an imported agenda. For reference: the Sucumbios launch workshop on July 30, 2025, brought 50 representatives into one room and organized the diagnosis around 3 strategic axes. That density of participation came from the groundwork in Weeks 1-2, not from mass invitations.
 
 **Block 2 (60 minutes): Proposed structure.** Present the Governance Canvas (if you have used that resource) or your own structural proposal. Keep it simple: purpose, membership, decision-making authority, meeting frequency, thematic sub-tables. Do NOT present the roadmap yet. That comes in Weeks 7-8. This meeting is about the architecture, not the execution plan.
 
@@ -365,9 +365,17 @@ By Week 13, you should have:
 - A first progress check with baseline data.
 - A course correction memo with specific adjustments.
 
-The next phase is sustaining execution across the first full year. That requires institutionalization: a prefectoral decree (as in Morona Santiago), multi-funder support for the secretariat, and demonstrating to every stakeholder that the platform produces coordination outcomes they cannot achieve alone.
+The next phase is sustaining execution across the first full year. That requires institutionalization: a prefectoral decree (as in Morona Santiago), multi-funder support for the secretariat, and demonstrating to every stakeholder that the platform produces coordination outcomes they cannot achieve alone. In Morona Santiago, those outcomes became concrete on June 27, 2025, when the first 7 Conservation Agreements were signed with Shuar and Achuar communities. That is what sustained execution looks like: governance infrastructure that delivers tangible results to the communities it was built to serve.
 
 That is a different playbook. This one got you to the starting line.
+
+---
+
+## Related Publications
+
+For the full case studies behind this playbook, including launch timelines, attendance data, and how the model scales:
+
+- [Strengthening Amazonian Governance Through Local Cooperation Tables](../publications/Strengthening-Amazonian-Governance-Through-Local-Cooperation-Tables.pdf) (PDF, 14 pages) -- Documents the Morona Santiago institutionalization, the Sucumbios launch (July 30, 2025, 50 representatives, 3 strategic axes), and the path from platform to Conservation Agreements.
 
 ---
 

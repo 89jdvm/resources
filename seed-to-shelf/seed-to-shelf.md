@@ -36,7 +36,7 @@ This roadmap is what I wish someone had given me before the first shipment.
 
 Before you spend a dollar on certification, answer one question: Does a buyer in Europe want this product at a price that covers your costs?
 
-This is where most bioeconomy ventures fail. They develop a product, certify it, ship it, and then discover there is no buyer at their price point.
+This is where most bioeconomy ventures fail. They develop a product, certify it, ship it, and then discover there is no buyer at their price point. The Ecuadorian Amazon has at least five high-potential value chains with existing EU demand: regenerative cacao (Ecuador supplies over 60% of the world's "fino de aroma" beans), functional guayusa, wild-harvested superfoods, paiche aquaculture, and bamboo/ecotourism. Not all of them will work for your operation, but the market signal is already there for each one.
 
 **What to do:**
 - Identify 3-5 potential importers or distributors in your target EU market. Spain, Germany, the Netherlands, and France are the most receptive to Amazon-origin products.
@@ -148,7 +148,7 @@ For Amazon-origin products, this means:
 
 **See the companion resource "EUDR From the Amazon Side" for the full field guide.**
 
-**What I learned:** The EUDR is written for European importers. The compliance burden flows upstream to producers. If your smallholder families cannot provide geolocation data for their plots, you cannot export under the EUDR. Build the data collection into your producer onboarding process from day one.
+**What I learned:** The EUDR is written for European importers. The compliance burden flows upstream to producers. If your smallholder families cannot provide geolocation data for their plots, you cannot export under the EUDR. Build the data collection into your producer onboarding process from day one. There is a real tension here: the regulation demands geolocation, but communities often fear that sharing raw coordinates exposes them to land grabbing. Zero-Knowledge Verification, a concept I developed in the Territorial Trust Infrastructure paper, lets communities confirm deforestation-free status without surrendering sensitive spatial data. It is not deployed at scale yet, but it is the direction compliance needs to go.
 
 ### Stage 8: Scaling and Sustainability
 
@@ -160,7 +160,7 @@ Your first container is a proof of concept. Your third container is a business.
 - Quality consistency becomes your reputation. One bad container can end a distributor relationship.
 - You need working capital. The gap between paying producers and receiving payment from your buyer can be 90+ days.
 
-**What I learned:** The supply chain is a trust machine. The producers trust you to pay on time. The buyer trusts you to deliver consistent quality. You trust the logistics chain to not lose your container. Every broken promise costs more than the monetary value of that transaction because it erodes the trust that the entire system runs on.
+**What I learned:** The supply chain is a trust machine. The producers trust you to pay on time. The buyer trusts you to deliver consistent quality. You trust the logistics chain to not lose your container. Every broken promise costs more than the monetary value of that transaction because it erodes the trust that the entire system runs on. How you structure the producer relationship matters as much as the product itself. There is a spectrum: from transactional Fair Trade-plus arrangements, to co-investment models, to community-led enterprise, all the way to full community ownership (the Kapawi Ecolodge in Ecuador is now 100% Achuar-owned). Where you land on that spectrum determines whether your supply chain is extractive or regenerative in the long run.
 
 ---
 
@@ -180,6 +180,15 @@ Your first container is a proof of concept. Your third container is a business.
 | Total first-container cost (including certification) | $15,000 - $35,000 |
 
 These numbers are from 2023-2025 and will vary. But the order of magnitude is correct. If someone tells you that you can export from the Amazon to Europe for $5,000, they have not done it.
+
+---
+
+## Related Publications
+
+These go deeper on the value chain economics, the trust architecture, and the co-creation models referenced in this roadmap.
+
+- [Regeneration Opportunity: An Investor's Playbook for Pioneering Value Chains in the Ecuadorian Bioeconomy](../publications/Regeneration-Opportunity-An-Investors-Playbook-for-Pioneering-Value-Chains-in-the-Ecuadorian-Bioecon.pdf) -- Covers all five Amazon value chains, de-risking architecture, and the co-creation spectrum from transactional to full community ownership.
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- Zero-Knowledge Verification for EUDR compliance, the data paradox around geolocation, and why funding governance is supply chain insurance.
 
 ---
 

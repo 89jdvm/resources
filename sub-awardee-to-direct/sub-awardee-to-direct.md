@@ -51,6 +51,8 @@ The five capabilities that DFIs assess before granting direct access:
 
 These are not arbitrary. Each one corresponds to a specific fiduciary risk that the DFI is legally required to mitigate. Understanding this removes the mystery. It is not a cultural test. It is a risk management checklist.
 
+Here is the reframe that changes the conversation: indigenous governance capacity is not overhead. It is foundational risk infrastructure. The territorial assemblies, the consultative processes, the community accountability mechanisms that indigenous organizations already run are exactly the governance structures that reduce implementation risk for DFIs. The gap is not that these structures do not exist. The gap is that they are not documented in the format DFIs can read.
+
 ---
 
 ## The Five Stages
@@ -144,6 +146,13 @@ Use fiscal sponsors for early grants. But build your own systems in parallel fro
 
 **3. Waiting until you feel "ready" to apply.**
 You will never feel ready. The first assessment will find gaps. That is its purpose. Apply when you have completed Stage 3. The assessment is the diagnostic, not the destination.
+
+---
+
+## Related Publications
+
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- The full framework for why indigenous governance is foundational risk infrastructure, not overhead. Directly supports the reframe in this roadmap. 10 pages.
+- [Structuring Bankable Climate Projects: An Investor's Playbook](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf) -- Capital Stack Blueprint, GCF accreditation checklist, and blended finance structures relevant to Stage 5 direct applications. 10 pages.
 
 ---
 

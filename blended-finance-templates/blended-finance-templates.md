@@ -25,7 +25,7 @@ date: "2026-04"
 
 I have structured financing for conservation and bioeconomy projects across the Ecuadorian Amazon. Strategic counterpart for the $1M FIEDS fund. Four investor playbooks published. Worked with the $600M Amazon Bioeconomy Fund concept. Raised founding capital for a bioeconomy export company.
 
-Most conservation projects do not fail because of bad science or weak field teams. They fail because nobody structured the money correctly. This guide shows you how the money actually stacks.
+Most conservation projects do not fail because of bad science or weak field teams. They fail because nobody structured the money correctly. Ecuador's own PLANMICC estimates $3.7 billion per year in climate investment is needed. The gap between that number and what actually gets deployed is not a funding shortage. It is a structuring shortage. This guide shows you how the money actually stacks.
 
 ---
 
@@ -161,7 +161,7 @@ This is not a capital source in the traditional sense. It is what makes the enti
 
 **Insurance for natural events.** Parametric insurance that triggers payouts based on measurable events (drought, flood, fire) rather than assessed damage. For conservation projects, this protects against the climate risks that undermine both ecological and financial outcomes.
 
-**Sovereign instruments.** Debt-for-nature swaps convert a portion of a country's sovereign debt into conservation funding. Ecuador executed one in 2023, converting $1.6B in debt into $450M in marine conservation funding for the Galapagos. These are nation-level instruments. Individual projects do not structure them. But understanding they exist matters because they create the macro-level funding environment that supports project-level capital stacks.
+**Sovereign instruments.** Debt-for-nature swaps convert a portion of a country's sovereign debt into conservation funding. Ecuador executed a landmark swap, converting $1.6B in debt into $450M for the Galapagos marine reserve and the Amazon Biocorridor Program. These are nation-level instruments. Individual projects do not structure them. But understanding they exist matters because they create the macro-level funding environment that supports project-level capital stacks. The $600M Amazon Bioeconomy Fund concept builds on this same logic: sovereign-scale de-risking that makes project-level capital stacks viable.
 
 ---
 
@@ -335,7 +335,7 @@ If your structure cannot survive the downside case without defaulting on senior 
 
 ## The De-Risking Checklist
 
-What makes a conservation project bankable. Score yourself honestly.
+What makes a conservation project bankable. Score yourself honestly. The Regenerative Opportunity Matrix in the Regeneration Opportunity playbook provides a complementary scoring framework focused specifically on value chain readiness: market demand, producer capacity, ecological fit, and regulatory alignment. Use both. This checklist tells you if your capital stack is ready. The Matrix tells you if your underlying value chain is ready.
 
 **Governance and Legal**
 - [ ] Legal entity established with clean corporate structure
@@ -383,7 +383,7 @@ What makes a conservation project bankable. Score yourself honestly.
 
 **3. Single revenue stream.** A project that depends entirely on carbon credits is one market correction away from insolvency. Diversify revenue across at least two, ideally three independent streams. The cacao revenue should still work even if carbon prices collapse.
 
-**4. Ignoring governance as infrastructure.** Investors assess governance before they assess returns. Who makes decisions? How are conflicts resolved? What happens when a political administration changes? If you cannot answer these questions with specific institutional mechanisms, your governance is a liability, not an asset. The Cooperation Table model exists precisely to solve this.
+**4. Ignoring governance as infrastructure.** Investors assess governance before they assess returns. Who makes decisions? How are conflicts resolved? What happens when a political administration changes? If you cannot answer these questions with specific institutional mechanisms, your governance is a liability, not an asset. The Cooperation Table model exists precisely to solve this. One structural tool that works: a Social License Blueprint where communities hold 5-10% co-ownership in the venture. It aligns incentives in a way that advisory boards and consultation processes never will.
 
 **5. Mismatched timelines.** A 3-year grant funding a project that reaches cash flow breakeven in Year 5. A 5-year loan on infrastructure that needs 8 years to generate full returns. Timeline mismatches create liquidity crises that kill otherwise viable projects. Match your financing tenor to your economic timeline. Always.
 
@@ -392,6 +392,16 @@ What makes a conservation project bankable. Score yourself honestly.
 **7. Designing the stack on paper without talking to funders.** Your capital stack is a hypothesis until you validate it with actual capital providers. Talk to the DFI program officer before you finalize the concessional layer. Talk to the impact investor before you lock the catalytic terms. Their constraints and preferences will reshape your structure. Design in conversation, not in isolation.
 
 **8. Forgetting that AI changes the math.** Transaction costs in conservation finance are disproportionately high relative to deal size. A $3M blended finance deal requires the same legal, due diligence, and structuring work as a $30M deal. AI tools now reduce these transaction costs by 40-60% for document preparation, MRV data processing, and compliance reporting. That cost reduction is what makes smaller conservation deals viable for the first time. If your capital stack was not bankable at $3M in 2023, recalculate with AI-reduced transaction costs. The threshold has shifted.
+
+---
+
+## Related Publications
+
+These papers provide the underlying value chain economics, governance architecture, and de-risking frameworks that the capital stack templates are built on.
+
+- [Regeneration Opportunity: An Investor's Playbook for Pioneering Value Chains in the Ecuadorian Bioeconomy](../publications/Regeneration-Opportunity-An-Investors-Playbook-for-Pioneering-Value-Chains-in-the-Ecuadorian-Bioecon.pdf) -- Five value chains scored through the Regenerative Opportunity Matrix. De-risking architecture. Co-creation models from transactional to full community ownership. The $600M Amazon Bioeconomy Fund concept.
+- [Structuring Bankable Climate Projects: An Investor's Playbook](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf) -- Capital Stack Blueprint with outcome-based blended finance. Climate PPP model. Social License Blueprint with 5-10% community co-ownership.
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- Zero-Knowledge Verification for EUDR compliance. The data paradox. Why funding governance is the most effective form of supply chain insurance.
 
 ---
 

@@ -51,7 +51,7 @@ Questions to answer:
 - What other governance structures already operate here? (municipal government, protected area management, indigenous self-governance)
 - What is the population? How many communities?
 
-Example from practice: The Mesa de Cooperación in Morona Santiago covers the entire province. 25,000 km², 12 cantons, population ~200,000. It overlaps with territories of the Shuar and Achuar nations. The territorial scope was defined by the provincial government boundary, which gave it administrative legitimacy, but it required indigenous governance structures (life plans, consultative assemblies) to be recognized as co-equal inputs.
+Example from practice: The Mesa de Cooperación in Morona Santiago covers the entire province. 25,000 km², 12 cantons, population ~200,000. It overlaps with territories of the Shuar and Achuar nations. The territorial scope was defined by the provincial government boundary, which gave it administrative legitimacy, but it required indigenous governance structures (life plans, consultative assemblies) to be recognized as co-equal inputs. That process culminated in Morona Santiago's recognition of the "Territory of Life and Ancestral Use Tarimiat Pujutai Nunka," protecting 1.23 million hectares under a framework that treats indigenous territorial governance as the foundation, not an input.
 
 **If you can't define the territorial scope clearly, you're not ready to build the platform.**
 
@@ -233,7 +233,7 @@ Questions to answer:
 - Which stakeholders would continue participating without external funding?
 - Can the technical secretariat function be absorbed by a permanent institution?
 
-Example from practice: The Morona Santiago Cooperation Table was institutionalized through a formal prefectoral decree, making it a permanent function of the provincial government. When the political administration changed, the decree provided legal continuity. In Orellana and Sucumbíos, the constitutive agreement, signed by 22+ organizations, creates social and institutional pressure for continuity beyond the Conservation International contract.
+Example from practice: The Morona Santiago Cooperation Table was institutionalized through a formal prefectoral decree, making it a permanent function of the provincial government. When the political administration changed, the decree provided legal continuity. That institutional embedding also created the conditions for tangible outputs: the first 7 Conservation Agreements were signed on June 27, 2025, delivering solar internet, energy kits, and water purification systems to Shuar and Achuar communities. Those agreements came from the platform, not from any single organization. In Orellana and Sucumbíos, the constitutive agreement, signed by 22+ organizations, creates social and institutional pressure for continuity beyond the Conservation International contract.
 
 **If your exit strategy is "hopefully the next project will fund it," you haven't built a governance platform. You have built a project component.**
 
@@ -310,6 +310,14 @@ Example from practice: The Morona Santiago Cooperation Table was institutionaliz
 │ linkedin.com/in/jdv42/ | CC BY 4.0 | v1.0 April 2026                  │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Related Publications
+
+For the full case study behind this canvas, including the Morona Santiago breakthrough, the Sucumbios replication, and the ASHA regional scaling model:
+
+- [Strengthening Amazonian Governance Through Local Cooperation Tables](../publications/Strengthening-Amazonian-Governance-Through-Local-Cooperation-Tables.pdf) (PDF, 14 pages) -- Covers the territorial recognition process, Conservation Agreements, and how this model connects to IDB's "Amazonia Forever" initiative targeting $5 billion over 10 years.
 
 ---
 

@@ -63,7 +63,7 @@ Every guide tells the importer what to demand. No guide tells the producer how t
 
 Your EU importer will send you a compliance questionnaire. It will ask for things that sound simple in Brussels and are brutal to collect in the field. Here is what they need from you and what each item actually means for your operation.
 
-**Geolocation coordinates for every production plot.** Not the district. Not the canton. The actual polygon or point coordinates of each plot where the commodity was grown. For plots under four hectares, a single GPS point (latitude, longitude) is legally sufficient. For plots over four hectares, you need the polygon boundaries.
+**Geolocation coordinates for every production plot.** Not the district. Not the canton. The actual polygon or point coordinates of each plot where the commodity was grown. For plots under four hectares, a single GPS point (latitude, longitude) is legally sufficient. For plots over four hectares, you need the polygon boundaries. This creates a real data paradox: the regulation demands precise geolocation, but many indigenous and smallholder communities fear that sharing raw coordinates exposes them to land grabbing or unwanted state scrutiny. The fear is not theoretical. It shapes whether producers cooperate at all.
 
 **Proof of deforestation-free status.** This means satellite imagery or land use data showing the plot was not forested after December 31, 2020. Your importer will likely cross-reference your coordinates against Global Forest Watch, Planet, or the EU Observatory datasets. If your plot shows up as forested in 2021 and cleared in 2022, that product is rejected.
 
@@ -251,7 +251,7 @@ I have been through this process. Here is what will break.
 
 **GPS collection will take three times longer than planned.** Producers will not be available when you arrive. Plots are further apart than the map shows. Rain stops fieldwork for days. Budget for delays. If you plan two weeks, budget four.
 
-**Some producers will refuse to share plot coordinates.** They will worry about land disputes, government interference, or losing access to their plots. This is a trust problem, not a technology problem. Explain why you need the coordinates, who will see them, and what happens if you cannot collect them (they cannot sell to you for EU markets). Field technicians who have existing relationships with the community get better results than outside consultants.
+**Some producers will refuse to share plot coordinates.** They will worry about land disputes, government interference, or losing access to their plots. This is a trust problem, not a technology problem. Explain why you need the coordinates, who will see them, and what happens if you cannot collect them (they cannot sell to you for EU markets). Field technicians who have existing relationships with the community get better results than outside consultants. One emerging approach is Zero-Knowledge Verification: a protocol where communities can confirm deforestation-free status to an auditor without surrendering the raw coordinates themselves. It is not yet standard practice, but it resolves the core tension between compliance and data sovereignty. I laid out the full architecture in the Territorial Trust Infrastructure paper. The principle behind it is straightforward: funding governance is the most effective form of supply chain insurance. If you invest in the trust layer, compliance data flows. If you skip it, no amount of GPS hardware fixes the problem.
 
 **Your traceability records will have gaps.** Especially in the first cycle. A field technician forgets a receipt. A WhatsApp message uses the wrong format. A delivery is recorded without a plot ID. Build in a monthly review process where someone checks the database for missing fields and follows up. Gaps are normal. Unfixed gaps are the problem.
 
@@ -262,6 +262,12 @@ I have been through this process. Here is what will break.
 **Humidity will destroy records.** I said this already but it bears repeating. If your aggregation point is in the Amazon, paper records left unprotected will be unreadable within one rainy season. Use waterproof materials, store in sealed containers, and digitize within 48 hours.
 
 **The cost will fall on you, not the importer.** The EUDR places the legal obligation on the EU operator. But the cost of collecting geolocation data, building traceability systems, training producers, and maintaining records falls on the supply chain. On you. On the cooperative. On the producers earning $2-5 per kilo. Factor EUDR compliance costs into your pricing from the start. Do not absorb them as a cost of doing business and hope the importer pays more later. Negotiate compliance cost-sharing upfront, in writing.
+
+---
+
+## Related Publications
+
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- The full architecture for Zero-Knowledge Verification, the data paradox between EUDR geolocation requirements and community data sovereignty, and why legitimate value chains start with governance, not technology.
 
 ---
 

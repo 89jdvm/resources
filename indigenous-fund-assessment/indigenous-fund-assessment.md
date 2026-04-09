@@ -25,6 +25,8 @@ date: "2026-04"
 
 At COP26, donors pledged $1.7 billion for indigenous and local community forest tenure. By 2024, the Rainforest Foundation Norway estimated less than 7% reached indigenous organizations directly. The rest flows through international NGOs who take a management fee, impose their reporting templates, and control the disbursement timeline. Indigenous organizations end up as sub-awardees on their own territorial projects.
 
+The picture is even worse for climate finance broadly. Only a minute fraction of funds earmarked for indigenous tenure security actually reaches projects that advance it. The money is pledged. The pipeline is broken.
+
 It is a capacity gap. It is fixable.
 
 I coordinated with ~30 indigenous nations across Ecuador and Peru through the Sacred Headwaters Alliance. I ran Fundación IKIAM as Executive Director, securing direct grants for the Achuar Nation. I have seen what passes and what fails when an indigenous organization applies for direct DFI funding.
@@ -201,6 +203,12 @@ Begin with bilateral grants under $25K that have lighter reporting requirements.
 This assessment is a diagnostic, not a judgment. Many of the most impactful organizations on the planet would score below 15 on this tool. That does not mean they are not effective. It means DFI bureaucracy was not designed for them.
 
 The path from sub-awardee to direct recipient is not about becoming more "professional." It is about building the specific institutional scaffolding that DFIs require in order to transfer fiduciary responsibility. Nothing more. Nothing less.
+
+---
+
+## Related Publications
+
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- Framework for treating indigenous governance as foundational risk infrastructure, not overhead. Directly relevant to how this assessment's scoring dimensions connect to what DFIs actually evaluate. 10 pages.
 
 ---
 

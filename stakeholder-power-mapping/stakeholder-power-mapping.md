@@ -49,7 +49,7 @@ In the Ecuadorian Amazon, this is the provincial government (GAD Provincial), li
 
 Who has historical and legal claim to the land.
 
-In the Amazon, indigenous nations hold territorial sovereignty and FPIC (Free, Prior, and Informed Consent) rights. This is not symbolic. In Morona Santiago, the Shuar and Achuar nations hold significant territorial influence over vast areas that overlap with the provincial government's administrative boundary. Any conservation platform that does not include them as co-equal governance partners is building on someone else's land without permission. Territorial legitimacy also extends to colonist communities that have held land titles for generations, even without indigenous sovereignty claims.
+In the Amazon, indigenous nations hold territorial sovereignty and FPIC (Free, Prior, and Informed Consent) rights. This is not symbolic. In Morona Santiago, the Shuar and Achuar nations hold significant territorial influence over vast areas that overlap with the provincial government's administrative boundary. Any conservation platform that does not include them as co-equal governance partners is building on someone else's land without permission. The Territorial Trust Infrastructure framework calls this the difference between Governance Architecture and legal paperwork: when the Mashco Piro crisis exposed how a system trusted legal paper over territorial reality, the structural failure was not a process gap but a power mapping failure. No one had mapped where territorial legitimacy actually lived. Territorial legitimacy also extends to colonist communities that have held land titles for generations, even without indigenous sovereignty claims.
 
 ### 3. Technical Capacity
 
@@ -129,7 +129,7 @@ Whoever presents the data at a Cooperation Table meeting shapes the conversation
 
 ### 3. Bilateral Relationships Between Stakeholders Matter More Than Your Platform's Structure
 
-The relationship between the Prefect and the indigenous federation president often determined whether the Cooperation Table functioned, regardless of what the constitutive agreement said. When those two had a working relationship, the platform ran smoothly. When provincial elections changed the Prefect, the platform stalled until a new bilateral relationship was established. Map the relationships between your key stakeholders, not just the stakeholders themselves. A platform where the two most powerful organizations distrust each other will fail no matter how well you design the governance architecture.
+The relationship between the Prefect and the indigenous federation president often determined whether the Cooperation Table functioned, regardless of what the constitutive agreement said. When those two had a working relationship, the platform ran smoothly. When provincial elections changed the Prefect, the platform stalled until a new bilateral relationship was established. Map the relationships between your key stakeholders, not just the stakeholders themselves. A platform where the two most powerful organizations distrust each other will fail no matter how well you design the governance architecture. This is why the Territorial Trust Infrastructure framework positions Joint Measurement and Grievance Readiness as structural components, not afterthoughts. The deal architecture has to account for what happens when the bilateral relationship breaks.
 
 ---
 
@@ -325,6 +325,14 @@ Share your completed map with one person from the public sector and one from the
 │  linkedin.com/in/jdv42/ | CC BY 4.0 | v1.0 April 2026                     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Related Publications
+
+The power dynamics mapped here connect directly to deal architecture. When you move from platform design to market partnerships, every stakeholder relationship you mapped becomes a structural input:
+
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) (PDF, 10 pages) -- The 5-component deal design framework (Governance Architecture, Consent Timeline Integration, Transparency-by-Design, Grievance and Remedy Readiness, Joint Measurement) for embedding the power dynamics you mapped into partnerships that hold. Includes the Zero-Knowledge Verification standard for EUDR compliance without surrendering territorial maps.
 
 ---
 

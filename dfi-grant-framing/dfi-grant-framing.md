@@ -33,7 +33,7 @@ This guide shows you what that gap looks like in practice. Not theory. Before-an
 
 ## The Core Problem
 
-In ICVA's 2025 survey of humanitarian and conservation organizations, over 75% of grant managers cited compliance reporting as their top operational challenge. But compliance is not the real barrier. The real barrier comes earlier. It is the framing.
+Ecuador alone needs USD 3.7 billion annually to meet its climate commitments under the PLANMICC roadmap. The money exists. The pipeline of bankable projects does not. In ICVA's 2025 survey of humanitarian and conservation organizations, over 75% of grant managers cited compliance reporting as their top operational challenge. But compliance is not the real barrier. The real barrier comes earlier. It is the framing.
 
 Field organizations describe what they do. DFIs fund outcomes with risk-managed architectures. The language is different. The logic is different. The structure is different.
 
@@ -139,16 +139,23 @@ Stop promising results. Start citing precedent.
 - Obsessed with "incremental cost reasoning." You must explain what the GEF dollar buys that would not happen otherwise.
 - Co-financing ratios matter enormously. 1:4 (GEF to co-finance) is the minimum signal of serious proposals.
 - Country ownership is non-negotiable. The government must be visibly involved, ideally as executing agency or co-executing partner.
+- For project scoring and prioritization, the Regenerative Opportunity Matrix (from [Structuring Bankable Climate Projects](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf)) provides a weighted framework: Policy Alignment 30%, Market Viability 30%, Climate Impact 20%, Scalability 20%. Use it to stress-test which project concepts will survive GEF's review logic before you write the concept note.
 
 ### IDB (Inter-American Development Bank)
 - Strong emphasis on results frameworks with SMART indicators.
 - Prefers projects with clear replication potential across multiple countries.
 - Risk matrices must be detailed and realistic. Generic risks are immediate red flags.
+- The IADB Partnership Strategy framework in [Structuring Bankable Climate Projects](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf) maps the specific entry points and co-financing structures IDB looks for. Use it alongside the SOURCE platform (over USD 7.5 billion in listed projects) to benchmark your proposal against what is already in their pipeline.
 
 ### EU (European Union)
 - Co-financing is required, typically 10-20% from applicant.
 - Application formats are rigid. Do not deviate from the template structure.
 - Logical framework must exactly match the budget breakdown. If an activity appears in the logframe, it must appear in the budget with the same name.
+
+### GCF (Green Climate Fund)
+- Accreditation is the gate. The GCF Proposal Checklist in [Structuring Bankable Climate Projects](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf) maps the specific fiduciary, ESG, and gender requirements that trip up first-time applicants. Run through it before investing months in the accreditation process.
+- Micro-accreditation (up to $10M) is the realistic entry point for most national entities.
+- The Social License Blueprint from the same playbook (community co-ownership with 5-10% direct equity stakes) aligns directly with GCF's emphasis on stakeholder engagement and benefit-sharing.
 
 ### USAID
 - Deliverable-based milestones preferred over time-based billing.
@@ -164,6 +171,13 @@ Framing matters. But framing cannot save a bad project.
 If your theory of change does not hold, no amount of language will fix it. If you do not actually have the institutional architecture to deliver, a well-framed proposal just means you will fail with more money.
 
 Use these framing shifts to communicate real value more effectively. Do not use them to make weak projects sound strong. Reviewers are sophisticated. They will see through it.
+
+---
+
+## Related Publications
+
+- [Structuring Bankable Climate Projects: An Investor's Playbook](../publications/Structuring-Bankable-Climate-Projects-An-Investors-Playbook-for-Unlocking-Regenerative-Growth-in-Ecu.pdf) -- Regenerative Opportunity Matrix, GCF Proposal Checklist, IADB Partnership Strategy, Capital Stack Blueprint, and the full PLANMICC alignment framework. 10 pages.
+- [Territorial Trust Infrastructure: Building Legitimate Value Chains in the Amazon](../publications/Territorial%20Trust%20Infrastructure%20-%20Building%20Legitimate%20Value%20Chains%20in%20the%20Amazon.pdf) -- Framework for embedding indigenous governance into market partnerships and climate finance structures. 10 pages.
 
 ---
 
