@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EUDR From the Amazon Side -- Juan Diego Villacis</title>
+  <meta name="description" content="Every EUDR guide is written by European law firms for importers. This one is written by an exporter who shipped nine containers. What traceability looks like when your producers are smallholder families.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="EUDR From the Amazon Side: A Field Guide for Exporters">
+  <meta property="og:description" content="What traceability looks like when your producers are smallholder families with no reliable internet.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    .tier-card {
+      background: var(--surface-up);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+    .tier-card h4 {
+      margin-top: 0;
+      font-size: 0.85rem;
+    }
+    .tier-card p {
+      font-size: 0.88rem;
+      margin-bottom: 0;
+    }
+    .dds-list {
+      list-style: decimal;
+      padding-left: 1.5em;
+      margin: var(--space-sm) 0;
+    }
+    .dds-list li {
+      margin-bottom: 0.5em;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+      font-size: var(--font-size-sm);
+    }
+    .risk-table th {
+      background: var(--surface-up);
+      color: var(--text);
+      padding: 0.85em 1em;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line-bright);
+    }
+    .risk-table td {
+      padding: 0.85em 1em;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-mid);
+    }
+    .phase-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--river-light);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Bioeconomy & Trade</div>
+      <span class="tool-number label--trade">Tool 09</span>
+      <h1>EUDR From the Amazon Side</h1>
+      <p class="subtitle">Every EUDR guide is written by European law firms for importers. This one is written by an exporter who shipped nine containers. What traceability looks like when your producers are smallholder families.</p>
+      <p class="author-line">By Juan Diego Villacis. 9 containers shipped to Spain. $270K EU revenue. Built traceability systems where 80% of population has no reliable internet.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Interactive compliance checklist + field guide</span>
+        <span class="meta-item"><strong>Audience:</strong> Exporters, cooperatives, compliance officers</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <!-- Section 1 -->
+      <h2>What the EUDR actually requires</h2>
+      <p>The EU Deforestation Regulation reduces to three requirements. Everything else is implementation detail.</p>
+      <ol>
+        <li><strong>Deforestation-free.</strong> The product was not produced on land that was deforested after December 31, 2020. Deforestation is defined as the conversion of forest to agricultural use. Degradation of forest (thinning, selective logging) also counts for wood products.</li>
+        <li><strong>Legally produced.</strong> The product was produced in compliance with the relevant laws of the country of production. Land tenure, labor laws, environmental regulations, tax obligations, indigenous rights.</li>
+        <li><strong>Covered by a due diligence statement.</strong> Before the product enters the EU market, the operator (importer) or trader must file a due diligence statement in the EU's information system confirming that they assessed the risk and the product is compliant.</li>
+      </ol>
+
+      <!-- Section 2 -->
+      <h2>Why every guide gets this wrong</h2>
+      <p>Every EUDR compliance guide published in English is written by European law firms, consultancies, or trade associations. Their audience is the importer. Their frame is: how does the EU-based operator comply with filing requirements?</p>
+      <p>This misses the entire point. The compliance burden flows upstream. The importer files the due diligence statement, but the data that makes that statement true or false is generated at the producer level, in the field, often in places with no internet, no cadastral system, and no formal land titles.</p>
+      <p>If you are an exporter working with smallholder producers, you are the one who has to build the traceability system, collect the geolocation data, verify the deforestation-free status, and assemble the documentation package. The importer just files what you give them.</p>
+
+      <!-- Section 3 -->
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">01</span> The producer-side requirements</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>For each producer in your supply chain, you need:</p>
+          <ul>
+            <li><strong>Geolocation data.</strong> GPS coordinates for plots under 4 hectares. Polygon boundaries for plots over 4 hectares. Accuracy must be sufficient to match satellite imagery.</li>
+            <li><strong>Deforestation-free proof.</strong> Evidence that the plot was not converted from forest after December 31, 2020. Typically satellite imagery analysis, but can include historical land use documentation.</li>
+            <li><strong>Legal documentation.</strong> Proof of legal land use (title, possession certificate, use agreement, community allocation). Proof that the product was produced legally (permits, registrations, tax compliance).</li>
+            <li><strong>Traceability.</strong> A verifiable chain from the specific plot to the specific batch in the container. Lot numbers, dates, quantities, aggregation points.</li>
+            <li><strong>Producer identification.</strong> Name, ID number, contact information for every producer whose product enters the supply chain.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">02</span> Geolocation: the hard part</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Geolocation is the single most difficult requirement to implement at the producer level. What works and what does not:</p>
+          <h4>What works</h4>
+          <ul>
+            <li><strong>Offline GPS apps.</strong> Apps like SW Maps, GPS Fields Area Measure, or custom KoboToolbox forms that capture coordinates without internet. Upload when connectivity is available.</li>
+            <li><strong>Handheld GPS devices.</strong> Garmin eTrex or similar. More reliable than phones in dense canopy. Higher cost per unit but better accuracy.</li>
+            <li><strong>Batch campaigns.</strong> Dedicated field campaigns where a trained team visits every producer plot over 2-4 weeks, rather than asking producers to self-report. Higher cost, much higher data quality.</li>
+            <li><strong>Existing government data.</strong> In some countries, agricultural ministries, cadastral agencies, or environmental agencies have existing geolocation data for registered plots. Check before you duplicate the effort.</li>
+          </ul>
+          <h4>What does not work</h4>
+          <ul>
+            <li><strong>Text message coordinates.</strong> Asking producers to text you their GPS coordinates from their phone. The accuracy is unreliable and the format is inconsistent.</li>
+            <li><strong>Google Maps pins.</strong> Producers dropping a pin on Google Maps and sending a screenshot. The resolution is insufficient for regulatory purposes and the data is not extractable.</li>
+            <li><strong>Blockchain platforms.</strong> Platforms that promise "blockchain-verified traceability" but still require the same manual data collection at the producer level. The blockchain adds cost and complexity without solving the data capture problem.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">03</span> Building traceability without internet</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Most EUDR technology solutions assume reliable internet. In the Amazon, 80% of the producer population has no consistent connectivity. You need a tiered approach:</p>
+
+          <div class="tier-card">
+            <h4>Tier 1: Paper-to-Digital</h4>
+            <p>Paper collection forms at the producer level. A field coordinator aggregates and digitizes at the collection point (which has connectivity). Simple, low cost, works everywhere. The weakness is transcription errors and time lag.</p>
+          </div>
+
+          <div class="tier-card">
+            <h4>Tier 2: SMS/WhatsApp Logging</h4>
+            <p>Producers or field coordinators send structured data via SMS or WhatsApp (lot number, weight, date, producer ID). A central system parses the messages. Works where mobile signal exists even without data connectivity. The weakness is unstructured input and parsing failures.</p>
+          </div>
+
+          <div class="tier-card">
+            <h4>Tier 3: Offline-First Apps</h4>
+            <p>Apps that work without internet and sync when connectivity is available. KoboToolbox and ODK (Open Data Kit) are the two most proven options in development contexts. Both support offline forms, GPS capture, photo documentation, and structured data collection. Both are free and open source.</p>
+          </div>
+
+          <div class="callout callout--field">
+            <h4>The pragmatic approach</h4>
+            <p>Use all three tiers simultaneously. Tier 3 for your field coordinators. Tier 2 for producers who have phones. Tier 1 as the fallback and cross-check. Redundancy is not waste when compliance failure means your container gets turned away at the port.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">04</span> The due diligence statement</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p><strong>Who files it:</strong> The EU-based operator (importer) or trader. Not the exporter. However, the exporter provides the data that makes the statement possible.</p>
+          <p><strong>What it contains:</strong></p>
+          <ol class="dds-list">
+            <li>Description of the product (HS code, quantity, commercial name)</li>
+            <li>Country of production</li>
+            <li>Geolocation of all plots of land where the product was produced</li>
+            <li>Time period of production</li>
+            <li>Confirmation that the product is deforestation-free</li>
+            <li>Confirmation that the product was legally produced</li>
+            <li>Risk assessment methodology used</li>
+            <li>Risk mitigation measures applied (if any risk was identified)</li>
+            <li>Reference number for the due diligence system used</li>
+          </ol>
+          <p>The statement is filed electronically in the EU's TRACES/information system. A reference number is generated. This reference number must accompany the product through the supply chain within the EU.</p>
+        </div>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">05</span> Country risk classification</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>The EU classifies countries into three risk levels, which determine the level of due diligence required:</p>
+          <table class="risk-table">
+            <thead>
+              <tr><th>Risk Level</th><th>Due Diligence</th><th>Checks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Low</strong></td><td>Simplified</td><td>Reduced documentation, lower inspection rates at EU borders</td></tr>
+              <tr><td><strong>Standard</strong></td><td>Full</td><td>Complete geolocation, deforestation verification, legal compliance</td></tr>
+              <tr><td><strong>High</strong></td><td>Enhanced</td><td>Full requirements plus higher inspection rates, additional scrutiny</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Ecuador's status:</strong> At the time of writing, country classifications have not been finalized. Ecuador is expected to be classified as standard risk for most commodities. Prepare for full due diligence regardless. If the classification comes in lower, you are over-prepared rather than non-compliant.</p>
+        </div>
+      </div>
+
+      <!-- ============ INTERACTIVE COMPLIANCE CHECKLIST ============ -->
+      <h2>EUDR Compliance Checklist</h2>
+      <p>34 items across 6 phases. Track your progress from mapping to ongoing compliance. Click items to mark them complete.</p>
+
+      <div class="tool-container">
+        <h3>Compliance Progress</h3>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <span class="progress-counter text-sm text-dim">0 / 34</span>
+
+        <div style="margin-top: var(--space-lg);">
+
+          <!-- Phase 1: Mapping -->
+          <span class="phase-label">Phase 1: Mapping</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Complete inventory of all producers in your supply chain (name, ID, location)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">GPS coordinates collected for every production plot under 4 hectares</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Polygon boundaries mapped for every production plot over 4 hectares</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Geolocation data validated against satellite imagery for accuracy</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Producer consent obtained for data collection and sharing</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Data stored in a structured, exportable format (not paper only)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Backup copies of all geolocation data maintained</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Collection points and aggregation sites mapped and documented</span></div>
+
+          <!-- Phase 2: Deforestation Verification -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Phase 2: Deforestation Verification</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Satellite imagery analysis completed for all mapped plots (post-Dec 2020 baseline)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Any flagged plots investigated and resolved (false positives documented)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Historical land use documentation collected where satellite data is inconclusive</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Deforestation-free status confirmed and documented for every plot</span></div>
+
+          <!-- Phase 3: Legal Documentation -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Phase 3: Legal Documentation</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Land tenure documentation collected for every producer (title, possession cert, community allocation)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Environmental permits verified as current and applicable</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Tax compliance documentation collected for exporting entity</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Labor law compliance verified for all processing and aggregation facilities</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Indigenous territorial rights and FPIC requirements assessed and documented</span></div>
+
+          <!-- Phase 4: Traceability System -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Phase 4: Traceability System</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Lot numbering system implemented (links batch to producer and plot)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Collection point intake records structured (date, producer ID, quantity, lot)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Processing/aggregation records link input lots to output lots</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Shipping documentation links container to specific output lots</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">End-to-end traceability tested: can you trace a container back to specific plots?</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Data collection method operational at every tier (paper, SMS/WhatsApp, or app)</span></div>
+
+          <!-- Phase 5: Importer Coordination -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Phase 5: Importer Coordination</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Importer identified and confirmed they will file the due diligence statement</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Data format requirements confirmed with importer (what they need, in what format)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Data transfer process established (secure, documented, auditable)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Importer has reviewed and accepted your traceability documentation</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Timeline for due diligence statement filing confirmed relative to shipment date</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Contingency plan if importer rejects documentation or requests additional data</span></div>
+
+          <!-- Phase 6: Ongoing Compliance -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Phase 6: Ongoing Compliance</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Annual review process established for all geolocation and deforestation data</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">New producer onboarding process includes EUDR data requirements</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Record retention policy defined (minimum 5 years per EUDR)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Staff trained on EUDR requirements and data collection procedures</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Monitoring system for regulatory changes and updated guidance</span></div>
+
+        </div>
+      </div>
+
+      <!-- ============ WHAT WILL GO WRONG ============ -->
+      <h2>What will go wrong</h2>
+      <p>Every item on this list happened during actual implementation. Plan for them.</p>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>GPS collection takes 3x longer than planned</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>You will budget 2 weeks for field GPS collection and it will take 6. Producers are not at home when you visit. Rain makes trails impassable. Dense canopy reduces GPS accuracy and you need to recollect. Your field team's phones run out of battery. Budget triple the time and 2x the field budget.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Producers refuse to share coordinates</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Some producers will refuse to let you GPS their plots. The reasons are legitimate: fear of land seizure, distrust of outsiders, concern that data will be shared with government agencies. You cannot force compliance. You need to explain the purpose, guarantee data protection, and accept that some producers will opt out. Build your supply chain with enough redundancy that losing 10-15% of producers does not collapse your volume.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Traceability gaps at aggregation points</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>The most common traceability failure is at the collection point where product from multiple producers is mixed. If your collection point combines product from 12 producers into one bag without recording who contributed what, you have lost traceability. Every aggregation point needs intake records: who delivered, how much, what date, what lot number.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Satellite analysis produces false positives</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Satellite deforestation analysis will flag plots that were not actually deforested. Seasonal flooding, cloud shadows, fire scars from controlled burns, and agroforestry systems that look like deforestation from space. Every false positive requires field verification, which costs time and money. Budget for a 15-25% false positive rate and the fieldwork to resolve them.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Your importer changes requirements mid-process</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>EU importers are still figuring out their own EUDR compliance processes. Your importer may accept your data format for the first shipment and then request a completely different format for the second. Build your data system to be export-flexible: store everything in a structured database, not in a single report template.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Humidity destroys paper records</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>In the Amazon, paper forms degrade. Ink runs, pages stick together, mold grows on stored documents. If your Tier 1 traceability relies on paper, digitize within 48 hours of collection. Keep paper as backup but never as your only record. Plastic sleeves and waterproof field notebooks help but do not solve the problem.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>The cost falls on you</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>The EUDR does not specify who pays for compliance. In theory, the cost should be shared across the supply chain. In practice, the exporter bears most of it because the exporter is the one who needs to build the traceability system, collect the data, and verify the documentation. Your importer will expect you to deliver compliant product at the same price. Budget EUDR compliance as a cost of doing business, not as a one-time project expense.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need someone who has built this in the field?</h2>
+      <p>This guide covers the requirements and the reality. Building the actual traceability system, training field teams, negotiating with importers on data formats, and handling the edge cases where regulations meet the Amazon. That requires someone who has done it at the producer level.</p>
+      <p>9 containers. $270K EU revenue. Traceability systems built where 80% have no internet.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../seed-to-shelf/" class="related-card">
+        <h4>Seed to Shelf</h4>
+        <p>The full 8-stage export roadmap from smallholder family to European retail. Certifications, timelines, costs.</p>
+      </a>
+      <a href="../blended-finance-templates/" class="related-card">
+        <h4>Capital Stack Templates</h4>
+        <p>How conservation and bioeconomy projects actually get financed. Concessional capital, first-loss layers, revenue streams.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+</body>
+</html>

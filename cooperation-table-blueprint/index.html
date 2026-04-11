@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cooperation Table Blueprint -- Juan Diego Villacis</title>
+  <meta name="description" content="Full replication guide for multi-stakeholder conservation platforms. Governance architecture, constitutive agreements, management model. From building 3 Cooperation Tables in the Ecuadorian Amazon.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="The Cooperation Table Blueprint: A Replication Guide">
+  <meta property="og:description" content="The exact process to build a multi-stakeholder platform that produces coordinated execution, not just meetings.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    .phase-timeline {
+      position: relative;
+      margin: var(--space-xl) 0;
+    }
+    .phase-timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line-bright);
+    }
+    .phase-item {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: var(--space-xl);
+    }
+    .phase-dot {
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--canopy-mid);
+      background: var(--black);
+      z-index: 1;
+    }
+    .phase-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--canopy-light);
+      margin-bottom: 0.4rem;
+    }
+    .phase-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .phase-summary {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-sm);
+      line-height: 1.7;
+    }
+
+    .stakeholder-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+      font-size: 0.85rem;
+    }
+    .stakeholder-table th {
+      background: var(--surface-up);
+      color: var(--text);
+      padding: 0.75em 1em;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line-bright);
+    }
+    .stakeholder-table td {
+      padding: 0.75em 1em;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-mid);
+      vertical-align: top;
+    }
+    .stakeholder-table td strong { color: var(--text); }
+
+    .convening-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+    }
+    .convening-steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .convening-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--surface-up);
+      border: 1px solid var(--line-bright);
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .convening-steps li strong { color: var(--text); }
+
+    .agreement-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: var(--space-md) 0;
+    }
+    .agreement-field {
+      background: var(--surface-card);
+      padding: 1rem 1.25rem;
+    }
+    .agreement-field span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.3rem;
+    }
+    .agreement-field p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .roadmap-anatomy {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+    }
+    .roadmap-anatomy li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .roadmap-anatomy li:last-child { border-bottom: none; }
+    .roadmap-anatomy .field-name {
+      min-width: 140px;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .trouble-item h4 {
+      color: var(--amber-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    .trouble-item {
+      margin-bottom: var(--space-md);
+    }
+    .trouble-item p {
+      font-size: 0.88rem;
+    }
+    .trouble-counter {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .agreement-fields { grid-template-columns: 1fr; }
+      .phase-item { padding-left: 40px; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Governance & Coordination</div>
+      <span class="tool-number label--governance">Tool 02</span>
+      <h1>The Cooperation Table Blueprint</h1>
+      <p class="subtitle">A replication guide for multi-stakeholder conservation platforms. The exact process to build a governance mechanism that produces coordinated execution, not just meetings.</p>
+      <p class="author-line">By Juan Diego Villacis. 3 Cooperation Tables built. 22-23 organizations each. Morona Santiago, Orellana, Sucumbios.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> 6-phase guide with checklists</span>
+        <span class="meta-item"><strong>Time:</strong> 8-12 months to implement</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <h2>Who this is for</h2>
+      <p>You are a program manager at an INGO trying to coordinate multiple actors in a territory. Or a government official who inherited a province full of NGOs doing overlapping work. Or a DFI program officer wondering why your grantees in the same region never talk to each other. Or a consultant hired to "build a coordination mechanism" with no template for what that actually means.</p>
+      <p>You need a multi-stakeholder platform that produces coordinated execution, not just meetings. This guide gives you the architecture, the sequence, and the operational details.</p>
+
+      <div class="callout callout--field">
+        <h4>The model in brief</h4>
+        <p>A Cooperation Table brings 22-23 organizations from 5 sectors into a single governance structure. Participants sign a constitutive agreement committing to a shared Hoja de Ruta (roadmap) with quarterly targets, organized into thematic sub-tables. Accountability comes from automated notifications, a public dashboard, and an escalation protocol. The platform is institutionalized through legal instruments so it survives political transitions and funding cycles.</p>
+      </div>
+
+      <!-- ============ 6 PHASES ============ -->
+      <h2>The six phases</h2>
+
+      <div class="phase-timeline">
+
+        <!-- Phase 1 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-title">Political Foundation</div>
+          <div class="phase-summary">The platform lives or dies based on who convenes it. Your first move is not stakeholder mapping. It is a political calculation: who has the convening authority to put 22 organizations in a room and keep them coming back?</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Securing the mandate</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>You need a formal mandate before you convene anyone. A written directive, an official letter, or an executive resolution authorizing the creation of the platform.</p>
+              <p>In Morona Santiago, this came as a prefectoral commitment that later became a formal decree. In Orellana and Sucumbios, the mandate came through Conservation International's programmatic authority, backed by co-convening letters from provincial governments.</p>
+              <p><strong>Do not skip this step.</strong> A Cooperation Table convened informally ("let's all get together and coordinate") will collapse by month 4.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Identifying your champion</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Every successful table had one senior official who personally drove the process. Not the institution. A specific person with enough authority to clear bureaucratic obstacles, enough credibility to bring indigenous authorities to the table, and enough political interest to sustain effort over 8-12 months.</p>
+              <p><strong>If no one at the senior level cares enough to stake personal reputation on this platform, you are not ready to build it.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-title">Stakeholder Identification & Convening</div>
+          <div class="phase-summary">Every Cooperation Table draws from the same 5 stakeholder categories. Each provides a different type of legitimacy the platform needs.</div>
+
+          <table class="stakeholder-table">
+            <thead>
+              <tr><th>Sector</th><th>What they bring</th><th>Typical count</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Public Sector</strong></td><td>Administrative authority, budget allocation, regulatory power</td><td>5-6 orgs</td></tr>
+              <tr><td><strong>Indigenous Authorities</strong></td><td>Territorial sovereignty, FPIC rights, historical legitimacy</td><td>3-5 orgs</td></tr>
+              <tr><td><strong>Civil Society / NGOs</strong></td><td>Technical capacity, donor relationships, implementation experience</td><td>6-8 orgs</td></tr>
+              <tr><td><strong>Academia</strong></td><td>Data, research capacity, monitoring expertise</td><td>2-3 orgs</td></tr>
+              <tr><td><strong>Private Sector</strong></td><td>Economic activity, supply chain influence</td><td>3-4 orgs</td></tr>
+            </tbody>
+          </table>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Convening sequence</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Do not send a mass invitation for the first meeting. Convene in sequence:</p>
+              <ol class="convening-steps">
+                <li><strong>Government first.</strong> Secure their co-ownership before anyone else is in the room.</li>
+                <li><strong>Indigenous authorities second.</strong> Meet on their terms, in their territory if possible. Frame the platform as an extension of their governance, not a competing structure.</li>
+                <li><strong>Major NGOs third.</strong> They have the implementation capacity and donor relationships. Get their buy-in on the roadmap concept before the first plenary.</li>
+                <li><strong>Academia and private sector last.</strong> They fill critical roles but rarely drive the process.</li>
+              </ol>
+              <p>The first plenary session should feel like a formalization of agreements already reached, not a cold start.</p>
+              <div class="callout callout--field">
+                <h4>The right number</h4>
+                <p>22-23 organizations. Below 18, the platform lacks sectoral coverage for territorial legitimacy. Above 28, decision-making slows and meetings become performative. All three tables landed in this range once the relevance filter was applied.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-title">The Constitutive Agreement</div>
+          <div class="phase-summary">Not an MoU. Not a letter of intent. A formal agreement signed by the authorized representative of every member organization, establishing purpose, structure, governance rules, and commitments.</div>
+
+          <div class="agreement-fields">
+            <div class="agreement-field"><span>Name & Scope</span><p>Official platform name and territory covered</p></div>
+            <div class="agreement-field"><span>Objective</span><p>One paragraph. What coordination problem this solves.</p></div>
+            <div class="agreement-field"><span>Member List</span><p>Every organization + authorized signatory name and title</p></div>
+            <div class="agreement-field"><span>Governance Structure</span><p>Plenaries, sub-tables, coordination core. Voting protocols.</p></div>
+            <div class="agreement-field"><span>Hoja de Ruta Commitment</span><p>Explicit agreement to participate in building and executing the roadmap</p></div>
+            <div class="agreement-field"><span>Meeting Schedule</span><p>Frequency and format of plenaries, sub-tables, coordination meetings</p></div>
+            <div class="agreement-field"><span>Duration</span><p>Aligned with roadmap time horizon (2-3 years)</p></div>
+            <div class="agreement-field"><span>Modification Clause</span><p>How new members join. How the agreement is amended.</p></div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Who signs and why it matters</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The person who signs must have institutional authority to commit their organization. The prefect or vice-prefect (not the planning director). The federation president (not a technical officer). The NGO country director (not a project coordinator). Getting the right signatory level is half the political work.</p>
+              <p>A signed constitutive agreement creates three forms of accountability:</p>
+              <ul>
+                <li><strong>Legal:</strong> The document can be referenced in administrative and institutional processes.</li>
+                <li><strong>Social:</strong> No signatory wants to be publicly identified as the organization that defected from a 22-organization commitment.</li>
+                <li><strong>Operational:</strong> It provides the basis for tracking execution against the roadmap.</li>
+              </ul>
+              <p>In Morona Santiago, 22 organizations signed. That collective signature produced the first 7 Conservation Agreements (June 27, 2025), delivering solar internet, energy kits, and water purification to Shuar and Achuar communities. The constitutive agreement made those agreements possible.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-title">Building the Hoja de Ruta</div>
+          <div class="phase-summary">The roadmap translates the platform's purpose into specific, time-bound, organization-assigned activities. Without it, the Cooperation Table is a meeting. With it, the Cooperation Table is a governance mechanism.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Activity structure (6 required fields)</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <ul class="roadmap-anatomy">
+                <li><span class="field-name">Description</span> Specific and measurable. "Establish 3 community monitoring stations in the buffer zone of Yasuni by Q2 2027." Not "promote environmental monitoring."</li>
+                <li><span class="field-name">Responsible org(s)</span> Named. Not "the platform" or "to be determined."</li>
+                <li><span class="field-name">Sub-table</span> Which thematic group owns this activity.</li>
+                <li><span class="field-name">Timeline</span> Quarterly milestones within the 2-3 year horizon.</li>
+                <li><span class="field-name">Status</span> Pending / In Progress / Completed / Delayed.</li>
+                <li><span class="field-name">Dependencies</span> What must happen before this activity can start.</li>
+              </ul>
+              <div class="callout callout--field">
+                <h4>How many activities</h4>
+                <p>Orellana: 79. Sucumbios: 93. A roadmap with fewer than 40 is probably too vague. More than 120 is listing tasks, not strategic activities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>How to build it (process)</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Do not build the roadmap in a plenary. Build it in sub-table working sessions where 6-10 organizations with relevant expertise propose, debate, and assign activities. Then bring the compiled roadmap to a plenary for validation and formal adoption.</p>
+              <p>The building process takes 2-3 months of sub-table sessions. Do not rush it. A roadmap that organizations helped build is a roadmap they will execute. A roadmap handed to them by a consultant is a document they will ignore.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 5</div>
+          <div class="phase-title">Accountability Infrastructure</div>
+          <div class="phase-summary">22 organizations committed to 79-93 activities over 3 years. Without tracking infrastructure, you will discover non-compliance at the annual review. By then, it is too late.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Three components</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <h4>1. The Progress Dashboard</h4>
+              <p>A visual tracking system showing the status of every activity by province, sub-table, and quarter. Every stakeholder sees at a glance which activities are on track and which are delayed. Public visibility is the strongest compliance mechanism in multi-stakeholder platforms.</p>
+
+              <h4>2. The Notification Engine</h4>
+              <p>Automated email reminders sent to the responsible organization as deadlines approach. Reminder at 30 days. Second reminder at 7 days. Escalation notice when the deadline passes. This replaces manual follow-up that burns out coordination staff and creates political friction.</p>
+
+              <h4>3. The Escalation Protocol</h4>
+              <ol>
+                <li>Automated notification to the responsible organization</li>
+                <li>Flagging in the dashboard (visible to all)</li>
+                <li>Discussion in the next sub-table session</li>
+                <li>Escalation to the coordination core</li>
+                <li>Formal communication and reporting in the plenary</li>
+              </ol>
+              <p>No penalties need to be punitive. Social accountability among 22 peer organizations is powerful enough. The goal is to make non-compliance visible, not to punish it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 6 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Phase 6</div>
+          <div class="phase-title">Institutionalization</div>
+          <div class="phase-summary">Every multi-stakeholder platform that dies is killed by the same thing: the project ended, the administration changed, or the champion moved on. If the platform has no institutional life independent of its founding conditions, it will not survive.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>The Morona Santiago model</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Institutionalized through a prefectoral decree: a formal legal instrument establishing the platform as a permanent function of the provincial government. This means:</p>
+              <ul>
+                <li>The platform is part of the government's organizational structure, not a project component</li>
+                <li>Budget allocation for coordination can be included in the annual budget</li>
+                <li>A new prefect cannot dissolve the platform without issuing a new decree</li>
+                <li>The platform has legal identity for interinstitutional agreements</li>
+              </ul>
+              <p>The equivalent in other countries: gubernatorial executive order, provincial ordinance, or regional assembly resolution.</p>
+            </div>
+          </div>
+
+          <!-- Institutionalization Checklist -->
+          <div class="tool-container" style="margin-top: var(--space-md);">
+            <h3>Institutionalization Checklist</h3>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+            <span class="progress-counter text-sm text-dim">0 / 6</span>
+            <div style="margin-top: var(--space-sm);">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Constitutive agreement signed by all member organizations</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Roadmap formally adopted as a shared execution instrument</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Platform referenced in at least one government planning document</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Coordination function assigned to a permanent institution (not the project team)</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Legal instrument (decree, ordinance, resolution) establishing the platform as permanent</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Multi-funder or co-financing structure to avoid single-donor dependency</span></div>
+            </div>
+          </div>
+
+          <div class="callout callout--warning" style="margin-top: var(--space-md);">
+            <h4>Timing</h4>
+            <p>Do not wait until the project's final year. In Morona Santiago, the decree was pursued from the first year. Start the legal and political groundwork in Phase 1 and maintain it in parallel with Phases 2-5.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- What Will Go Wrong -->
+      <h2>What will go wrong</h2>
+      <p>I have built three of these. Every one hit problems. Here is what to expect.</p>
+
+      <div class="trouble-item">
+        <h4>The government will try to control the agenda.</h4>
+        <p>Provincial governments often see the table as "their" platform. They push to chair every meeting, filter communications, sideline challengers.</p>
+        <p class="trouble-counter">Counter: Establish co-governance from the constitutive agreement. Rotating facilitation. Minutes distributed by the secretariat, not the government.</p>
+      </div>
+
+      <div class="trouble-item">
+        <h4>Indigenous authorities will be skeptical.</h4>
+        <p>They have been invited to hundreds of "coordination" meetings that produced nothing. They will resist being positioned as "one of five sectors" when they hold territorial sovereignty.</p>
+        <p class="trouble-counter">Counter: Meet with indigenous leadership separately before the first plenary. Acknowledge their governance structures (life plans, consultative assemblies) as co-equal inputs, not subordinate to the platform.</p>
+      </div>
+
+      <div class="trouble-item">
+        <h4>NGOs will protect their turf.</h4>
+        <p>Organizations with donor-funded projects will resist if they see the table as a threat to their autonomy or donor relationships.</p>
+        <p class="trouble-counter">Counter: Frame the table as a visibility mechanism, not a control mechanism. Coordination through the roadmap increases their reporting value to donors.</p>
+      </div>
+
+      <div class="trouble-item">
+        <h4>Activity status will go stale.</h4>
+        <p>Even with automated notifications, some organizations will not update for months.</p>
+        <p class="trouble-counter">Counter: Monthly updates are a fixed responsibility of the technical coordinator. Use sub-table sessions to validate status in person.</p>
+      </div>
+
+      <div class="trouble-item">
+        <h4>Political transitions will test everything.</h4>
+        <p>Elections happen. Prefects change. New officials arrive with no institutional memory.</p>
+        <p class="trouble-counter">Counter: This is why the decree matters. When the new official arrives, 21 other organizations are still committed. The social cost of abandoning the platform is higher than continuing it.</p>
+      </div>
+
+      <div class="trouble-item">
+        <h4>Attendance will drop after month 6.</h4>
+        <p>The first 2-3 meetings are well-attended because they are novel. By month 6, only committed organizations show up.</p>
+        <p class="trouble-counter">Counter: Sub-tables with focused agendas maintain engagement better than plenaries with generic updates. Only call plenaries when there are real decisions to make.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need someone who has already made the mistakes?</h2>
+      <p>This guide gives you the architecture and sequence. The political choreography: who to approach first, how to navigate government-indigenous relations, how to structure a first meeting that doesn't collapse into grievance airing. That requires someone who has done it.</p>
+      <p>3 provinces. 22-23 organizations each. 79-93 roadmap activities per table.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../governance-canvas/" class="related-card">
+        <h4>The Governance Canvas</h4>
+        <p>Design your multi-stakeholder platform in one page. Eight structural questions.</p>
+      </a>
+      <a href="../first-90-days/" class="related-card">
+        <h4>The First 90 Days</h4>
+        <p>Week-by-week operator's playbook from day one to the first progress check.</p>
+      </a>
+      <a href="../stakeholder-power-mapping/" class="related-card">
+        <h4>Power Mapping for Conservation Platforms</h4>
+        <p>Map who actually holds influence before the first meeting.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+</body>
+</html>

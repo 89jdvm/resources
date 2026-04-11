@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direct Funding Readiness Score -- Juan Diego Villacis</title>
+  <meta name="description" content="Fifteen questions that tell you whether your indigenous fund can receive direct DFI funding. And if it cannot, exactly which administrative and governance gaps are blocking it.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="Direct Funding Readiness Score">
+  <meta property="og:description" content="Interactive 15-question diagnostic for indigenous organizations seeking direct DFI funding.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    .quiz-container {
+      margin: var(--space-xl) 0;
+    }
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+    }
+    .quiz-progress .progress-bar {
+      flex: 1;
+    }
+    .quiz-progress-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .quiz-dimension {
+      margin-bottom: var(--space-xl);
+    }
+    .quiz-dimension-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .quiz-dimension-subtitle {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-md);
+    }
+    .quiz-question {
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+    .quiz-question-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+    .quiz-question-number {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .quiz-option:hover {
+      border-color: var(--line-bright);
+      background: var(--surface-up);
+    }
+    .quiz-option.selected {
+      border-color: rgba(132,231,165,0.5);
+      background: rgba(132,231,165,0.04);
+    }
+    .quiz-option input[type="radio"] {
+      display: none;
+    }
+    .quiz-option-radio {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--line-bright);
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .quiz-option.selected .quiz-option-radio {
+      border-color: rgba(132,231,165,0.7);
+    }
+    .quiz-option.selected .quiz-option-radio::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(132,231,165,0.8);
+    }
+    .quiz-option-content {
+      flex: 1;
+    }
+    .quiz-option-points {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.2rem;
+    }
+    .quiz-option-text {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .quiz-why {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .quiz-why strong {
+      color: var(--text-mid);
+    }
+
+    .score-interpretation {
+      margin-top: var(--space-sm);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+    }
+    .score-interpretation.ready {
+      border-color: rgba(132,231,165,0.3);
+      color: rgba(132,231,165,0.9);
+    }
+    .score-interpretation.close {
+      border-color: rgba(255,193,102,0.3);
+      color: rgba(255,193,102,0.9);
+    }
+    .score-interpretation.building {
+      color: var(--text-mid);
+    }
+    .score-interpretation.starting {
+      color: var(--text-dim);
+    }
+    .score-interpretation-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .quiz-question { padding: 1rem; }
+      .quiz-option { padding: 0.6rem 0.75rem; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Funding &amp; Finance</div>
+      <span class="tool-number label--finance">Tool 06</span>
+      <h1>Direct Funding Readiness Score</h1>
+      <p class="subtitle">Fifteen questions that tell you whether your indigenous fund can receive direct DFI funding. And if it cannot, exactly which administrative and governance gaps are blocking it.</p>
+      <p class="author-line">By Juan Diego Villacis. Coordinated with ~30 indigenous nations through ASHA. Executive Director of Fundacion IKIAM, securing direct grants for the Achuar Nation.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Interactive 15-question diagnostic</span>
+        <span class="meta-item"><strong>Time:</strong> 20-30 minutes</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <h2>How this works</h2>
+      <p>At COP26, donors pledged $1.7 billion for indigenous and local community forest tenure. By 2024, the Rainforest Foundation Norway estimated less than 7% reached indigenous organizations directly. The rest flows through international NGOs who take a management fee, impose their reporting templates, and control the disbursement timeline.</p>
+      <p>It is a capacity gap. It is fixable. This assessment identifies the specific gaps. Fifteen questions across five dimensions. Score yourself honestly. The gaps you find are the gaps keeping you in sub-awardee status.</p>
+      <p>Each question scores 0, 1, or 2 points. Maximum score: 30.</p>
+
+      <!-- Score Display -->
+      <div class="score-display" id="scoreDisplay">
+        <div class="score-number" id="scoreNumber">0</div>
+        <div class="score-label">of 30 points</div>
+        <div class="quiz-progress" style="margin-top: var(--space-sm);">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+          <span class="quiz-progress-text" id="progressText">0 of 15 answered</span>
+        </div>
+        <div class="score-interpretation" id="scoreInterpretation" style="margin-top: var(--space-sm); display: none;"></div>
+      </div>
+
+      <!-- Quiz Container -->
+      <div class="quiz-container" id="quizContainer">
+
+        <!-- Dimension 1 -->
+        <div class="quiz-dimension">
+          <div class="quiz-dimension-subtitle">Dimension 1 / 6 points possible</div>
+          <div class="quiz-dimension-title">Financial Management Systems</div>
+
+          <div class="quiz-question" data-question="1">
+            <div class="quiz-question-number">Question 1 of 15</div>
+            <div class="quiz-question-text">Does your organization use dedicated accounting software with an auditable trail?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q1" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We use software (QuickBooks, Wave, Xero, or equivalent) with transaction logs, categories, and exportable reports.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q1" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We use Excel spreadsheets with consistent formatting and backup copies.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q1" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Financial records are in paper notebooks or inconsistent digital files.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> USAID's Organizational Capacity Assessment requires demonstrable accounting systems. "We keep track of expenses" is not sufficient. The auditor needs to see a trail from receipt to ledger to report.</div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="quiz-question-number">Question 2 of 15</div>
+            <div class="quiz-question-text">Has your organization been independently audited in the last 24 months?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q2" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We have a clean audit opinion from a recognized firm.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q2" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have been audited but with qualifications or management letter findings.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q2" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We have never been independently audited.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> Most DFIs require audited financial statements as a pre-condition for eligibility. The audit itself is less important than what it reveals about your internal controls.</div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="quiz-question-number">Question 3 of 15</div>
+            <div class="quiz-question-text">Do you have a written financial policies and procedures manual?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q3" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. It covers procurement, disbursement, expense approval thresholds, and conflict of interest. Staff have been trained on it.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q3" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have some written policies but they are incomplete or not consistently followed.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q3" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Financial procedures are informal and undocumented.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> DFIs will ask for this document during due diligence. It does not need to be 100 pages. It needs to be real, specific to your organization, and demonstrably in use.</div>
+          </div>
+        </div>
+
+        <!-- Dimension 2 -->
+        <div class="quiz-dimension">
+          <div class="quiz-dimension-subtitle">Dimension 2 / 6 points possible</div>
+          <div class="quiz-dimension-title">Governance and Institutional Structure</div>
+
+          <div class="quiz-question" data-question="4">
+            <div class="quiz-question-number">Question 4 of 15</div>
+            <div class="quiz-question-text">Does your organization have a legally constituted board or governing body with documented meeting records?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q4" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. The board meets at minimum quarterly. Meeting minutes are recorded and filed.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q4" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have a governing body but meetings are irregular or not documented.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q4" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Governance is informal with no documented decision-making records.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> DFIs need to see that decisions are made by a body, not by an individual. For indigenous organizations, this can align with existing governance structures (consultative assemblies, congresses) as long as they are documented.</div>
+          </div>
+
+          <div class="quiz-question" data-question="5">
+            <div class="quiz-question-number">Question 5 of 15</div>
+            <div class="quiz-question-text">Are roles, responsibilities, and authority levels clearly defined in writing?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q5" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We have an organizational chart, job descriptions, and documented signing authorities (who can authorize payments at what thresholds).</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q5" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">Roles are understood but not formally documented.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q5" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Roles are fluid and undocumented.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> When USAID or GEF conducts a pre-award assessment, they look for segregation of duties. The person who approves a purchase should not be the same person who makes the payment. If you cannot show this in writing, you fail the assessment.</div>
+          </div>
+
+          <div class="quiz-question" data-question="6">
+            <div class="quiz-question-number">Question 6 of 15</div>
+            <div class="quiz-question-text">Does your organization have a conflict of interest policy?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q6" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Written, signed by all board members and senior staff, with procedures for disclosure and recusal.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q6" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have an informal understanding but no written policy.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q6" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">No policy exists.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> This is one of the easiest boxes to check and one of the most commonly missed. DFIs will not fund organizations where board members can direct funds to their own businesses without a documented disclosure process.</div>
+          </div>
+        </div>
+
+        <!-- Dimension 3 -->
+        <div class="quiz-dimension">
+          <div class="quiz-dimension-subtitle">Dimension 3 / 6 points possible</div>
+          <div class="quiz-dimension-title">Project Management and Reporting</div>
+
+          <div class="quiz-question" data-question="7">
+            <div class="quiz-question-number">Question 7 of 15</div>
+            <div class="quiz-question-text">Has your organization successfully managed and reported on an externally funded project of $50,000 or more?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q7" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We delivered final programmatic and financial reports that were accepted by the funder.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q7" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have managed smaller grants (under $50K) with final reporting.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q7" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We have not managed externally funded projects with formal reporting requirements.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> Track record is the strongest predictor of future performance in every DFI's evaluation framework. A successfully closed $50K grant is worth more than a $500K letter of intent. Start small, close clean, build the record.</div>
+          </div>
+
+          <div class="quiz-question" data-question="8">
+            <div class="quiz-question-number">Question 8 of 15</div>
+            <div class="quiz-question-text">Do you have a monitoring and evaluation (M&E) system for tracking project indicators?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q8" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We collect data against defined indicators, analyze it, and use it to adjust implementation.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q8" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We collect data but analysis and use for decision-making is inconsistent.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q8" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We report on activities completed but do not systematically track indicators.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> GEF independent evaluations consistently cite M&E shortcomings as the primary driver of project underperformance. DFIs want to see that you measure outcomes, not just outputs. "We conducted 12 workshops" is an output. "85% of participants adopted the tool within 6 months" is an outcome.</div>
+          </div>
+
+          <div class="quiz-question" data-question="9">
+            <div class="quiz-question-number">Question 9 of 15</div>
+            <div class="quiz-question-text">Can your organization produce narrative and financial reports in English or the funder's required language?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q9" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. We have staff or contracted capacity to produce donor-quality reports in English (or French/Spanish as required).</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q9" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We can produce reports in Spanish but need external support for English.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q9" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We do not have report-writing capacity in the funder's required language.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> Language is a barrier that is solvable. AI translation tools have dramatically reduced this gap. But you need someone who can review the translation for technical accuracy and donor-specific terminology.</div>
+          </div>
+        </div>
+
+        <!-- Dimension 4 -->
+        <div class="quiz-dimension">
+          <div class="quiz-dimension-subtitle">Dimension 4 / 6 points possible</div>
+          <div class="quiz-dimension-title">Human Resources and Operational Capacity</div>
+
+          <div class="quiz-question" data-question="10">
+            <div class="quiz-question-number">Question 10 of 15</div>
+            <div class="quiz-question-text">Does your organization have at least one full-time staff member dedicated to financial management?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q10" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. A trained accountant or finance officer who is not also the program director.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q10" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">Financial management is handled by a staff member with other primary responsibilities.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q10" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Financial management is handled by the director or board members directly.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> DFI assessors look for segregation of duties. If your Executive Director also manages the checkbook, the assessor flags this as a single-point-of-failure risk. A dedicated finance person, even part-time, solves this.</div>
+          </div>
+
+          <div class="quiz-question" data-question="11">
+            <div class="quiz-question-number">Question 11 of 15</div>
+            <div class="quiz-question-text">Does your organization have a physical office, internet connectivity, and basic IT infrastructure?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q11" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Office, reliable internet (even if intermittent), computers, and secure file storage.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q11" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have an office but connectivity and IT infrastructure are unreliable.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q11" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We operate from personal residences or community spaces without dedicated infrastructure.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> DFIs will ask where financial records are stored and how they are backed up. "On the director's personal laptop" fails the assessment. An institutional office with a shared drive or cloud backup passes it.</div>
+          </div>
+
+          <div class="quiz-question" data-question="12">
+            <div class="quiz-question-number">Question 12 of 15</div>
+            <div class="quiz-question-text">Do you have a documented procurement process for purchasing goods and services?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q12" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Written policy with thresholds (e.g., 3 quotes required above $500, competitive bidding above $5,000).</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q12" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We get quotes but the process is not documented as a formal policy.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q12" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Procurement is done informally.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> Procurement violations are the number one audit finding in USAID-funded projects globally. A documented procurement policy with clear thresholds is the single most protective institutional document you can have.</div>
+          </div>
+        </div>
+
+        <!-- Dimension 5 -->
+        <div class="quiz-dimension">
+          <div class="quiz-dimension-subtitle">Dimension 5 / 6 points possible</div>
+          <div class="quiz-dimension-title">Legal and Compliance Framework</div>
+
+          <div class="quiz-question" data-question="13">
+            <div class="quiz-question-number">Question 13 of 15</div>
+            <div class="quiz-question-text">Is your organization registered as a legal entity with tax-exempt or non-profit status?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q13" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Legally constituted, registered with the relevant government authority, with current tax filings.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q13" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">Registered but tax filings are not current or status is under review.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q13" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">Not formally registered or operating under another organization's legal identity.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> Legal registration is the first gate. Without it, you cannot sign a grant agreement, open an institutional bank account, or receive direct transfers.</div>
+          </div>
+
+          <div class="quiz-question" data-question="14">
+            <div class="quiz-question-number">Question 14 of 15</div>
+            <div class="quiz-question-text">Does your organization have a bank account in its own name with multi-signatory controls?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q14" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Institutional bank account requiring two signatures for withdrawals above a defined threshold.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q14" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">We have a bank account but with single-signatory access.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q14" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">We use personal bank accounts or cash management.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> No DFI will transfer funds to a personal account. Multi-signatory controls demonstrate that no single individual can unilaterally access funds.</div>
+          </div>
+
+          <div class="quiz-question" data-question="15">
+            <div class="quiz-question-number">Question 15 of 15</div>
+            <div class="quiz-question-text">Does your organization have documented policies for anti-fraud, anti-corruption, and whistleblower protection?</div>
+            <div class="quiz-options">
+              <label class="quiz-option" data-value="2">
+                <input type="radio" name="q15" value="2">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">2 points</div>
+                  <div class="quiz-option-text">Yes. Written policies, accessible to all staff, with a designated reporting channel.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="1">
+                <input type="radio" name="q15" value="1">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">1 point</div>
+                  <div class="quiz-option-text">Some policies exist but they are incomplete or not communicated.</div>
+                </div>
+              </label>
+              <label class="quiz-option" data-value="0">
+                <input type="radio" name="q15" value="0">
+                <div class="quiz-option-radio"></div>
+                <div class="quiz-option-content">
+                  <div class="quiz-option-points">0 points</div>
+                  <div class="quiz-option-text">No formal anti-fraud or anti-corruption policies.</div>
+                </div>
+              </label>
+            </div>
+            <div class="quiz-why"><strong>Why this matters:</strong> These policies protect your organization as much as the funder. A whistleblower channel prevents problems from growing in silence. DFIs require them because experience has taught them what happens without them.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============ THE HONEST PART ============ -->
+      <h2>The honest part</h2>
+      <p>This assessment is a diagnostic, not a judgment. Many of the most impactful organizations on the planet would score below 15 on this tool. That does not mean they are not effective. It means DFI bureaucracy was not designed for them.</p>
+      <p>The path from sub-awardee to direct recipient is not about becoming more "professional." It is about building the specific institutional scaffolding that DFIs require in order to transfer fiduciary responsibility. Nothing more. Nothing less.</p>
+
+      <div class="callout callout--insight">
+        <h4>The reframe</h4>
+        <p>Indigenous governance capacity is not overhead. It is foundational risk infrastructure. The territorial assemblies, the consultative processes, the community accountability mechanisms that indigenous organizations already run are exactly the governance structures that reduce implementation risk for DFIs. The gap is not that these structures do not exist. The gap is that they are not documented in the format DFIs can read.</p>
+      </div>
+
+      <!-- ============ NEXT STEPS BY SCORE ============ -->
+      <h2>Next steps by score</h2>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Scored 0-7: Starting</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Begin with bilateral grants under $25K that have lighter reporting requirements. Build the track record. Every clean close adds credibility. Do not attempt major DFI applications at this stage.</p>
+          <p>Start with the <a href="../sub-awardee-to-direct/">Direct Recipient Roadmap</a>, Stage 1. Build your institutional documentation first.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Scored 8-15: Building</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Direct funding is 12-18 months away. Work with a fiscal sponsor or INGO partner for current projects while building internal systems. Focus on: accounting software, governance documentation, and closing one small grant ($10-50K) with clean reporting.</p>
+          <p>Start at Stage 2 of the <a href="../sub-awardee-to-direct/">Direct Recipient Roadmap</a>. Focus on systems and your first small grant.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Scored 16-23: Close</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>You have the foundation. The gaps you identified are specific and closable. Most can be addressed in 6-12 months. Prioritize: financial policies manual, independent audit, procurement documentation, and at least one successfully closed small grant.</p>
+          <p>Skip to Stage 4 of the <a href="../sub-awardee-to-direct/">Direct Recipient Roadmap</a>. Prepare for a formal DFI capacity assessment. Use the <a href="../dfi-grant-framing/">DFI Decoder</a> to strengthen your proposal framing.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span>Scored 24-30: Ready</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Your organization has the institutional architecture to apply for direct DFI funding. Your limiting factor is not capacity. It is visibility, relationships, and proposal quality.</p>
+          <p>Use the <a href="../dfi-grant-framing/">DFI Decoder</a> and <a href="../blended-finance-templates/">Capital Stack Templates</a> to design and submit your first direct application.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need help closing the gaps?</h2>
+      <p>If your organization scored 8-23 and wants to close the gaps, I have done this work directly with indigenous organizations across Ecuador and Peru.</p>
+      <p>Executive Director of Fundacion IKIAM, securing direct grants for the Achuar Nation. Project Coordinator at ASHA, coordinating with ~30 indigenous nations. I know exactly where these assessments fail and what it takes to pass them.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../sub-awardee-to-direct/" class="related-card">
+        <h4>The Direct Recipient Roadmap</h4>
+        <p>What indigenous organizations need to graduate from sub-awardee to direct DFI recipient.</p>
+      </a>
+      <a href="../dfi-grant-framing/" class="related-card">
+        <h4>The DFI Decoder</h4>
+        <p>Before-and-after examples of framing the same project for GEF, IDB, and EU mechanisms.</p>
+      </a>
+      <a href="../blended-finance-templates/" class="related-card">
+        <h4>Capital Stack Templates</h4>
+        <p>Blended finance structures for conservation projects combining public, private, and philanthropic capital.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+  <script>
+  (function() {
+    var STORAGE_KEY = 'dfrs-quiz-answers';
+    var answers = {};
+    var totalQuestions = 15;
+
+    // Load from localStorage
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        answers = JSON.parse(saved);
+        // Restore selections
+        Object.keys(answers).forEach(function(q) {
+          var radio = document.querySelector('input[name="' + q + '"][value="' + answers[q] + '"]');
+          if (radio) {
+            radio.checked = true;
+            radio.closest('.quiz-option').classList.add('selected');
+          }
+        });
+        updateScore();
+      }
+    } catch(e) {}
+
+    // Handle clicks
+    document.querySelectorAll('.quiz-option').forEach(function(option) {
+      option.addEventListener('click', function() {
+        var radio = this.querySelector('input[type="radio"]');
+        radio.checked = true;
+
+        // Clear siblings
+        this.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(function(sib) {
+          sib.classList.remove('selected');
+        });
+        this.classList.add('selected');
+
+        // Save answer
+        answers[radio.name] = parseInt(radio.value);
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(answers)); } catch(e) {}
+
+        updateScore();
+      });
+    });
+
+    function updateScore() {
+      var total = 0;
+      var answered = 0;
+      Object.keys(answers).forEach(function(q) {
+        total += answers[q];
+        answered++;
+      });
+
+      document.getElementById('scoreNumber').textContent = total;
+      document.getElementById('progressText').textContent = answered + ' of ' + totalQuestions + ' answered';
+      document.getElementById('progressFill').style.width = ((answered / totalQuestions) * 100) + '%';
+
+      var interp = document.getElementById('scoreInterpretation');
+      if (answered > 0) {
+        interp.style.display = 'block';
+        interp.className = 'score-interpretation';
+        if (total >= 24) {
+          interp.classList.add('ready');
+          interp.innerHTML = '<div class="score-interpretation-title">Ready for direct funding</div>You can apply as prime contractor to most DFI mechanisms. Focus on relationship building and proposal quality.';
+        } else if (total >= 16) {
+          interp.classList.add('close');
+          interp.innerHTML = '<div class="score-interpretation-title">Close but not there</div>You have the fundamentals. Specific gaps need closing. The questions you scored 0 or 1 on are your work plan.';
+        } else if (total >= 8) {
+          interp.classList.add('building');
+          interp.innerHTML = '<div class="score-interpretation-title">Significant gaps remain</div>Direct funding is 12-18 months away with focused capacity building. The gaps are fixable.';
+        } else {
+          interp.classList.add('starting');
+          interp.innerHTML = '<div class="score-interpretation-title">Early stage</div>Begin with smaller bilateral grants and build systems incrementally. Every clean close adds credibility.';
+        }
+      } else {
+        interp.style.display = 'none';
+      }
+    }
+
+    // Expandable sections
+    document.querySelectorAll('.expandable-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var parent = this.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Stack Templates -- Juan Diego Villacis</title>
+  <meta name="description" content="How conservation projects actually get financed. How concessional capital, first-loss layers, guarantees, and revenue streams stack. From four published playbooks on exactly this.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="Capital Stack Templates: How Conservation Projects Get Financed">
+  <meta property="og:description" content="Interactive stack builder and 3 real examples showing how concessional, catalytic, and commercial capital layer together.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    /* Stack visualization bars */
+    .stack-example {
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .stack-example h4 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      margin-top: 0;
+    }
+    .stack-example .stack-total {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: var(--space-md);
+    }
+    .stack-bar {
+      display: flex;
+      height: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: var(--space-md);
+    }
+    .stack-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+      padding: 0 0.5rem;
+    }
+    .stack-segment--concessional {
+      background: var(--canopy-mid);
+    }
+    .stack-segment--catalytic {
+      background: #b8860b;
+    }
+    .stack-segment--commercial {
+      background: var(--river-mid);
+    }
+    .stack-legend {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-md);
+      font-size: 0.78rem;
+      color: var(--text-mid);
+    }
+    .stack-legend span::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      margin-right: 0.4em;
+      vertical-align: middle;
+    }
+    .legend--concessional::before { background: var(--canopy-mid); }
+    .legend--catalytic::before { background: #b8860b; }
+    .legend--commercial::before { background: var(--river-mid); }
+
+    .stack-details {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .stack-details strong { color: var(--text); }
+
+    .dimension-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+    }
+    .dimension-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .dimension-list li:last-child { border-bottom: none; }
+    .dimension-list .dim-name {
+      min-width: 140px;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .score-guide {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: var(--space-md) 0;
+    }
+    .score-guide-item {
+      background: var(--surface-card);
+      padding: 1rem;
+      text-align: center;
+    }
+    .score-guide-item .range {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .score-guide-item .meaning {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .phase-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .stack-legend { flex-direction: column; gap: 0.5rem; }
+      .score-guide { grid-template-columns: 1fr; }
+      .dimension-list li { flex-direction: column; gap: 0.3rem; }
+      .dimension-list .dim-name { min-width: auto; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Finance</div>
+      <span class="tool-number label--finance">Tool 10</span>
+      <h1>Capital Stack Templates</h1>
+      <p class="subtitle">How conservation projects actually get financed. How concessional capital, first-loss layers, guarantees, and revenue streams stack. From four published playbooks on exactly this.</p>
+      <p class="author-line">By Juan Diego Villacis. Strategic counterpart for $1M FIEDS fund. 4 investor playbooks published. Worked with $600M Amazon Bioeconomy Fund concept.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Interactive stack builder + 3 real examples</span>
+        <span class="meta-item"><strong>Audience:</strong> DFI officers, impact investors, project designers</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <!-- Section 1 -->
+      <h2>What a capital stack is</h2>
+      <p>Think of a building. The foundation bears the most weight and takes the most risk. The upper floors are lighter and more protected. A capital stack works the same way: different types of capital are layered so that the riskiest money goes in first, absorbing losses before the money above it is touched.</p>
+      <p>In conservation finance, the foundation is typically concessional capital (grants, first-loss guarantees) from public or philanthropic sources. The middle floors are catalytic capital (impact-first investors accepting below-market returns). The upper floors are commercial capital (market-rate investors who only participate because the layers below them absorb the risk they would not accept alone).</p>
+      <p>The question is never "can we find capital?" It is "can we structure the capital so that each type of investor gets a risk-return profile they recognize?"</p>
+
+      <!-- Section 2 -->
+      <h2>Why conservation projects fail to attract capital</h2>
+      <p>Four dimensions, every time.</p>
+      <ul class="dimension-list">
+        <li><span class="dim-name">No cash flow</span> The project has conservation outcomes but no revenue model. Investors need to know how their money comes back. If the answer is "impact" without a financial return mechanism, you are looking for a grant, not an investment.</li>
+        <li><span class="dim-name">No risk allocation</span> All the risk sits with one party. Nobody has structured who absorbs what type of loss. First-loss positions, guarantees, and insurance are not afterthoughts. They are the core architecture.</li>
+        <li><span class="dim-name">Wrong sequence</span> The project approaches commercial investors first. Commercial capital needs concessional and catalytic capital already committed. If you pitch a bank before you have your first-loss layer, you will be rejected and burn the relationship.</li>
+        <li><span class="dim-name">Language mismatch</span> The project describes its value in conservation terms (hectares protected, species saved) and expects investors to translate that into financial terms. Investors need IRR, payback period, cash flow projections, risk-adjusted returns. You must speak both languages fluently.</li>
+      </ul>
+
+      <!-- Section 3: The Five Layers -->
+      <h2>The five layers</h2>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Layer 1</span> Concessional Capital (15-40% of stack)</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Grants, first-loss tranches, deeply concessional loans, technical assistance facilities. This is the foundation. It absorbs the first losses and makes everything above it possible.</p>
+          <p><strong>Sources:</strong> DFIs (GCF, GEF, KfW, AFD), bilateral agencies (USAID, GIZ, AECID), philanthropic foundations, government budget allocations.</p>
+          <p><strong>What it does:</strong> De-risks the project enough that catalytic and commercial capital can participate. Without this layer, the perceived risk is too high for anyone else to enter.</p>
+          <div class="callout callout--field">
+            <h4>FIEDS Fund example</h4>
+            <p>In the FIEDS fund structure, the concessional layer was designed as a first-loss tranche from public sources, absorbing the first 20% of any portfolio losses. This single feature changed the risk profile enough to make the catalytic layer investable.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Layer 2</span> Catalytic Capital (20-35% of stack)</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Impact-first investors, program-related investments (PRIs), revenue-based financing, social bonds. These investors accept below-market returns (2-6% typical) in exchange for measurable impact.</p>
+          <p><strong>Sources:</strong> Impact investors (Calvert, Omidyar, Acumen), DFI investment windows, social bond markets, family offices with impact mandates.</p>
+          <p><strong>What it does:</strong> Bridges the gap between philanthropic capital and commercial capital. It demonstrates that the project can generate financial returns, even if modest, which de-risks it further for commercial investors.</p>
+          <div class="callout callout--insight">
+            <h4>Revenue-based financing</h4>
+            <p>One underutilized structure: revenue-based financing where the investor receives a fixed percentage of revenue until a cap is reached (typically 1.5-2.5x invested capital). This works well for bioeconomy projects with variable but growing revenue. No fixed repayment schedule, no equity dilution, aligned incentives.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Layer 3</span> Commercial Capital</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Market-rate debt and equity. Banks, commercial lenders, mainstream investment funds. These investors require market-rate returns (8-15% depending on geography and risk profile) and will not participate unless Layers 1 and 2 are already in place.</p>
+          <p><strong>Sources:</strong> Local and regional banks, commercial investment funds, corporate venture arms, development bank commercial windows.</p>
+          <p><strong>What it unlocks:</strong> Scale. Concessional and catalytic capital are scarce. Commercial capital is abundant but risk-averse. The entire point of the stack is to use scarce concessional capital to unlock abundant commercial capital.</p>
+          <p><strong>The leverage ratio:</strong> A well-structured stack achieves 3-5x leverage, meaning every $1 of concessional capital mobilizes $3-5 of commercial capital. Below 2x, you are not structuring efficiently. Above 6x, the concessional layer may be too thin to absorb realistic losses.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Layer 4</span> Revenue Streams</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Revenue streams are not capital, they are the engine that makes repayment possible. Five categories for conservation-linked projects:</p>
+          <ol>
+            <li><strong>Bioeconomy products.</strong> Cacao, coffee, essential oils, functional ingredients, timber from sustainable forestry. Tangible products with existing markets.</li>
+            <li><strong>Carbon credits.</strong> Voluntary or compliance market. REDD+, ARR (afforestation/reforestation/revegetation), improved forest management. Revenue depends heavily on credit quality, vintage, and market conditions.</li>
+            <li><strong>Payments for Ecosystem Services (PES).</strong> Government or private sector payments for watershed protection, biodiversity conservation, or climate regulation services.</li>
+            <li><strong>Ecotourism.</strong> Lodge operations, guided experiences, cultural tourism. Highly variable, weather and political-risk sensitive, but can generate significant revenue in the right locations.</li>
+            <li><strong>Biodiversity credits.</strong> Emerging market. Credits representing verified biodiversity outcomes (species recovery, habitat restoration). Not yet standardized but developing rapidly.</li>
+          </ol>
+          <p>The strongest projects stack 2-3 revenue streams. Reliance on a single stream creates concentration risk that sophisticated investors will flag.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Layer 5</span> Risk Mitigation Instruments</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>These sit alongside the stack, reducing specific risks that would otherwise prevent capital from entering:</p>
+          <ul>
+            <li><strong>Guarantees.</strong> Partial credit guarantees from DFIs or governments that absorb a defined percentage of losses. MIGA, USAID DCA, AfDB partial guarantees.</li>
+            <li><strong>Political risk insurance.</strong> Covers expropriation, currency inconvertibility, political violence, breach of contract by government. MIGA, OPIC/DFC, private insurers.</li>
+            <li><strong>Currency hedging.</strong> Protects against exchange rate fluctuations when revenue is in local currency but debt is in USD or EUR. TCX Fund is the primary provider for frontier markets.</li>
+            <li><strong>Parametric insurance.</strong> Payouts triggered by measurable events (rainfall below threshold, fire above threshold) rather than assessed losses. Faster payout, lower administrative cost, but requires reliable data for triggering.</li>
+            <li><strong>Debt-for-nature swaps.</strong> Sovereign debt is purchased at a discount and retired in exchange for the government committing to conservation spending. Belize ($553M), Ecuador ($1.6B), Gabon ($500M) are recent examples.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 4: Three Real Examples -->
+      <h2>Three real examples</h2>
+      <p>Each shows how the layers stack in practice. Percentages are approximate and reflect the target allocation at design stage.</p>
+
+      <!-- Example 1 -->
+      <div class="stack-example">
+        <h4>Regenerative Cacao Operation</h4>
+        <p class="stack-total">Total: $3.2M</p>
+        <div class="stack-bar">
+          <div class="stack-segment stack-segment--concessional" style="width: 28%;">28%</div>
+          <div class="stack-segment stack-segment--catalytic" style="width: 28%;">28%</div>
+          <div class="stack-segment stack-segment--commercial" style="width: 44%;">44%</div>
+        </div>
+        <div class="stack-legend">
+          <span class="legend--concessional">Concessional: $900K</span>
+          <span class="legend--catalytic">Catalytic: $900K</span>
+          <span class="legend--commercial">Commercial: $1.4M</span>
+        </div>
+        <div class="stack-details">
+          <p><strong>Concessional layer:</strong> GEF small grants for agroforestry establishment + technical assistance from bilateral agency. First-loss position on the working capital facility.</p>
+          <p><strong>Catalytic layer:</strong> Revenue-based financing from impact investor, repaid from export proceeds at 8% of gross revenue until 2x cap.</p>
+          <p><strong>Commercial layer:</strong> Working capital line from local bank, secured by export contracts and partially guaranteed by the concessional layer.</p>
+          <p><strong>Revenue streams:</strong> Cacao bean and derivative exports (primary), carbon credits from agroforestry system (secondary).</p>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="stack-example">
+        <h4>Territorial Governance + Bioeconomy Program</h4>
+        <p class="stack-total">Total: $5.8M</p>
+        <div class="stack-bar">
+          <div class="stack-segment stack-segment--concessional" style="width: 43%;">43%</div>
+          <div class="stack-segment stack-segment--catalytic" style="width: 28%;">28%</div>
+          <div class="stack-segment stack-segment--commercial" style="width: 29%;">29%</div>
+        </div>
+        <div class="stack-legend">
+          <span class="legend--concessional">Concessional: $2.5M</span>
+          <span class="legend--catalytic">Catalytic: $1.6M</span>
+          <span class="legend--commercial">Commercial: $1.7M</span>
+        </div>
+        <div class="stack-details">
+          <p><strong>Concessional layer:</strong> DFI grant for governance infrastructure and capacity building. Government co-financing for territorial planning. First-loss on the bioeconomy investment.</p>
+          <p><strong>Catalytic layer:</strong> Impact investor providing patient capital (7-year term, 4% return) for bioeconomy enterprise development across 3 value chains.</p>
+          <p><strong>Commercial layer:</strong> Export credit from regional bank + advance purchase agreements from European buyers.</p>
+          <p><strong>Revenue streams:</strong> Multi-product bioeconomy exports (cacao, guayusa, essential oils), PES from watershed conservation, ecotourism income from community-managed lodges.</p>
+          <p><strong>Risk mitigation:</strong> Partial credit guarantee from DFI on the commercial tranche. Political risk coverage through MIGA.</p>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="stack-example">
+        <h4>Climate-Smart Conservation Fund</h4>
+        <p class="stack-total">Total: $12M</p>
+        <div class="stack-bar">
+          <div class="stack-segment stack-segment--concessional" style="width: 25%;">25%</div>
+          <div class="stack-segment stack-segment--catalytic" style="width: 33%;">33%</div>
+          <div class="stack-segment stack-segment--commercial" style="width: 42%;">42%</div>
+        </div>
+        <div class="stack-legend">
+          <span class="legend--concessional">Concessional: $3M</span>
+          <span class="legend--catalytic">Catalytic: $4M</span>
+          <span class="legend--commercial">Commercial: $5M</span>
+        </div>
+        <div class="stack-details">
+          <p><strong>Concessional layer:</strong> GCF-funded first-loss tranche (15% of portfolio) + technical assistance facility for project preparation. Anchor commitment that unlocked the catalytic tranche.</p>
+          <p><strong>Catalytic layer:</strong> Social bond issuance subscribed by impact-aligned institutional investors. 5% coupon, 10-year tenor, repayment linked to portfolio performance.</p>
+          <p><strong>Commercial layer:</strong> Senior debt tranche from development bank commercial window + co-investment from private equity fund with natural capital mandate.</p>
+          <p><strong>Revenue streams:</strong> Portfolio of 8-12 projects generating blended revenue from REDD+ credits, sustainable forestry, bioeconomy products, and biodiversity credits.</p>
+          <p><strong>Risk mitigation:</strong> Currency hedging via TCX Fund. Parametric insurance on climate-exposed assets. Portfolio diversification across geographies and revenue types.</p>
+        </div>
+      </div>
+
+      <!-- Section 5: How to structure your own -->
+      <h2>How to structure your own</h2>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 1</span> Start with revenue</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Before you think about capital, define your revenue model. What products or services will generate cash flow? What are the unit economics? What is the ramp-up timeline? Without a credible revenue model, everything above it is speculation. Carbon credits alone are not a revenue model. Biodiversity credits alone are not a revenue model. You need tangible cash flow.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 2</span> Map risks</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>List every risk: political, regulatory, market, operational, climate, currency, governance. For each risk, identify who is best positioned to absorb it or mitigate it. This mapping determines your risk mitigation layer and influences how you structure the concessional tranche.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 3</span> Identify your anchor</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Every stack needs an anchor investor: the first committed capital that signals credibility to everyone else. This is almost always concessional. A GCF commitment, a bilateral agency grant, a foundation PRI. Secure this first. Everything else follows.</p>
+          <p>The anchor should be large enough to be meaningful (15-25% of the total stack) and committed firmly enough that you can reference it in conversations with other investors.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 4</span> Sequence your asks</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Always bottom-up: concessional first, then catalytic, then commercial. Never approach a commercial bank before your concessional layer is committed. They will ask "who else is in?" and if the answer is "nobody yet," the conversation ends.</p>
+          <p>Expect the full capital raise to take 12-24 months. Concessional commitments alone can take 6-12 months through DFI processes.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 5</span> Build the waterfall</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>The cash flow waterfall defines who gets paid first from project revenue. Typical structure: operating expenses first, then senior debt service (commercial), then catalytic returns, then concessional recovery. The waterfall must be clear and contractual. Ambiguity about payment priority will kill your deal with commercial investors.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span><span class="number">Step 6</span> Stress test</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>Run three scenarios: base case, downside (revenue 40% below projections), and severe downside (revenue 60% below projections, plus one major risk materializing). In the base case, all investors are repaid on schedule. In the downside, the concessional layer absorbs losses but catalytic and commercial are protected. In severe downside, you need to show that the structure does not collapse entirely.</p>
+          <p>If your concessional layer cannot absorb a 40% revenue shortfall, it is too thin. Go back to Step 3 and raise more anchor capital.</p>
+        </div>
+      </div>
+
+      <!-- ============ DE-RISKING CHECKLIST ============ -->
+      <h2>De-Risking Readiness Checklist</h2>
+      <p>24 items across 5 categories. Your score indicates what type of capital your project can attract today. Click items to mark them complete.</p>
+
+      <div class="score-guide">
+        <div class="score-guide-item">
+          <div class="range">< 12</div>
+          <div class="meaning">Not ready for commercial capital. Focus on grants and concessional.</div>
+        </div>
+        <div class="score-guide-item">
+          <div class="range">12 - 18</div>
+          <div class="meaning">Approach impact investors. Build catalytic layer.</div>
+        </div>
+        <div class="score-guide-item">
+          <div class="range">> 18</div>
+          <div class="meaning">Bankable. Structure the full stack.</div>
+        </div>
+      </div>
+
+      <div class="tool-container">
+        <h3>De-Risking Progress</h3>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <span class="progress-counter text-sm text-dim">0 / 24</span>
+
+        <div style="margin-top: var(--space-lg);">
+
+          <!-- Governance & Legal -->
+          <span class="phase-label">Governance & Legal</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Legal entity established with clear ownership structure and governance documents</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Board or advisory committee with relevant sector expertise in place</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Land tenure or resource access rights documented and legally verified</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Environmental and social safeguards framework adopted (IFC PS or equivalent)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">FPIC process completed with indigenous or local communities (where applicable)</span></div>
+
+          <!-- Financial -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Financial</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Revenue model defined with unit economics validated by market data</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Financial projections built with base, downside, and severe downside scenarios</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Cash flow waterfall structured with clear payment priority</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Audited financial statements available (or credible pro forma if pre-revenue)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Working capital needs quantified and financing mechanism identified</span></div>
+
+          <!-- Risk -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Risk</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Risk register completed covering political, market, operational, climate, and currency risks</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">First-loss mechanism designed and concessional capital committed or in pipeline</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Insurance coverage identified for insurable risks (political, climate, liability)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Currency risk assessed and hedging strategy defined (if cross-currency)</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Exit strategy or refinancing pathway defined for each capital layer</span></div>
+
+          <!-- Operational -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Operational</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Management team in place with relevant operational experience</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Supply chain or value chain mapped with identified bottlenecks and mitigation plans</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Monitoring and evaluation framework defined with quantifiable impact indicators</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Technology and infrastructure requirements assessed and budgeted</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Regulatory compliance verified for all operating jurisdictions</span></div>
+
+          <!-- Track Record -->
+          <span class="phase-label" style="margin-top: var(--space-md);">Track Record</span>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Pilot or proof of concept completed with documented results</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">At least one buyer, offtaker, or revenue contract signed or in advanced negotiation</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Anchor investor committed or letter of interest received</span></div>
+          <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Team has prior experience closing and managing similar-scale investments</span></div>
+
+        </div>
+      </div>
+
+      <!-- ============ COMMON MISTAKES ============ -->
+      <h2>Common mistakes</h2>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 1: Pitching commercial investors first</h4>
+        <p>You approach a bank before your concessional layer is committed. The bank asks who else is in. You say "we are still fundraising." The meeting ends. You have burned a relationship you cannot easily rebuild. Always secure concessional first.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 2: Treating grants as the whole solution</h4>
+        <p>You design a project that is 100% grant-funded because grants do not require repayment. This works once. It does not scale. It does not attract commercial capital. It does not build the financial infrastructure needed for the second project. Grants should de-risk, not substitute for, a sustainable financial model.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 3: Assuming carbon credits will cover the gap</h4>
+        <p>You project $2M in carbon credit revenue without a signed offtake agreement, a verified methodology, or a realistic timeline to first issuance. Carbon credits are real revenue but they take 2-4 years to materialize, prices are volatile, and quality requirements are rising. Never make carbon your only revenue stream.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 4: Concessional layer too thin</h4>
+        <p>You structure 10% concessional and expect it to unlock 90% commercial. The math does not work. If your concessional layer cannot absorb a realistic downside scenario (30-40% revenue shortfall), commercial investors will see through it. Typical minimum: 15-25% of the total stack.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 5: No cash flow waterfall</h4>
+        <p>Multiple investors are in the deal but nobody has defined who gets paid first. When revenue comes in, disputes erupt. This should be contractually defined before any capital is deployed. Senior debt first, then mezzanine, then equity. Always.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 6: Impact metrics disconnected from financial metrics</h4>
+        <p>Your impact report shows 500 hectares protected and 200 families benefited, but your financial report shows negative cash flow and missed debt service. Impact and financial performance must be reported together with explicit linkages.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 7: Ignoring currency risk</h4>
+        <p>Your revenue is in local currency, your debt is in USD, and you have not hedged. A 15% currency devaluation turns a viable project into a defaulting one. In frontier markets, currency risk is not an edge case. It is a certainty over a 7-10 year investment horizon.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Mistake 8: Building the structure without the team</h4>
+        <p>You have a beautiful capital stack on paper but no CFO, no fund manager, no person who has actually managed investor reporting, covenant compliance, and disbursement conditions. Investors invest in teams, not structures. If your team has never closed a deal of this size, bring in someone who has.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need someone who has structured these deals?</h2>
+      <p>This guide covers the architecture and the logic. Structuring an actual capital stack, building the investor materials, navigating DFI processes, and closing the commitments. That requires someone who has been inside the room where these decisions get made.</p>
+      <p>$1M fund structured. 4 investor playbooks published. $600M Amazon Bioeconomy Fund concept.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../dfi-grant-framing/" class="related-card">
+        <h4>The DFI Decoder</h4>
+        <p>How DFIs actually make funding decisions. The evaluation criteria they use but rarely publish.</p>
+      </a>
+      <a href="../indigenous-fund-assessment/" class="related-card">
+        <h4>Direct Funding Readiness Score</h4>
+        <p>Assessment framework for indigenous organizations seeking direct access to international funding.</p>
+      </a>
+      <a href="../seed-to-shelf/" class="related-card">
+        <h4>Seed to Shelf</h4>
+        <p>The full 8-stage export roadmap from smallholder family to European retail.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+</body>
+</html>

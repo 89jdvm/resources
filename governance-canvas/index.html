@@ -3,435 +3,798 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Governance Canvas — Juan Diego Villacís</title>
+  <title>The Governance Canvas -- Juan Diego Villacis</title>
   <meta name="description" content="Design your multi-stakeholder platform in one page. A visual framework distilled from building 3 Cooperation Tables coordinating 22+ organizations each in the Ecuadorian Amazon.">
-  <meta name="author" content="Juan Diego Villacís">
-
-  <!-- OpenGraph -->
+  <meta name="author" content="Juan Diego Villacis">
   <meta property="og:title" content="The Governance Canvas: Design Your Multi-Stakeholder Platform in One Page">
-  <meta property="og:description" content="A visual framework distilled from building 3 Cooperation Tables coordinating 22+ organizations each in the Ecuadorian Amazon. Free tool by Juan Diego Villacís.">
+  <meta property="og:description" content="Eight structural questions that determine whether 22 organizations will coordinate or just meet quarterly until everyone stops coming.">
   <meta property="og:type" content="article">
-
-  <!-- Structured Data for AI Agents -->
   <meta name="keywords" content="governance canvas, multi-stakeholder platform, cooperation table, territorial governance, conservation coordination, stakeholder mapping, accountability mechanism, FPIC">
-  <meta name="expertise" content="3 Cooperation Tables designed and institutionalized across the Ecuadorian Amazon">
-  <meta name="geographic-focus" content="Ecuadorian Amazon, Latin America">
-  <meta name="audience" content="INGO program managers, DFI program officers, provincial governments, indigenous governance bodies">
-  <meta name="contact" content="89.jdvm@gmail.com, linkedin.com/in/jdv42/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared/css/base.css">
   <link rel="stylesheet" href="../shared/css/resource.css">
 
   <style>
-    /* --- Interactive Canvas Styles --- */
-    .canvas-wrapper {
-      margin: var(--space-xl) 0;
-      border: 2px solid var(--primary);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .canvas-title-bar {
-      background: var(--primary);
-      color: #fff;
-      padding: 1em 1.5em;
+    /* --- Canvas-specific styles --- */
+    .canvas-intro {
+      max-width: 640px;
+      margin: 0 auto var(--space-xl);
       text-align: center;
     }
-    .canvas-title-bar h3 {
-      color: #fff;
-      margin: 0;
-      font-size: 1.1rem;
+    .canvas-intro p {
+      color: var(--text-mid);
+      font-size: 0.92rem;
     }
-    .canvas-title-bar p {
-      opacity: 0.7;
-      font-size: 0.8rem;
-      margin: 0.3em 0 0;
+
+    /* The fillable canvas grid */
+    .canvas {
+      background: var(--surface);
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin: var(--space-xl) 0;
+    }
+
+    .canvas-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--line-bright);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .canvas-title {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .canvas-actions {
+      display: flex;
+      gap: 0.75rem;
     }
 
     .canvas-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border-top: none;
     }
 
     .canvas-block {
-      padding: 1.25em;
-      border: 1px solid var(--border);
-      position: relative;
+      padding: 1.5rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .canvas-block--full {
+    .canvas-block:nth-child(2n) { border-right: none; }
+
+    /* Block 3 (stakeholder map) spans full width */
+    .canvas-block--wide {
       grid-column: 1 / -1;
+      border-right: none;
     }
 
-    .canvas-block label {
-      display: block;
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: var(--primary);
+    /* Block 8 (sustainability) spans full width */
+    .canvas-block--bottom {
+      grid-column: 1 / -1;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .block-number {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.5rem;
     }
 
-    .canvas-block label .block-number {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      width: 1.6em;
-      height: 1.6em;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 1.6em;
-      font-size: 0.7rem;
-      margin-right: 0.3em;
-      vertical-align: middle;
+    .block-number--governance { color: var(--canopy-light); }
+    .block-number--finance { color: var(--amber-light); }
+
+    .block-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
-    .canvas-block .hint {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      margin-bottom: 0.5em;
+    .block-prompt {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
       font-style: italic;
     }
 
-    .canvas-block textarea {
+    .block-textarea {
+      flex: 1;
       width: 100%;
-      min-height: 80px;
-      border: 1px solid #e0ddd6;
-      border-radius: 6px;
-      padding: 0.6em;
-      font-family: var(--font);
-      font-size: 0.85rem;
-      line-height: 1.5;
-      resize: vertical;
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.75rem;
       color: var(--text);
-      background: #fafaf8;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      resize: none;
       transition: border-color 0.2s;
     }
-    .canvas-block textarea:focus {
+
+    .block-textarea:focus {
       outline: none;
-      border-color: var(--primary);
-      background: #fff;
+      border-color: var(--warm);
     }
 
-    .canvas-block .checklist {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .block-textarea::placeholder {
+      color: var(--text-ghost);
     }
-    .canvas-block .checklist li {
+
+    /* Checkbox groups inside canvas */
+    .block-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .block-check {
       display: flex;
       align-items: center;
-      gap: 0.5em;
-      padding: 0.3em 0;
-      font-size: 0.85rem;
-    }
-    .canvas-block .checklist input[type="checkbox"] {
-      accent-color: var(--primary);
-    }
-
-    .canvas-actions {
-      padding: 1em 1.5em;
-      background: #f5f4f0;
-      display: flex;
-      gap: 1em;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .canvas-actions button {
-      padding: 0.6em 1.2em;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 0.85rem;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-mid);
       cursor: pointer;
-      border: none;
-      font-family: var(--font);
-      transition: all 0.2s;
     }
-    .canvas-actions .btn-print {
-      background: var(--primary);
-      color: #fff;
-    }
-    .canvas-actions .btn-print:hover { background: var(--primary-light); }
-    .canvas-actions .btn-clear {
-      background: transparent;
-      color: var(--text-light);
-      border: 1px solid var(--border);
-    }
-    .canvas-actions .btn-clear:hover { border-color: var(--text-light); }
-    .canvas-actions .btn-save {
-      background: var(--accent);
-      color: #fff;
-    }
-    .canvas-actions .btn-save:hover { background: var(--accent-light); color: var(--text); }
 
+    .block-check input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--line-bright);
+      border-radius: 4px;
+      background: var(--surface-card);
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .block-check input[type="checkbox"]:checked {
+      background: var(--canopy-mid);
+      border-color: var(--canopy-mid);
+    }
+
+    .block-check input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      width: 6px;
+      height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+    /* Stakeholder sub-fields */
+    .stakeholder-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .stakeholder-field label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
+
+    .stakeholder-field textarea {
+      width: 100%;
+      min-height: 60px;
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      resize: none;
+    }
+
+    .stakeholder-field textarea:focus {
+      outline: none;
+      border-color: var(--warm);
+    }
+
+    .stakeholder-field textarea::placeholder {
+      color: var(--text-ghost);
+    }
+
+    .stakeholder-total {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .stakeholder-total label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .stakeholder-total input {
+      width: 60px;
+      padding: 0.4rem 0.6rem;
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .stakeholder-total input:focus {
+      outline: none;
+      border-color: var(--warm);
+    }
+
+    /* Canvas footer / attribution */
+    .canvas-footer {
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* --- Guide sections below canvas --- */
+    .guide-section {
+      margin-top: var(--space-2xl);
+    }
+
+    .guide-block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .guide-block h3 {
+      margin-top: 0;
+    }
+
+    .example-box {
+      background: var(--surface-up);
+      border-left: 2px solid var(--canopy-mid);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: var(--space-md);
+      margin: var(--space-sm) 0;
+    }
+
+    .example-box p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    .example-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--canopy-light);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .canvas-grid { grid-template-columns: 1fr; }
+      .canvas-grid {
+        grid-template-columns: 1fr;
+      }
+      .canvas-block {
+        border-right: none;
+      }
+      .stakeholder-fields {
+        grid-template-columns: 1fr;
+      }
+      .canvas-header {
+        padding: 1.25rem;
+      }
+      .canvas-block {
+        padding: 1.25rem;
+      }
     }
 
+    /* Print styles */
     @media print {
-      .canvas-actions { display: none; }
-      .canvas-wrapper { border: 2px solid #1a5632; break-inside: avoid; }
-      .canvas-block textarea { border: 1px solid #ccc; min-height: 60px; }
+      body { background: #fff; color: #000; font-size: 10pt; }
+      .site-nav, .resource-header .breadcrumb, .canvas-actions,
+      .guide-section, .author-cta, .related-resources, .site-footer { display: none !important; }
+      .resource-header { padding: 2rem 0 1rem; border-bottom: 1px solid #ccc; }
+      .resource-header h1 { color: #000; font-size: 1.8rem; }
+      .resource-header .subtitle { color: #333; }
+      .canvas { border: 2px solid #000; border-radius: 0; background: #fff; break-inside: avoid; }
+      .canvas-header { border-bottom: 2px solid #000; }
+      .canvas-title { color: #000; }
+      .canvas-grid { page-break-inside: avoid; }
+      .canvas-block { border-color: #ccc; min-height: 180px; }
+      .block-number--governance, .block-number--finance { color: #333; }
+      .block-title { color: #000; }
+      .block-prompt { color: #666; }
+      .block-textarea, .stakeholder-field textarea, .stakeholder-total input {
+        border: 1px solid #ccc; background: #fafafa; color: #000; -webkit-print-color-adjust: exact;
+      }
+      .canvas-footer { border-top: 1px solid #ccc; color: #666; }
+      .block-check { color: #333; }
+      .block-check input[type="checkbox"] { border-color: #666; background: #fff; }
     }
   </style>
 </head>
-<body>
-  <div class="resource-page">
 
-    <!-- Header -->
-    <header class="resource-header">
-      <div class="container">
-        <div class="breadcrumb"><a href="../">All Resources</a> / Governance & Coordination</div>
-        <h1>The Governance Canvas</h1>
-        <p class="subtitle">Design your multi-stakeholder platform in one page — a framework distilled from building 3 Cooperation Tables coordinating 22+ organizations each in the Ecuadorian Amazon.</p>
-        <p class="author-line">By Juan Diego Villacís — 3 Cooperation Tables designed and institutionalized (Morona Santiago, Orellana, Sucumbíos)</p>
-        <div class="download-links">
-          <a href="governance-canvas.md" class="btn btn--small" download>Download Markdown</a>
-        </div>
+<body class="resource-page">
+
+  <!-- Header -->
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Governance & Coordination</div>
+      <span class="tool-number label--governance">Tool 01</span>
+      <h1>The Governance Canvas</h1>
+      <p class="subtitle">Design your multi-stakeholder platform in one page. Eight structural questions that determine whether 22 organizations will coordinate or just meet quarterly until everyone stops coming.</p>
+      <p class="author-line">By Juan Diego Villacis. From designing and institutionalizing 3 Cooperation Tables across the Ecuadorian Amazon, each coordinating 22+ organizations.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Interactive canvas + guide</span>
+        <span class="meta-item"><strong>Time:</strong> 60-90 minutes to complete</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Body -->
-    <main class="resource-body">
-      <div class="container">
+  <!-- Body -->
+  <main class="resource-body">
+    <div class="container">
 
-        <h2>Why This Canvas Exists</h2>
-        <p>Most multi-stakeholder platforms fail within two years. Not because of lack of funding or political will — but because they never designed their governance architecture before convening. They skip the hard questions: What can this platform actually decide? What happens when stakeholders stop showing up? Who is accountable for execution?</p>
-        <p>I've built 3 Cooperation Tables across the Ecuadorian Amazon. Each one coordinates 22+ organizations — public sector, indigenous authorities, NGOs, academia, and private sector — around a shared roadmap with quarterly targets. This canvas captures the 8 structural questions that determined whether each platform succeeded or became another "talking shop."</p>
+      <div class="canvas-intro">
+        <p>Before you design a multi-stakeholder platform, you need to answer 8 questions. Most platforms fail because they skip at least 3 of them. Usually the hard ones about mandate, accountability, and what happens when stakeholders stop showing up.</p>
+        <p>Fill in every block below. If you can't fill a box, that's your biggest risk. Share the filled canvas with your coordination core before your first meeting.</p>
+      </div>
 
-        <div class="callout callout--insight">
-          <h4>How to use this</h4>
-          <p><strong>Fill it in before your first stakeholder meeting — not after.</strong> The blocks you can't fill are your biggest risks. Share the completed canvas with your coordination core as your design document. Revisit every 6 months as political contexts shift.</p>
-        </div>
-
-        <!-- Interactive Canvas -->
-        <div class="canvas-wrapper" id="canvas">
-          <div class="canvas-title-bar">
-            <h3>THE GOVERNANCE CANVAS v1.0</h3>
-            <p>Design Your Multi-Stakeholder Platform in One Page</p>
-          </div>
-
-          <div class="canvas-grid">
-            <!-- Block 1 -->
-            <div class="canvas-block">
-              <label><span class="block-number">1</span> Territorial Scope</label>
-              <div class="hint">What geography and population? Be specific: province, canton, protected area, indigenous territory.</div>
-              <textarea placeholder="Geography: &#10;Population: &#10;Overlapping territories: &#10;Existing governance structures:"></textarea>
-            </div>
-
-            <!-- Block 2 -->
-            <div class="canvas-block">
-              <label><span class="block-number">2</span> Problem Statement</label>
-              <div class="hint">What specific coordination failure does this platform solve? One sentence.</div>
-              <textarea placeholder="In one sentence, what is broken because organizations are NOT coordinating?"></textarea>
-            </div>
-
-            <!-- Block 3 -->
-            <div class="canvas-block canvas-block--full">
-              <label><span class="block-number">3</span> Stakeholder Map</label>
-              <div class="hint">Who MUST be at the table for legitimacy? (18-25 orgs is the operational sweet spot)</div>
-              <textarea style="min-height:100px" placeholder="Public Sector: &#10;Indigenous Authorities: &#10;Civil Society / NGOs: &#10;Academia: &#10;Private Sector: &#10;Total: &#10;Must-haves vs. nice-to-haves:"></textarea>
-            </div>
-
-            <!-- Block 4 -->
-            <div class="canvas-block">
-              <label><span class="block-number">4</span> Mandate & Decision Authority</label>
-              <div class="hint">What can this platform actually decide?</div>
-              <ul class="checklist">
-                <li><input type="checkbox"> Information sharing</li>
-                <li><input type="checkbox"> Advisory (recommendations)</li>
-                <li><input type="checkbox"> Coordination (assigns & tracks)</li>
-                <li><input type="checkbox"> Governance (binding decisions)</li>
-              </ul>
-              <textarea style="min-height:50px; margin-top:0.5em" placeholder="Formalized in: &#10;Signed by: &#10;Enforcement mechanism:"></textarea>
-            </div>
-
-            <!-- Block 5 -->
-            <div class="canvas-block">
-              <label><span class="block-number">5</span> Execution Instrument</label>
-              <div class="hint">What shared document drives the work?</div>
-              <textarea placeholder="Document name: &#10;Time horizon: &#10;# of activities: &#10;# of sub-tables: &#10;Update frequency: &#10;Who updates it:"></textarea>
-            </div>
-
-            <!-- Block 6 -->
-            <div class="canvas-block">
-              <label><span class="block-number">6</span> Accountability Mechanism</label>
-              <div class="hint">How do you ensure stakeholders do what they committed to?</div>
-              <ul class="checklist">
-                <li><input type="checkbox"> Public dashboard</li>
-                <li><input type="checkbox"> Automated notifications</li>
-                <li><input type="checkbox"> Quarterly progress reviews</li>
-                <li><input type="checkbox"> Escalation protocol</li>
-              </ul>
-              <textarea style="min-height:40px; margin-top:0.5em" placeholder="Who tracks: &#10;How is progress visible:"></textarea>
-            </div>
-
-            <!-- Block 7 -->
-            <div class="canvas-block">
-              <label><span class="block-number">7</span> Meeting Architecture</label>
-              <div class="hint">How often, who, what authority?</div>
-              <textarea placeholder="Plenary:     frequency &#10;Sub-tables:  frequency &#10;Core team:   frequency &#10;Decision protocol: &#10;Convened by:"></textarea>
-            </div>
-
-            <!-- Block 8 -->
-            <div class="canvas-block canvas-block--full">
-              <label><span class="block-number">8</span> Sustainability Model</label>
-              <div class="hint">How does this platform survive beyond the current funding cycle?</div>
-              <ul class="checklist" style="display:flex; gap:1.5em; flex-wrap:wrap; margin-bottom:0.5em;">
-                <li><input type="checkbox"> Institutional embedding (decree/ordinance)</li>
-                <li><input type="checkbox"> Multi-funder architecture</li>
-                <li><input type="checkbox"> Stakeholder co-financing</li>
-                <li><input type="checkbox"> Technical secretariat</li>
-              </ul>
-              <textarea style="min-height:50px" placeholder="If the current funder exits, what survives? &#10;Legal instrument for continuity:"></textarea>
-            </div>
-          </div>
-
+      <!-- ============ THE INTERACTIVE CANVAS ============ -->
+      <div class="canvas" id="canvas">
+        <div class="canvas-header">
+          <span class="canvas-title">The Governance Canvas v1.0</span>
           <div class="canvas-actions">
-            <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
-            <button class="btn-save" onclick="saveCanvas()">Save to Browser</button>
-            <button class="btn-clear" onclick="clearCanvas()">Clear All</button>
+            <button class="btn btn--outline btn--small" onclick="clearCanvas()">Clear All</button>
+            <button class="btn btn--primary btn--small" onclick="window.print()">Print / PDF</button>
           </div>
         </div>
 
-        <!-- Deep Dive Sections -->
-        <h2>The 8 Blocks — In Depth</h2>
+        <div class="canvas-grid">
 
-        <h3>Block 1: Territorial Scope</h3>
-        <p>Define the exact boundary. Multi-stakeholder platforms fail when the territorial scope is too vague ("the Amazon region") or too ambitious ("the entire watershed"). Be specific: province, canton, protected area, indigenous territory, or watershed boundary.</p>
-        <blockquote>The Mesa de Cooperación in Morona Santiago covers the entire province — 25,000 km², 12 cantons, population ~200,000. It overlaps with territories of the Shuar and Achuar nations. The territorial scope was defined by the provincial government boundary, giving it administrative legitimacy, but it required indigenous governance structures (life plans, consultative assemblies) to be recognized as co-equal inputs.</blockquote>
-        <p><strong>If you can't define the territorial scope clearly, you're not ready to build the platform.</strong></p>
+          <!-- Block 1: Territorial Scope -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 1</span>
+            <span class="block-title">Territorial Scope</span>
+            <span class="block-prompt">What geography and population does this platform govern? Be specific: province, canton, protected area, indigenous territory, or watershed boundary.</span>
+            <textarea class="block-textarea" placeholder="Geography:&#10;Population:&#10;Overlapping territories:&#10;Existing governance structures:"></textarea>
+          </div>
 
-        <h3>Block 2: Problem Statement</h3>
-        <p>Not "sustainable development" — that's a goal, not a problem. What is the specific thing that is broken, duplicated, or missing because organizations are not coordinating?</p>
-        <blockquote>In Orellana and Sucumbíos, the problem was that conservation and development organizations were operating in the same territory with no shared execution roadmap. The provincial government had infrastructure plans that conflicted with conservation zones. NGOs were implementing projects in the same communities without knowing about each other. Indigenous organizations were consulted sporadically by different actors at different times, creating consultation fatigue and contradictory commitments.</blockquote>
-        <p><strong>Write the problem in one sentence. If you need more than one sentence, you haven't understood the problem yet.</strong></p>
+          <!-- Block 2: Problem Statement -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 2</span>
+            <span class="block-title">Problem Statement</span>
+            <span class="block-prompt">What specific coordination failure does this platform exist to solve? Not "sustainable development." What is broken because organizations are not coordinating?</span>
+            <textarea class="block-textarea" placeholder="The specific coordination failure in one sentence:&#10;&#10;Decisions made in isolation:&#10;Effort being duplicated:&#10;Information trapped in silos:"></textarea>
+          </div>
 
-        <h3>Block 3: Stakeholder Map</h3>
-        <p>Not "who would be nice to include." Who MUST be there, or the platform's decisions carry no weight? Five categories: Public Sector, Indigenous Authorities, Civil Society/NGOs, Academia, Private Sector.</p>
-        <div class="callout callout--warning">
-          <h4>Common mistake</h4>
-          <p>Including everyone who asks. A platform with 50 organizations is a conference, not a governance body. <strong>18-25 is the operational sweet spot</strong> — enough for legitimacy, small enough for decision-making.</p>
+          <!-- Block 3: Stakeholder Map (full width) -->
+          <div class="canvas-block canvas-block--wide">
+            <span class="block-number block-number--governance">Block 3</span>
+            <span class="block-title">Stakeholder Map</span>
+            <span class="block-prompt">Who MUST be at the table for legitimacy? Not who would be nice to include. 18-25 organizations is the sweet spot.</span>
+            <div class="stakeholder-fields">
+              <div class="stakeholder-field">
+                <label>Public Sector</label>
+                <textarea placeholder="Provincial/municipal government, line ministries..."></textarea>
+              </div>
+              <div class="stakeholder-field">
+                <label>Indigenous Authorities</label>
+                <textarea placeholder="Territorial governance bodies, nationalities, federations..."></textarea>
+              </div>
+              <div class="stakeholder-field">
+                <label>Civil Society / NGOs</label>
+                <textarea placeholder="International and local conservation, development, rights orgs..."></textarea>
+              </div>
+              <div class="stakeholder-field">
+                <label>Academia</label>
+                <textarea placeholder="Universities, research centers..."></textarea>
+              </div>
+              <div class="stakeholder-field">
+                <label>Private Sector</label>
+                <textarea placeholder="Companies, cooperatives, producer associations..."></textarea>
+              </div>
+              <div class="stakeholder-field">
+                <label>Veto Power Holders</label>
+                <textarea placeholder="Who can block decisions? (FPIC, permits, donor conditions)"></textarea>
+              </div>
+              <div class="stakeholder-total">
+                <label>Total organizations:</label>
+                <input type="number" placeholder="0" min="0" max="99">
+                <label>Must-haves identified:</label>
+                <input type="number" placeholder="0" min="0" max="99">
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 4: Mandate -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 4</span>
+            <span class="block-title">Mandate & Decision Authority</span>
+            <span class="block-prompt">What can this platform actually decide, recommend, or enforce? If it's information sharing only, you need a mailing list, not a platform.</span>
+            <div class="block-checks">
+              <label class="block-check"><input type="checkbox"> Information sharing</label>
+              <label class="block-check"><input type="checkbox"> Advisory (non-binding recommendations)</label>
+              <label class="block-check"><input type="checkbox"> Coordination (assigns & tracks execution)</label>
+              <label class="block-check"><input type="checkbox"> Governance (binding decisions)</label>
+            </div>
+            <textarea class="block-textarea" placeholder="Formalized in (agreement type):&#10;Signed by (level):&#10;Enforcement mechanism:"></textarea>
+          </div>
+
+          <!-- Block 5: Execution Instrument -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 5</span>
+            <span class="block-title">Execution Instrument</span>
+            <span class="block-prompt">What shared document drives the work? The one document all stakeholders reference. In our model: the Hoja de Ruta (Roadmap).</span>
+            <textarea class="block-textarea" placeholder="Document name:&#10;Time horizon (years):&#10;Number of activities:&#10;Number of sub-tables/working groups:&#10;Update frequency:&#10;Who updates it:&#10;&#10;If an activity has no named org and no timeline, it's not in the roadmap."></textarea>
+          </div>
+
+          <!-- Block 6: Accountability -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 6</span>
+            <span class="block-title">Accountability Mechanism</span>
+            <span class="block-prompt">How do you ensure stakeholders do what they committed to? Without accountability, the roadmap collects dust.</span>
+            <div class="block-checks">
+              <label class="block-check"><input type="checkbox"> Public dashboard (always-on visibility)</label>
+              <label class="block-check"><input type="checkbox"> Automated notifications (deadline reminders)</label>
+              <label class="block-check"><input type="checkbox"> Quarterly progress reviews (plenary)</label>
+              <label class="block-check"><input type="checkbox"> Escalation protocol (non-compliance path)</label>
+            </div>
+            <textarea class="block-textarea" placeholder="Who tracks progress:&#10;How is progress visible to all:&#10;Escalation path for non-delivery:"></textarea>
+          </div>
+
+          <!-- Block 7: Meeting Architecture -->
+          <div class="canvas-block">
+            <span class="block-number block-number--governance">Block 7</span>
+            <span class="block-title">Meeting Architecture</span>
+            <span class="block-prompt">Three tiers: Plenary (all orgs, biannual), Sub-tables (by theme, quarterly), Coordination Core (3-5 key institutions, monthly).</span>
+            <textarea class="block-textarea" placeholder="Plenary frequency:&#10;Sub-table frequency:&#10;Coordination core frequency:&#10;&#10;Decision protocol (consensus/majority/veto):&#10;Convened by:&#10;Documentation method:"></textarea>
+          </div>
+
+          <!-- Block 8: Sustainability (full width) -->
+          <div class="canvas-block canvas-block--bottom">
+            <span class="block-number block-number--governance">Block 8</span>
+            <span class="block-title">Sustainability Model</span>
+            <span class="block-prompt">How does this platform survive beyond the current funding cycle? Use at least two strategies. If your exit strategy is "hopefully the next project will fund it," you haven't built a governance platform.</span>
+            <div class="block-checks">
+              <label class="block-check"><input type="checkbox"> Institutional embedding (decree, ordinance)</label>
+              <label class="block-check"><input type="checkbox"> Multi-funder architecture (no single dependency)</label>
+              <label class="block-check"><input type="checkbox"> Stakeholder co-financing (resources, not just cash)</label>
+              <label class="block-check"><input type="checkbox"> Technical secretariat (permanent coordination function)</label>
+            </div>
+            <textarea class="block-textarea" placeholder="If the current funder exits, what survives?&#10;&#10;Legal instrument for continuity:&#10;Which stakeholders would continue without external funding:"></textarea>
+          </div>
+
         </div>
 
-        <h3>Block 4: Mandate & Decision Authority</h3>
-        <p>This is the block most platforms skip — and the reason most platforms die within a year. If the platform has no authority to do anything, stakeholders stop coming after the second meeting.</p>
-        <p>Four levels: Information sharing → Advisory → Coordination → Governance. Each requires increasing levels of formalization and stakeholder commitment.</p>
-        <blockquote>The Morona Santiago Cooperation Table operates at Level 3 (Coordination) with elements of Level 4 (Governance) through its constitutive agreement — signed by the provincial prefect, indigenous federation presidents, NGO country directors, and academic rectors.</blockquote>
-        <p><strong>If your mandate is Level 1 (information sharing only), you don't need a platform — you need a mailing list.</strong></p>
-
-        <h3>Block 5: Execution Instrument</h3>
-        <p>Every effective platform needs one shared document — the Hoja de Ruta (Roadmap): a multi-year action plan broken into quarterly targets, organized by thematic sub-tables, with named responsible organizations per activity.</p>
-        <p><strong>Our roadmaps: 79 activities in Orellana, 93 in Sucumbíos. The roadmap is not a wish list. If an activity has no named responsible organization and no timeline, it's not in the roadmap.</strong></p>
-
-        <h3>Block 6: Accountability Mechanism</h3>
-        <p>Four layers — deploy all four: Visibility (public dashboard), Notification (automated reminders), Reporting (quarterly reviews), Escalation (consequences for non-delivery).</p>
-        <p><strong>If no one is tracking, no one is accountable. And if no one is accountable, the platform is a talking shop.</strong></p>
-
-        <h3>Block 7: Meeting Architecture</h3>
-        <p>Three-tier structure: Plenary Assembly (biannual, all stakeholders, strategic decisions), Sub-table Working Sessions (quarterly, 6-10 orgs, detailed planning), Coordination Core (monthly, 3-5 institutions, operational management).</p>
-        <div class="callout callout--warning">
-          <h4>Common mistake</h4>
-          <p>Holding plenaries too frequently. When you gather 22+ organizations every quarter, the meetings become performative. <strong>Reserve plenaries for real decisions. Use sub-tables for the actual work.</strong></p>
-        </div>
-
-        <h3>Block 8: Sustainability Model</h3>
-        <p>Most platforms die when the project that funded them ends. Use at least two strategies: Institutional embedding, Multi-funder architecture, Stakeholder co-financing, Technical secretariat.</p>
-        <blockquote>The Morona Santiago Cooperation Table was institutionalized through a formal prefectoral decree, making it a permanent function of the provincial government. When the political administration changed, the decree provided legal continuity.</blockquote>
-        <p><strong>If your exit strategy is "hopefully the next project will fund it," you haven't built a governance platform — you've built a project component.</strong></p>
-
-      </div>
-    </main>
-
-    <!-- Author CTA -->
-    <section class="author-cta">
-      <div class="container">
-        <h2>Implementing This in Your Territory?</h2>
-        <p>This canvas gives you the framework. The political choreography — who to approach first, how to handle the official who wants control, how to get indigenous authorities to see the platform as an extension of their governance — that's where it gets complex.</p>
-        <p>I've built this across 3 provinces with 22+ organizations each. I've made the mistakes so you don't have to.</p>
-        <div class="contact-links">
-          <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
-          <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="canvas-footer">
+          <span>Juan Diego Villacis | 89.jdvm@gmail.com | linkedin.com/in/jdv42/</span>
+          <span>CC BY 4.0 | v1.0 April 2026</span>
         </div>
       </div>
-    </section>
 
-    <!-- Related Resources -->
-    <section class="related-resources">
-      <h3>Related Resources</h3>
-      <div class="related-grid">
-        <a href="../cooperation-table-blueprint/" class="related-card">
-          <span class="badge badge--governance" style="margin-bottom:0.5em">Coming Soon</span>
-          <h4>The Cooperation Table Blueprint</h4>
-          <p>Full replication guide: governance architecture, constitutive agreements, and management model. The deep companion to this canvas.</p>
-        </a>
-        <a href="../first-90-days/" class="related-card">
-          <span class="badge badge--governance" style="margin-bottom:0.5em">Coming Soon</span>
-          <h4>The First 90 Days</h4>
-          <p>Week-by-week playbook for launching a multi-stakeholder platform. What to do in the first meeting — and what happens in week 4 that breaks most platforms.</p>
-        </a>
-        <a href="../stakeholder-power-mapping/" class="related-card">
-          <span class="badge badge--governance" style="margin-bottom:0.5em">Coming Soon</span>
-          <h4>Power Mapping for Conservation Platforms</h4>
-          <p>Interactive tool to map who actually holds influence — designed for contexts where legitimacy, authority, and funding don't live in the same organization.</p>
-        </a>
+      <!-- ============ DETAILED GUIDE ============ -->
+      <div class="guide-section">
+        <h2>Block-by-Block Guide</h2>
+        <p>Each block above corresponds to a structural decision your platform must make. Below is the field-tested reasoning behind each one, with examples from 3 Cooperation Tables in the Ecuadorian Amazon.</p>
+
+        <!-- Block 1 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">01</span> Territorial Scope</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Multi-stakeholder platforms fail when the territorial scope is too vague ("the Amazon region") or too ambitious ("the entire watershed"). Be specific: province, canton, protected area, indigenous territory, or watershed boundary.</p>
+            <p><strong>Questions to answer:</strong></p>
+            <ul>
+              <li>What is the formal administrative boundary?</li>
+              <li>Does it overlap with indigenous territorial claims? Which nations?</li>
+              <li>What other governance structures already operate here?</li>
+              <li>What is the population? How many communities?</li>
+            </ul>
+            <div class="example-box">
+              <span class="example-label">From practice</span>
+              <p>The Mesa de Cooperacion in Morona Santiago covers the entire province. 25,000 km2, 12 cantons, population ~200,000. It overlaps with territories of the Shuar and Achuar nations. The territorial scope was defined by the provincial government boundary, which gave it administrative legitimacy, but it required indigenous governance structures (life plans, consultative assemblies) to be recognized as co-equal inputs. That process culminated in recognition of the "Territory of Life and Ancestral Use Tarimiat Pujutai Nunka," protecting 1.23 million hectares.</p>
+            </div>
+            <p><strong>If you can't define the territorial scope clearly, you're not ready to build the platform.</strong></p>
+          </div>
+        </div>
+
+        <!-- Block 2 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">02</span> Problem Statement</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Not "sustainable development." That is a goal, not a problem. What is the specific thing that is broken, duplicated, or missing because organizations are not coordinating?</p>
+            <p><strong>Questions to answer:</strong></p>
+            <ul>
+              <li>What decisions are being made in isolation that should be coordinated?</li>
+              <li>Where is effort being duplicated across organizations?</li>
+              <li>What information exists in one organization that others need but don't have?</li>
+              <li>What governance vacuum is allowing conflicts, overlaps, or missed opportunities?</li>
+            </ul>
+            <div class="example-box">
+              <span class="example-label">From practice</span>
+              <p>In Orellana and Sucumbios, conservation and development organizations were operating in the same territory with no shared execution roadmap. The provincial government had infrastructure plans that conflicted with conservation zones. NGOs were implementing projects in the same communities without knowing about each other. Indigenous organizations were consulted sporadically by different actors, creating consultation fatigue and contradictory commitments.</p>
+            </div>
+            <p><strong>Write the problem in one sentence. If you need more than one, you haven't understood the problem yet.</strong></p>
+          </div>
+        </div>
+
+        <!-- Block 3 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">03</span> Stakeholder Map</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Not "who would be nice to include." Who MUST be there, or the platform's decisions carry no weight?</p>
+            <p><strong>Five stakeholder categories:</strong></p>
+            <ul>
+              <li><strong>Public Sector:</strong> Provincial/municipal government, line ministries. Legitimacy source: administrative authority, budget allocation, policy enforcement.</li>
+              <li><strong>Indigenous Authorities:</strong> Territorial governance bodies, nationalities, federations. Legitimacy source: territorial sovereignty, FPIC rights, historical legitimacy.</li>
+              <li><strong>Civil Society / NGOs:</strong> International and local conservation, development, rights organizations. Legitimacy source: technical capacity, donor relationships.</li>
+              <li><strong>Academia:</strong> Universities, research centers. Legitimacy source: technical knowledge, data, monitoring capacity.</li>
+              <li><strong>Private Sector:</strong> Companies, cooperatives, producer associations. Legitimacy source: economic activity, supply chain influence.</li>
+            </ul>
+            <div class="callout callout--warning">
+              <h4>Common mistake</h4>
+              <p>Including everyone who asks. A platform with 50 organizations is a conference, not a governance body. 18-25 is the operational sweet spot. Enough for legitimacy, small enough for decision-making.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 4 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">04</span> Mandate & Decision Authority</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>This is the block most platforms skip. And the reason most platforms die within a year.</p>
+            <p><strong>Four levels of mandate (ascending):</strong></p>
+            <ul>
+              <li><strong>Information sharing:</strong> Platform collects and distributes information. No binding decisions.</li>
+              <li><strong>Advisory:</strong> Platform makes recommendations. Not binding.</li>
+              <li><strong>Coordination:</strong> Platform assigns responsibilities and tracks execution. Morally binding.</li>
+              <li><strong>Governance:</strong> Platform makes binding decisions. Legally or institutionally binding.</li>
+            </ul>
+            <div class="example-box">
+              <span class="example-label">From practice</span>
+              <p>The Morona Santiago Cooperation Table operates at Level 3 (Coordination) with elements of Level 4 (Governance) through its constitutive agreement. Signed by the provincial prefect, indigenous federation presidents, NGO country directors, and academic rectors. It establishes the platform's authority to assign and track roadmap activities. The social accountability of 22+ signatories creates strong compliance pressure.</p>
+            </div>
+            <p><strong>If your mandate is Level 1 (information sharing only), you don't need a platform. You need a mailing list.</strong></p>
+          </div>
+        </div>
+
+        <!-- Block 5 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">05</span> Execution Instrument</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Every effective platform needs a single, shared execution instrument. The one document all stakeholders reference that tracks what needs to happen, who is responsible, and when.</p>
+            <p><strong>Anatomy of the Hoja de Ruta (Roadmap):</strong></p>
+            <ul>
+              <li><strong>Time horizon:</strong> 2-3 years</li>
+              <li><strong>Thematic sub-tables:</strong> 3-5 working groups by topic</li>
+              <li><strong>Activities:</strong> Specific, measurable. Not "promote sustainability." Instead: "establish 3 community monitoring stations by Q2 2027."</li>
+              <li><strong>Responsible organization(s):</strong> Named org per activity. Not "the platform."</li>
+              <li><strong>Timeline:</strong> Quarterly milestones</li>
+              <li><strong>Status tracking:</strong> Pending / In Progress / Completed / Delayed</li>
+            </ul>
+            <div class="callout callout--field">
+              <h4>Field note</h4>
+              <p>Our roadmaps: 79 activities in Orellana, 93 in Sucumbios. Each with a named responsible organization and quarterly timeline. The roadmap is not a wish list. If an activity has no named responsible organization and no timeline, it's not in the roadmap.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 6 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">06</span> Accountability Mechanism</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Without accountability, the roadmap collects dust. Deploy all four layers:</p>
+            <ul>
+              <li><strong>Visibility:</strong> Public dashboard showing activity status by organization. Always-on.</li>
+              <li><strong>Notification:</strong> Automated reminders when deadlines approach or pass. Weekly/monthly.</li>
+              <li><strong>Reporting:</strong> Quarterly progress reviews in plenary session. Each org reports on their activities.</li>
+              <li><strong>Escalation:</strong> What happens when an organization consistently fails to deliver? Social accountability, formal communication, conditional participation.</li>
+            </ul>
+            <div class="example-box">
+              <span class="example-label">From practice</span>
+              <p>We built a notification engine that sends automated email reminders to responsible organizations when activities approach their deadline, and escalation notices when activities are overdue. A public dashboard shows the status of all activities by province, sub-table, and quarter. Making it impossible for an organization to hide non-delivery.</p>
+            </div>
+            <p><strong>If no one is tracking, no one is accountable. And if no one is accountable, the platform is a talking shop.</strong></p>
+          </div>
+        </div>
+
+        <!-- Block 7 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">07</span> Meeting Architecture</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p><strong>Three-tier structure:</strong></p>
+            <ul>
+              <li><strong>Plenary Assembly</strong> (all 22+ orgs, biannual): Approve/revise roadmap. Review progress. Make strategic decisions. Sign agreements.</li>
+              <li><strong>Sub-table Working Sessions</strong> (6-10 orgs per theme, quarterly): Detailed activity planning. Technical coordination. Problem-solving.</li>
+              <li><strong>Coordination Core</strong> (3-5 key institutions, monthly): Operational coordination. Resolve blockers. Prepare sub-table agendas.</li>
+            </ul>
+            <div class="callout callout--warning">
+              <h4>Common mistake</h4>
+              <p>Holding plenaries too frequently. When you gather 22+ organizations every quarter, the meetings become performative. People report but don't decide. Reserve plenaries for real decisions. Use sub-tables for the actual work.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 8 Guide -->
+        <div class="expandable">
+          <button class="expandable-trigger">
+            <span><span class="number">08</span> Sustainability Model</span>
+            <span class="chevron">&#9662;</span>
+          </button>
+          <div class="expandable-content">
+            <p>Most platforms die when the project that funded them ends. Use at least two strategies:</p>
+            <ul>
+              <li><strong>Institutional embedding:</strong> Platform becomes part of formal government structure (ordinance, decree). Survives political transitions.</li>
+              <li><strong>Multi-funder architecture:</strong> Platform supported by multiple donors/orgs. No single dependency.</li>
+              <li><strong>Stakeholder co-financing:</strong> Each stakeholder contributes resources (staff time, logistics, data) instead of cash. Builds ownership.</li>
+              <li><strong>Technical secretariat:</strong> A permanent coordination function hosted by a neutral institution. Continuity of operations.</li>
+            </ul>
+            <div class="example-box">
+              <span class="example-label">From practice</span>
+              <p>The Morona Santiago Cooperation Table was institutionalized through a formal prefectoral decree, making it a permanent function of the provincial government. When the political administration changed, the decree provided legal continuity. That institutional embedding also created the conditions for tangible outputs: the first 7 Conservation Agreements were signed on June 27, 2025, delivering solar internet, energy kits, and water purification systems to Shuar and Achuar communities.</p>
+            </div>
+            <p><strong>If your exit strategy is "hopefully the next project will fund it," you haven't built a governance platform. You have built a project component.</strong></p>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <p>
-        <a href="../">All Resources</a> · By <strong>Juan Diego Villacís</strong> · <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a> · <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
-        <br>Free to use, share, and adapt. CC BY 4.0.
-      </p>
-    </footer>
+      <!-- How to Use -->
+      <div class="callout callout--insight" style="margin-top: var(--space-xl);">
+        <h4>How to use this canvas</h4>
+        <p style="margin-bottom: 0.5em;">1. Fill in every block above before your first stakeholder meeting. Not after.</p>
+        <p style="margin-bottom: 0.5em;">2. The blocks you can't fill are your biggest risks. Address them before launching.</p>
+        <p style="margin-bottom: 0.5em;">3. Share the filled canvas with your coordination core. It becomes your design document.</p>
+        <p style="margin-bottom: 0.5em;">4. Print it (use the button above) for workshop sessions.</p>
+        <p style="margin-bottom: 0;">5. Revisit every 6 months. Governance platforms evolve as political contexts shift.</p>
+      </div>
 
-  </div>
+    </div>
+  </main>
+
+  <!-- Author CTA -->
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need implementation support?</h2>
+      <p>This canvas gives you the framework. The political choreography. Who to approach first. How to handle the government official who wants control. How to get indigenous authorities to see the platform as an extension of their governance. That is where it gets complex.</p>
+      <p>I've built this across 3 provinces with 22+ organizations each.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Resources -->
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../cooperation-table-blueprint/" class="related-card">
+        <h4>The Cooperation Table Blueprint</h4>
+        <p>Full replication guide. Governance architecture, constitutive agreements, management model, and the political choreography.</p>
+      </a>
+      <a href="../first-90-days/" class="related-card">
+        <h4>The First 90 Days</h4>
+        <p>Week-by-week operator's playbook. First meeting design. What breaks in week four.</p>
+      </a>
+      <a href="../stakeholder-power-mapping/" class="related-card">
+        <h4>Power Mapping for Conservation Platforms</h4>
+        <p>Map who actually holds influence before the first meeting.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
 
   <script src="../shared/js/nav.js"></script>
   <script>
-    // Canvas persistence
+    function clearCanvas() {
+      if (!confirm('Clear all fields? This cannot be undone.')) return;
+      document.querySelectorAll('.canvas textarea, .canvas input[type="text"], .canvas input[type="number"]').forEach(el => el.value = '');
+      document.querySelectorAll('.canvas input[type="checkbox"]').forEach(el => el.checked = false);
+    }
+
+    // Auto-save to localStorage
     const STORAGE_KEY = 'governance-canvas-v1';
 
     function saveCanvas() {
       const data = {};
-      document.querySelectorAll('.canvas-block textarea').forEach((ta, i) => {
-        data['textarea_' + i] = ta.value;
+      document.querySelectorAll('.canvas textarea, .canvas input[type="number"]').forEach((el, i) => {
+        data['field_' + i] = el.value;
       });
-      document.querySelectorAll('.canvas-block input[type="checkbox"]').forEach((cb, i) => {
-        data['checkbox_' + i] = cb.checked;
+      document.querySelectorAll('.canvas input[type="checkbox"]').forEach((el, i) => {
+        data['check_' + i] = el.checked;
       });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      alert('Canvas saved to your browser. It will be here when you come back.');
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
     }
 
     function loadCanvas() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) return;
-      const data = JSON.parse(saved);
-      document.querySelectorAll('.canvas-block textarea').forEach((ta, i) => {
-        if (data['textarea_' + i]) ta.value = data['textarea_' + i];
-      });
-      document.querySelectorAll('.canvas-block input[type="checkbox"]').forEach((cb, i) => {
-        if (data['checkbox_' + i] !== undefined) cb.checked = data['checkbox_' + i];
-      });
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        document.querySelectorAll('.canvas textarea, .canvas input[type="number"]').forEach((el, i) => {
+          if (data['field_' + i] !== undefined) el.value = data['field_' + i];
+        });
+        document.querySelectorAll('.canvas input[type="checkbox"]').forEach((el, i) => {
+          if (data['check_' + i] !== undefined) el.checked = data['check_' + i];
+        });
+      } catch(e) {}
     }
 
-    function clearCanvas() {
-      if (!confirm('Clear all fields? This cannot be undone.')) return;
-      document.querySelectorAll('.canvas-block textarea').forEach(ta => ta.value = '');
-      document.querySelectorAll('.canvas-block input[type="checkbox"]').forEach(cb => cb.checked = false);
-      localStorage.removeItem(STORAGE_KEY);
-    }
+    // Save on every input
+    document.querySelector('.canvas').addEventListener('input', saveCanvas);
+    document.querySelector('.canvas').addEventListener('change', saveCanvas);
 
-    // Load saved data on page load
+    // Load on page ready
     loadCanvas();
   </script>
+
 </body>
 </html>

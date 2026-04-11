@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Direct Recipient Roadmap -- Juan Diego Villacis</title>
+  <meta name="description" content="What indigenous organizations need to graduate from sub-awardee to direct DFI recipient. What 'administrative capacity' means in practice, not in theory.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="The Direct Recipient Roadmap">
+  <meta property="og:description" content="A 5-stage progression guide from sub-awardee to direct DFI funding recipient for indigenous organizations.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    .phase-timeline {
+      position: relative;
+      margin: var(--space-xl) 0;
+    }
+    .phase-timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line-bright);
+    }
+    .phase-item {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: var(--space-xl);
+    }
+    .phase-dot {
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--canopy-mid);
+      background: var(--black);
+      z-index: 1;
+    }
+    .phase-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--canopy-light);
+      margin-bottom: 0.4rem;
+    }
+    .phase-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .phase-summary {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-sm);
+      line-height: 1.7;
+    }
+
+    .dfi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+      font-size: 0.82rem;
+    }
+    .dfi-table th {
+      background: var(--surface-up);
+      color: var(--text);
+      padding: 0.75em 0.75em;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line-bright);
+    }
+    .dfi-table td {
+      padding: 0.75em 0.75em;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-mid);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .dfi-table td strong { color: var(--text); }
+
+    .capabilities-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+      counter-reset: cap;
+    }
+    .capabilities-list li {
+      counter-increment: cap;
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: var(--space-sm);
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-size: 0.88rem;
+    }
+    .capabilities-list li::before {
+      content: counter(cap);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--surface-up);
+      border: 1px solid var(--line-bright);
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .capabilities-list li strong { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .phase-item { padding-left: 40px; }
+      .dfi-table { font-size: 0.75rem; }
+      .dfi-table th, .dfi-table td { padding: 0.5em; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Funding &amp; Finance</div>
+      <span class="tool-number label--finance">Tool 07</span>
+      <h1>The Direct Recipient Roadmap</h1>
+      <p class="subtitle">What indigenous organizations need to graduate from sub-awardee to direct DFI recipient. What "administrative capacity" means in practice, not in theory.</p>
+      <p class="author-line">By Juan Diego Villacis. Executive Director of Fundacion IKIAM. Project Coordinator at ASHA with ~30 indigenous nations.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> 5-stage progression guide</span>
+        <span class="meta-item"><strong>Timeline:</strong> 5 months to 24+ months</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <!-- ============ WHY ORGANIZATIONS GET STUCK ============ -->
+      <h2>Why organizations get stuck</h2>
+      <p>Here is how the system works right now. An international donor pledges $5 million for indigenous territorial conservation in the Amazon. The money goes to an INGO based in Washington, London, or Geneva. That INGO takes a 15-25% management fee. It hires staff. It sets up an office. It creates the reporting templates. Then it sub-awards the remaining funds to the indigenous organization that was supposed to receive the money in the first place.</p>
+      <p>The indigenous organization ends up as a contractor on its own territorial project. It follows someone else's reporting templates. It operates on someone else's disbursement timeline. It builds someone else's institutional capacity metrics.</p>
+      <p>This is not malice. It is a structural consequence of the fiduciary requirements that DFIs impose. The requirements are real. The question is whether indigenous organizations can meet them directly. They can. But it takes specific, sequenced work.</p>
+
+      <div class="callout callout--field">
+        <h4>The structural pattern</h4>
+        <p>USAID's own learning documents describe the pattern explicitly. When indigenous umbrella organizations like COICA attempt to partner directly with bilateral agencies, the programmatic co-creation succeeds. The partnership design works. Then the multi-million dollar award gets blocked because the local entity's financial and administrative systems are deemed incapable of absorbing direct funding. The organization accepts sub-awardee status beneath a Global North INGO.</p>
+      </div>
+
+      <p>The five capabilities that DFIs assess before granting direct access:</p>
+      <ol class="capabilities-list">
+        <li><strong>Accounting systems</strong> with auditable trails</li>
+        <li><strong>Procurement policies</strong> with documented competitive processes</li>
+        <li><strong>Governance structures</strong> with segregation of duties and documented decisions</li>
+        <li><strong>Grant management track record</strong> with clean financial and narrative close-outs</li>
+        <li><strong>Compliance framework</strong> including anti-fraud, conflict of interest, and whistleblower policies</li>
+      </ol>
+
+      <p>These are not arbitrary. Each one corresponds to a specific fiduciary risk that the DFI is legally required to mitigate. Understanding this removes the mystery. It is not a cultural test. It is a risk management checklist.</p>
+
+      <div class="callout callout--insight">
+        <h4>The reframe that changes the conversation</h4>
+        <p>Indigenous governance capacity is not overhead. It is foundational risk infrastructure. The territorial assemblies, the consultative processes, the community accountability mechanisms that indigenous organizations already run are exactly the governance structures that reduce implementation risk for DFIs. The gap is not that these structures do not exist. The gap is that they are not documented in the format DFIs can read.</p>
+      </div>
+
+      <!-- ============ THE FIVE STAGES ============ -->
+      <h2>The five stages</h2>
+
+      <div class="phase-timeline">
+
+        <!-- Stage 1 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Stage 1 / Months 1-3</div>
+          <div class="phase-title">Foundation</div>
+          <div class="phase-summary">Build the institutional documentation that does not require money to create. It requires discipline.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Deliverables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Written financial policies and procedures manual. Include: approval thresholds, segregation of duties (who authorizes, who pays, who records), petty cash management, bank reconciliation frequency.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Conflict of interest policy. Every board member and senior staff signs it.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Organizational chart with job descriptions and signing authorities.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Procurement policy. Define thresholds. Under $500: single source. $500-$5,000: three quotes. Over $5,000: competitive bidding with evaluation criteria.</span></div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>What actually happens</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>This stage is boring and essential. Most organizations skip it because the documentation feels bureaucratic. It is. It is also the first thing every DFI assessor asks for. Without it, the assessment stops on day one.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Stage 2 / Months 3-6</div>
+          <div class="phase-title">Systems</div>
+          <div class="phase-summary">Move from paper records to auditable digital systems.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Deliverables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Implement accounting software. QuickBooks, Wave (free), or Xero. Not Excel. The software creates the audit trail automatically.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Open an institutional bank account with dual-signatory controls for withdrawals above your defined threshold.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Set up a digital filing system for receipts, contracts, and correspondence. Each transaction: receipt, approval, journal entry, filed in one place.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Register for tax compliance in your jurisdiction. File back taxes if needed.</span></div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>What actually happens</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The jump from paper to software is where most capacity-building programs stall. The problem is usually not the software. It is that the person responsible for financial management is also the program coordinator, the communications officer, and the driver. You need a dedicated finance person. Even part-time. Even shared with another organization.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Stage 3 / Months 6-18</div>
+          <div class="phase-title">Track Record</div>
+          <div class="phase-summary">Build the grant management history that DFIs evaluate.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Deliverables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Apply for and manage 2-3 small grants ($10K-$50K) with formal reporting requirements. Entry points: US Embassy Democracy and Human Rights Fund ($10-25K), GIZ bilateral small grants, Swiss Development Cooperation, Ford Foundation BUILD program.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Close each grant with a clean final narrative and financial report. Get the acceptance letter from the funder. File it.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Request an independent audit after your first year of operations with external funding.</span></div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>What actually happens</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>This is the stage where you prove it. Not to the DFI you eventually want to access. To yourself. The first clean close teaches you where your systems break. The second one confirms the fix worked. By the third, you have a process.</p>
+              <p>The most common failure at this stage: over-committing. Organizations accept three grants simultaneously with different reporting templates and burn out their finance staff. Take them sequentially until your systems can handle parallel grants.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Stage 4 / Months 18-24</div>
+          <div class="phase-title">Assessment</div>
+          <div class="phase-summary">Prepare for and pass a formal organizational capacity assessment.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Deliverables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Request a pre-award assessment from the DFI you want to access. USAID uses the Organizational Capacity Assessment (OCA). Other DFIs have their own instruments.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Before the assessment, conduct an internal self-evaluation using the <a href="../indigenous-fund-assessment/">Direct Funding Readiness Score</a>.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Address every gap identified. Common gaps: missing board meeting minutes from early months, incomplete procurement files, outdated Stage 1 policies.</span></div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>What actually happens</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The assessment is not a pass/fail exam. It produces findings. Some findings are "conditions" (must fix before receiving funds). Others are "recommendations" (should fix, but not blocking). The conditions are your work plan. Focus on closing conditions. Recommendations can wait.</p>
+              <p>If you do not pass on the first attempt, that is normal. The assessment tells you exactly what to fix. Fix it. Request a follow-up assessment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Stage 5 / Month 24+</div>
+          <div class="phase-title">Direct Access</div>
+          <div class="phase-summary">Apply for direct funding as prime applicant.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>Deliverables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Respond to calls for proposals as prime applicant, not as sub-awardee.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Use the <a href="../dfi-grant-framing/">DFI Decoder</a> to frame your proposal correctly.</span></div>
+              <div class="checklist-item"><div class="checklist-check"></div><span class="checklist-text">Cite your track record: number of grants managed, total value, clean audit opinions, OCA results.</span></div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span>What actually happens</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The first direct award is the hardest. After that, every subsequent funder sees your track record and the barrier drops. The compound effect is real: each clean close makes the next application easier.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============ WHAT EACH MAJOR DFI REQUIRES ============ -->
+      <h2>What each major DFI requires</h2>
+
+      <table class="dfi-table">
+        <thead>
+          <tr>
+            <th>DFI</th>
+            <th>Assessment Instrument</th>
+            <th>Key Requirements</th>
+            <th>Typical Threshold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>USAID</strong></td>
+            <td>Organizational Capacity Assessment (OCA)</td>
+            <td>Accounting systems, procurement policies, governance, HR, M&amp;E</td>
+            <td>$500K+ awards trigger full assessment</td>
+          </tr>
+          <tr>
+            <td><strong>GEF</strong></td>
+            <td>Fiduciary Standards Assessment</td>
+            <td>Financial management, project oversight, anti-corruption</td>
+            <td>Applies to all executing agencies</td>
+          </tr>
+          <tr>
+            <td><strong>GCF</strong></td>
+            <td>Accreditation process</td>
+            <td>Fiduciary, ESG safeguards, gender policy</td>
+            <td>Micro: up to $10M. Small: $10-50M.</td>
+          </tr>
+          <tr>
+            <td><strong>EU</strong></td>
+            <td>PRAG compliance + Pillar Assessment</td>
+            <td>Accounting, internal controls, audit, procurement</td>
+            <td>6-pillar assessment for large grants</td>
+          </tr>
+          <tr>
+            <td><strong>IDB</strong></td>
+            <td>Country-specific fiduciary requirements</td>
+            <td>Financial management systems, audit, procurement</td>
+            <td>Varies by project size and instrument</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============ THREE SHORTCUTS THAT DON'T WORK ============ -->
+      <h2>Three shortcuts that do not work</h2>
+
+      <div class="callout callout--warning">
+        <h4>1. Hiring a compliance consultant to write your policies</h4>
+        <p>They will produce beautiful documents. Your staff will not follow them because they did not write them. The DFI assessor will ask your finance officer to explain the procurement process. If the finance officer refers to the manual instead of describing what they actually do, the assessor knows the policy is decorative. Build the policies with your team. It takes longer. It sticks.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>2. Partnering with an INGO "temporarily" while you build capacity</h4>
+        <p>Temporary becomes permanent. The INGO has no incentive to make itself unnecessary. After three years, you are still a sub-awardee with the same capacity gaps because the INGO's systems have been doing the work. Use fiscal sponsors for early grants. But build your own systems in parallel from day one.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>3. Waiting until you feel ready to apply</h4>
+        <p>You will never feel ready. The first assessment will find gaps. That is its purpose. Apply when you have completed Stage 3. The assessment is the diagnostic, not the destination.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need someone who has navigated this roadmap?</h2>
+      <p>This roadmap gives you the sequence. The operational reality of navigating each stage in a specific indigenous organization, with its own governance culture, language constraints, and political dynamics, is where it gets complex.</p>
+      <p>Executive Director of Fundacion IKIAM with the Achuar Nation. Project Coordinator at ASHA with ~30 indigenous nations. I know where these roadmaps break in practice and what to do when they break.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../indigenous-fund-assessment/" class="related-card">
+        <h4>Direct Funding Readiness Score</h4>
+        <p>Fifteen questions that tell you whether your indigenous fund can receive direct DFI funding.</p>
+      </a>
+      <a href="../dfi-grant-framing/" class="related-card">
+        <h4>The DFI Decoder</h4>
+        <p>Before-and-after examples of framing the same project for GEF, IDB, and EU mechanisms.</p>
+      </a>
+      <a href="../blended-finance-templates/" class="related-card">
+        <h4>Capital Stack Templates</h4>
+        <p>Blended finance structures for conservation projects combining public, private, and philanthropic capital.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+</body>
+</html>

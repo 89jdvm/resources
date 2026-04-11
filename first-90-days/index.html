@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The First 90 Days -- Juan Diego Villacis</title>
+  <meta name="description" content="Week-by-week operator's playbook for launching a multi-stakeholder governance platform. The actual choreography of who to call, what to ask, and what to do when things break.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="The First 90 Days: Week-by-Week Launch Playbook for Multi-Stakeholder Platforms">
+  <meta property="og:description" content="Week-by-week operator's playbook. The actual choreography of who to call, what to ask, and what to do when things break. From launching 3 Cooperation Tables in the Ecuadorian Amazon.">
+  <meta property="og:type" content="article">
+  <meta name="keywords" content="cooperation table, multi-stakeholder platform, territorial governance, first 90 days, launch playbook, conservation coordination, stakeholder engagement, constitutive agreement, roadmap design">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    /* --- Timeline-specific styles --- */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+      margin: var(--space-xl) 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--line-bright);
+    }
+    .timeline-phase {
+      position: relative;
+      margin-bottom: var(--space-xl);
+    }
+    .timeline-phase:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.25rem;
+      top: 0.15rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--warm);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--warm);
+    }
+    .timeline-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 0.25rem;
+    }
+    .timeline-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .timeline-summary {
+      color: var(--text-mid);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .breaks-section {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--line);
+    }
+    .breaks-section h2 {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .after-90 {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--line);
+    }
+    .after-90 h2 {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    @media print {
+      .site-nav, .resource-header .breadcrumb,
+      .author-cta, .related-resources, .site-footer { display: none !important; }
+      .resource-header { padding: 2rem 0 1rem; border-bottom: 1px solid #ccc; }
+      .resource-header h1 { color: #000; font-size: 1.8rem; }
+      .resource-header .subtitle { color: #333; }
+      .timeline::before { background: #ccc; }
+      .timeline-dot { background: #666; box-shadow: none; border-color: #fff; }
+      .expandable-content { display: block !important; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <!-- Header -->
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Governance & Coordination</div>
+      <span class="tool-number label--governance">Tool 03</span>
+      <h1>The First 90 Days</h1>
+      <p class="subtitle">Week-by-week operator's playbook. The actual choreography of who to call, what to ask, and what to do when things break. From launching 3 Cooperation Tables in the Ecuadorian Amazon.</p>
+      <p class="author-line">By Juan Diego Villacis. From launching and institutionalizing Cooperation Tables in Orellana, Sucumbios, and Morona Santiago provinces, each coordinating 22+ organizations.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Timeline playbook with checklists</span>
+        <span class="meta-item"><strong>Time:</strong> 90-day implementation cycle</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <main class="resource-body">
+    <div class="container">
+
+      <p>Most multi-stakeholder platforms fail in the first 90 days. Not because the governance design was wrong, but because the political choreography was off. The wrong person was approached first. The first meeting was structured like a workshop instead of a negotiation. The constitutive agreement was drafted by lawyers who had never sat in a room with indigenous authorities and extractive industry representatives at the same time.</p>
+      <p>This playbook is the operational sequence that worked across three provinces in the Ecuadorian Amazon. Not theory. The actual week-by-week moves.</p>
+
+      <!-- ============ PRE-LAUNCH CHECKLIST ============ -->
+      <h2>Pre-Launch Checklist</h2>
+      <p>Before you start the 90-day clock, these five items must be in place. If any are missing, you are not ready. Starting without them will cost you more time than waiting.</p>
+
+      <div class="tool-container">
+        <h3>Readiness Check</h3>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-counter" style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: var(--space-md); text-align: right;">0 / 5</div>
+
+        <div class="checklist-item">
+          <div class="checklist-check"></div>
+          <span class="checklist-text"><strong>Institutional anchor confirmed.</strong> A provincial government, national-level program, or international NGO with enough convening authority to put 20+ organizations in a room. Without a formal mandate from this anchor, you are organizing meetings, not building a governance platform.</span>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-check"></div>
+          <span class="checklist-text"><strong>Political mapping completed.</strong> You know who holds real decision-making power in the territory (not just who holds titles), which institutions are aligned, which are hostile, and which are indifferent but gettable. The Stakeholder Power Mapping tool covers this.</span>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-check"></div>
+          <span class="checklist-text"><strong>Stakeholder long list drafted.</strong> Every organization, authority, and entity that has a legitimate claim to participation. In Orellana this was 23 organizations. In Sucumbios, 22. In Morona Santiago, 22. Your list should be comprehensive before you start approaching anyone.</span>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-check"></div>
+          <span class="checklist-text"><strong>Budget for 90 days secured.</strong> Venue costs, travel for remote stakeholders, facilitation materials, one technical coordinator's salary. This is not the full platform budget. It is the seed money to get from concept to constitutive agreement.</span>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-check"></div>
+          <span class="checklist-text"><strong>Concept note written.</strong> A 3-5 page document that explains what the platform is, why it exists, who it serves, and what it will do in its first year. This is your leave-behind in every meeting during weeks 1-2. It must be clear enough that a mid-level government official can explain it to their boss.</span>
+        </div>
+      </div>
+
+      <!-- ============ TIMELINE ============ -->
+      <div class="timeline">
+
+        <!-- WEEKS 1-2 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 1-2</div>
+          <div class="timeline-title">Political Groundwork</div>
+          <div class="timeline-summary">This is not stakeholder engagement. This is political choreography. The order in which you approach organizations determines whether they show up to the first meeting as participants or as skeptics. Get the sequence wrong and you spend the next six months managing resentment instead of building governance.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">01</span> Who to approach first</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The sequence matters more than the pitch. This is the order that worked across all three provinces:</p>
+              <p><strong>Days 1-2: Provincial government.</strong> The prefect's office or the relevant directorate (environment, planning). Even if they are not your institutional anchor, they need to feel like they were consulted first. Government officials track who was approached before them, and perceived slights create permanent obstacles.</p>
+              <p><strong>Days 3-4: Indigenous authorities.</strong> The nationalities' governing bodies (in Amazonian Ecuador: Kichwa, Shuar, Waorani, Ai Cofan, Siekopai, Siona, depending on territory). Not the community leaders. The elected authorities of the indigenous governance structures. Approaching communities before their elected authorities is a protocol violation that can shut you out of entire territories.</p>
+              <p><strong>Days 5-7: NGOs with territorial presence.</strong> Organizations already working in the territory, especially those with long-standing relationships with indigenous communities. They become your intelligence network and often your co-facilitators.</p>
+              <p><strong>Days 8-9: Academia and research institutions.</strong> Universities and research centers provide technical legitimacy and can host early conversations in neutral venues.</p>
+              <p><strong>Days 10-11: Municipal governments.</strong> Mayors and municipal councils. They have different political dynamics than the provincial government and need separate engagement.</p>
+              <p><strong>Days 12-14: Private sector.</strong> Extractive industries, tourism operators, agricultural cooperatives. They come last because approaching them too early signals to indigenous authorities and environmental NGOs that this is an industry-friendly process.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">02</span> What to ask in every meeting</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Every bilateral meeting in weeks 1-2 should cover three questions. Not more. You are not presenting a plan. You are listening and building political intelligence.</p>
+              <ol>
+                <li><strong>"What is the biggest coordination failure in this territory right now?"</strong> This surfaces what they actually care about. If their answer does not connect to your platform's scope, you learn early that you need a different framing for this stakeholder.</li>
+                <li><strong>"If this platform existed and worked, what would it need to do for your organization to stay engaged?"</strong> This is your design input. Not from a survey. From a face-to-face conversation where you can read what is said and what is not said.</li>
+                <li><strong>"Who else must be in the room for this to be legitimate?"</strong> This validates your long list, surfaces actors you missed, and reveals political alliances and antagonisms you need to map before the first convening.</li>
+              </ol>
+              <div class="callout callout--field">
+                <h4>Field note</h4>
+                <p>Take detailed notes immediately after each meeting, not during. Writing during the meeting signals that this is a consultation exercise, not a political conversation between equals.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">03</span> What to avoid saying</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>These phrases will damage your credibility in weeks 1-2:</p>
+              <ul>
+                <li><strong>"We want to create a space for dialogue."</strong> Every failed initiative in the territory said this. It signals nothing concrete will happen.</li>
+                <li><strong>"This platform will coordinate all actors."</strong> No one wants to be coordinated. Frame it as a space where organizations protect their autonomy while aligning on shared territorial priorities.</li>
+                <li><strong>"We have funding for three years."</strong> The moment you mention external funding, every conversation becomes about who controls the budget. Discuss mandate and structure first. Budget comes later.</li>
+                <li><strong>"This is different from previous attempts."</strong> Everyone says this. Show it through your approach (starting with political groundwork instead of a launch event), do not claim it.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEKS 3-4 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 3-4</div>
+          <div class="timeline-title">First Convening</div>
+          <div class="timeline-summary">This is the highest-stakes meeting in the entire 90-day cycle. If it goes badly, half your stakeholders will not return. If it goes well, you have the political mandate to move into formal negotiation. Every detail of how this meeting is designed communicates something about what kind of platform this will be.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">04</span> Meeting design</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p><strong>Venue:</strong> Neutral ground. Not a government building (signals government ownership), not an NGO office (signals external agenda), not a hotel conference room (signals transactional). The best venues are cultural centers, university halls, or community event spaces. In Orellana, the first convening was at a provincial cultural center. In Sucumbios, a university auditorium.</p>
+              <p><strong>Duration:</strong> One full day, 8:00 AM to 4:00 PM. Not a half-day. You need enough time for every sector to speak without feeling rushed, plus buffer for the inevitable political speeches that will happen whether you schedule them or not.</p>
+              <p><strong>Seating:</strong> Circular or U-shaped. Never classroom style. Never a head table with a panel. The seating arrangement is a political statement. If government officials are at the front and indigenous authorities are in the audience, you have already failed to communicate shared governance.</p>
+              <div class="callout callout--insight">
+                <h4>Design signal</h4>
+                <p>Place name cards for every organization. Not just names. Organization names with logos where possible. This signals that institutions are participating, not individuals attending a workshop.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">05</span> The agenda: four blocks</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p><strong>Block 1: Territorial Diagnosis (90 minutes).</strong> Present the state of the territory using data, not opinions. Deforestation rates, extractive concession maps, protected area coverage, indigenous territory boundaries, ongoing conflicts. Let the data create the sense of urgency. Every stakeholder should leave this block understanding that the status quo is not sustainable for anyone.</p>
+              <p><strong>Block 2: Proposed Structure (60 minutes).</strong> Present the platform architecture: plenary, sub-tables, technical secretariat, rotating presidency. Present it as a proposal, not a decision. Use the Governance Canvas as a visual anchor. Make it clear that everything is negotiable except the principle of multi-stakeholder representation.</p>
+              <p><strong>Block 3: Stakeholder Input (90 minutes).</strong> Structured round-robin. Every organization gets 3-5 minutes to state their position: what they need from this platform, what they can contribute, and what their non-negotiables are. This is the most important block. Document everything. This input shapes the constitutive agreement.</p>
+              <p><strong>Block 4: Commitments and Next Steps (60 minutes).</strong> Do not end with "we will follow up." End with specific commitments: who will participate in the drafting committee for the constitutive agreement, when the next meeting is (set the exact date before anyone leaves), and what each organization will contribute to the process.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">06</span> Who speaks and when</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p><strong>Opening:</strong> The institutional anchor opens. This establishes the formal mandate. Keep it to 10 minutes.</p>
+              <p><strong>Indigenous authorities speak second.</strong> Not third, not after the NGOs. Second. This signals that their governance structures are recognized as equal to the state's. In Amazonian Ecuador, this meant the presidents of the indigenous nationalities spoke immediately after the prefect.</p>
+              <p><strong>Facilitation:</strong> An external facilitator who is not affiliated with any stakeholder group. Not the NGO coordinator. Not the government official. Someone whose only role is to manage the conversation. This person must understand indigenous protocol, government formality, and the tension between them.</p>
+              <p><strong>Closing:</strong> Shared. Not one person. A representative from government and a representative from indigenous governance close together. The optics of the closing matter as much as the opening.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">07</span> What to avoid</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <ul>
+                <li><strong>Do not allow the first meeting to become a grievance session.</strong> If indigenous communities use the space to air historical complaints against the government (legitimate as they are), the government representatives will shut down. Acknowledge the grievances, document them, and redirect: "This platform can be the mechanism to address these. Let's design it."</li>
+                <li><strong>Do not present a finished structure.</strong> If stakeholders feel like the decisions were already made, they will participate as observers, not owners. Present options. Let them argue. The argument is the buy-in.</li>
+                <li><strong>Do not skip lunch.</strong> The informal conversations during meals are where the real political negotiations happen. Budget for a proper sit-down meal, not sandwiches people eat while checking their phones.</li>
+                <li><strong>Do not rush the commitments block.</strong> If you run out of time and skip concrete next steps, the meeting was a forum, not a founding event. Cut from the territorial diagnosis before you cut from commitments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEKS 5-6 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 5-6</div>
+          <div class="timeline-title">Constitutive Agreement Negotiation</div>
+          <div class="timeline-summary">The constitutive agreement is the social contract of your platform. It defines who is at the table, how decisions are made, and what happens when commitments are not met. This is not a legal document. It is a political one. Expect the negotiation to be difficult. If it is easy, you are not including enough perspectives.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">08</span> What goes into the agreement</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Seven elements. All non-negotiable in terms of inclusion, fully negotiable in terms of content:</p>
+              <ol>
+                <li><strong>Purpose and territorial scope.</strong> What the platform exists to do, and where. Be specific about geography: province, protected areas, indigenous territories, watersheds.</li>
+                <li><strong>Membership criteria.</strong> Who can participate, how new members join, and under what conditions membership can be suspended. This is the first fight. Government will want to control membership. Indigenous authorities will want veto power over who enters their territories' governance space.</li>
+                <li><strong>Governance structure.</strong> Plenary composition, sub-table mandates, technical secretariat functions, rotating presidency rules. Specify term lengths, rotation order, and what happens if a presiding organization fails to perform.</li>
+                <li><strong>Decision-making rules.</strong> Consensus or majority? What constitutes a quorum? What happens when consensus cannot be reached? In all three Cooperation Tables, the answer was consensus with a fallback to two-thirds majority, with indigenous authorities holding a collective veto on matters affecting their territories.</li>
+                <li><strong>Commitment and accountability mechanisms.</strong> How roadmap activities are tracked, what the reporting cycle is, and what happens when organizations do not deliver. This is where most platforms go soft. Define consequences.</li>
+                <li><strong>Financial arrangements.</strong> How the platform is funded, who manages the funds, and how financial decisions are made. Separate from the programmatic budget of any single member.</li>
+                <li><strong>Amendment procedures.</strong> How the agreement itself can be modified. Require a supermajority and a minimum notice period. This prevents the agreement from being changed by whichever faction happens to show up to a particular meeting.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">09</span> What goes wrong</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Three predictable conflicts and how to navigate them:</p>
+              <p><strong>Government wants permanent presidency.</strong> They will argue they have the institutional mandate. Counter: rotating presidency is what makes this a multi-stakeholder platform and not a government committee. Offer the government the first rotation as a compromise, but lock in the rotation schedule in the agreement.</p>
+              <p><strong>NGOs want observer status.</strong> Some NGOs will argue they should observe, not participate, to maintain independence. Counter: observer status means no voice in decisions that affect their programs. Full membership with recusal rules for conflicts of interest is better than permanent sideline status.</p>
+              <p><strong>Signature level negotiations.</strong> Government wants the prefect to sign. Indigenous authorities want their elected presidents. NGOs send country directors. The signature level communicates the political weight of the commitment. Push for the highest possible signatories. If the prefect will not sign, the agreement is weaker. If indigenous presidents do not sign, it lacks territorial legitimacy. These negotiations can take 2-3 weeks on their own.</p>
+              <div class="callout callout--warning">
+                <h4>Warning</h4>
+                <p>Do not let legal departments rewrite the agreement. Lawyers will strip the political language that gives the document its power and replace it with liability-safe phrasing that no one feels ownership over. Use legal review for compliance issues only.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">10</span> Three non-negotiables</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Regardless of how the negotiation unfolds, these three elements must survive intact:</p>
+              <ol>
+                <li><strong>Rotating presidency.</strong> If one sector holds permanent leadership, the platform belongs to that sector. Rotation is the structural guarantee of shared governance. Non-negotiable.</li>
+                <li><strong>Indigenous representation at the plenary level.</strong> Not through an NGO proxy. Not through a government liaison. Direct seats for indigenous governance structures with voice and vote. If indigenous authorities are not at the table as equals, you do not have a multi-stakeholder platform.</li>
+                <li><strong>Written accountability mechanisms.</strong> If the agreement does not specify what happens when commitments are not met, the commitments are aspirational. Accountability does not need to be punitive. It needs to be specific and visible.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEKS 7-8 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 7-8</div>
+          <div class="timeline-title">Roadmap Design Workshops</div>
+          <div class="timeline-summary">The constitutive agreement says what the platform is. The roadmap says what it does. This is where abstract governance becomes concrete action. Each sub-table develops its own set of activities with deadlines, responsible parties, and measurable outcomes. In Orellana, the roadmap produced 79 activities across all sub-tables. In Sucumbios, 93.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">11</span> How to run the workshops</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>One workshop per sub-table. Not a combined session. Each sub-table has different stakeholders, different technical requirements, and different political dynamics. Combining them dilutes the specificity you need.</p>
+              <p><strong>4-hour structure per sub-table:</strong></p>
+              <ol>
+                <li><strong>Hour 1: Problem framing.</strong> What are the specific issues this sub-table addresses? Not general themes. Specific problems with geographic coordinates and affected populations. Example: "Illegal mining in the upper Napo watershed affecting 12 Kichwa communities" not "environmental degradation."</li>
+                <li><strong>Hour 2: Activity identification.</strong> What concrete actions can the organizations in this sub-table take in the next 12 months? Each activity must have a responsible organization, a timeline, and a measurable deliverable. "Raise awareness" is not an activity. "Train 40 community monitors in water quality testing by Q3" is an activity.</li>
+                <li><strong>Hour 3: Resource mapping.</strong> For each activity, what resources exist (budget, personnel, equipment) and what gaps need to be filled? This surfaces which activities are immediately feasible and which require external support.</li>
+                <li><strong>Hour 4: Prioritization and commitments.</strong> Not every activity can happen at once. Rank by feasibility and impact. Get verbal commitments from responsible organizations, documented in the session minutes.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">12</span> How to get real commitments</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The gap between what organizations promise in workshops and what they actually deliver is where most platforms die. The counter is a social accountability mechanism built into the workshop itself.</p>
+              <p><strong>Make commitments public.</strong> Each organization states their commitment in front of the full sub-table. Not written on a card. Stated out loud. Social pressure works.</p>
+              <p><strong>Assign a peer accountability partner.</strong> Each organization's commitment is paired with another organization that will check in on progress. Not the technical secretariat. A peer. This distributes accountability and creates bilateral relationships that strengthen the platform.</p>
+              <p><strong>Set the first check-in date before anyone leaves.</strong> Not "we will follow up in a few weeks." A specific date, in calendars, with a specific format (15-minute phone call, email update, or brief in-person check).</p>
+              <div class="callout callout--field">
+                <h4>Field note</h4>
+                <p>The organizations that commit to specific activities with deadlines in front of their peers deliver at roughly 3x the rate of organizations that submit written commitments after the meeting. Public commitment is the mechanism. Written follow-ups are the documentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">13</span> Volume benchmarks</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>To calibrate your expectations:</p>
+              <ul>
+                <li><strong>Orellana:</strong> 79 roadmap activities across 5 sub-tables (Biodiversity, Water, Sustainable Production, Environmental Education, Environmental Quality). Average of 15.8 activities per sub-table.</li>
+                <li><strong>Sucumbios:</strong> 93 roadmap activities across 5 sub-tables. Average of 18.6 activities per sub-table. Higher count because of more active municipal government participation.</li>
+              </ul>
+              <p>If your workshops produce fewer than 10 activities per sub-table, the stakeholders are not engaged enough. If you exceed 25 per sub-table, the activities are not specific enough. The sweet spot is 12-20 concrete, assigned, time-bound activities per sub-table.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEKS 9-10 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 9-10</div>
+          <div class="timeline-title">Accountability Setup</div>
+          <div class="timeline-summary">A roadmap without tracking is a wish list. These two weeks are about building the infrastructure that turns commitments into deliverables. This is the operational backbone that most platforms never build, which is why most platforms produce impressive launch events and nothing else.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">14</span> Assign tracking responsibilities</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>The technical secretariat is the engine. This is typically 1-2 full-time staff (or the equivalent in dedicated hours from the institutional anchor). Their weekly routine:</p>
+              <ul>
+                <li><strong>Monday:</strong> Review all activities due this week and next week. Identify any that are at risk of delay.</li>
+                <li><strong>Tuesday-Wednesday:</strong> Contact responsible organizations for at-risk activities. Not to nag. To ask what support they need to deliver.</li>
+                <li><strong>Thursday:</strong> Update the tracking dashboard. Flag overdue items.</li>
+                <li><strong>Friday:</strong> Send a brief weekly summary to sub-table coordinators. Two paragraphs maximum: what was completed, what is at risk.</li>
+              </ul>
+              <p>This routine is non-negotiable. The moment the technical secretariat stops tracking, organizations stop delivering. Consistency is the mechanism, not authority.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">15</span> Design the notification flow</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Three escalation levels, triggered automatically by the tracking system:</p>
+              <p><strong>30 days before deadline:</strong> Reminder to the responsible organization. Friendly, informational. "Your activity [X] is due on [date]. Do you need any support from the secretariat or other platform members?"</p>
+              <p><strong>On deadline:</strong> Status request. "Your activity [X] was due today. Please confirm: completed, in progress (with expected completion date), or blocked (with description of obstacle)."</p>
+              <p><strong>15 days overdue:</strong> Escalation to the sub-table coordinator and the plenary presidency. "Activity [X] by [Organization] is 15 days overdue. This will be reported in the next sub-table meeting." This is the social pressure lever. No one wants their organization named as non-performing in front of peers.</p>
+              <div class="callout callout--insight">
+                <h4>Design principle</h4>
+                <p>The notification flow works because it is predictable and impersonal. Everyone knows the sequence. It is not the secretariat being aggressive. It is the system operating as agreed. This distinction matters for political relationships.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">16</span> Build the visibility layer</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Accountability requires visibility. Three options, from most to least resource-intensive:</p>
+              <p><strong>Option A: Dashboard.</strong> A shared digital dashboard (Google Sheets at minimum, a custom web dashboard if budget allows) that shows every activity, its status, responsible organization, and deadline. All platform members have view access. Updated weekly by the technical secretariat.</p>
+              <p><strong>Option B: Quarterly progress report.</strong> A one-page summary per sub-table distributed before each plenary meeting. Shows completion rates, highlights achievements, names delays. Lower tech investment, but less real-time visibility.</p>
+              <p><strong>Option C: WhatsApp group updates.</strong> For contexts where digital literacy or internet access limits dashboard use. The technical secretariat posts a weekly voice note or text summary to a sub-table WhatsApp group. Simple, low-cost, high reach. Used as a complement in all three provinces.</p>
+              <p>Choose based on your context. The mechanism matters less than the consistency. A WhatsApp voice note every Friday is more effective than a beautiful dashboard updated once a quarter.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEKS 11-12 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Weeks 11-12</div>
+          <div class="timeline-title">First Progress Check</div>
+          <div class="timeline-summary">This is the first formal assessment. Not a celebration meeting. An honest evaluation of what worked, what did not, and whether the platform's structure needs adjustment. The data from weeks 9-10 tracking feeds directly into this assessment.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">17</span> What to measure</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>Four metrics that tell you whether the platform is alive or on life support:</p>
+              <ol>
+                <li><strong>Completion rate.</strong> What percentage of roadmap activities due by week 12 were completed on time? Benchmark: 40-50% in the first cycle is healthy. Below 30% signals structural problems. Above 60% means you set the bar too low.</li>
+                <li><strong>Reporting rate.</strong> What percentage of responsible organizations submitted status updates when requested? Benchmark: 70%+ means the accountability system is working. Below 50% means organizations are not taking the tracking seriously, and the system needs reinforcement.</li>
+                <li><strong>Attendance persistence.</strong> Compare attendance at the first convening (weeks 3-4) to attendance at the first progress check (week 12). Benchmark: retaining 75% of original organizations is strong. Below 60% means something is driving people away. Investigate what.</li>
+                <li><strong>Sub-table activity.</strong> Are all sub-tables meeting regularly, or have some gone dormant? Benchmark: each sub-table should have met at least 2-3 times between weeks 7 and 12. If a sub-table has not met, it either lacks a motivated coordinator or its mandate is not compelling enough.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">18</span> How to present it</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p><strong>One-page summary per sub-table.</strong> Format:</p>
+              <ul>
+                <li>Total activities assigned / completed / in progress / overdue / blocked</li>
+                <li>Top 3 achievements (specific, with evidence)</li>
+                <li>Top 3 challenges (specific, with proposed solutions)</li>
+                <li>Attendance record (organizations present at each sub-table meeting)</li>
+                <li>Recommendation: continue as-is, adjust mandate, merge with another sub-table, or escalate to plenary</li>
+              </ul>
+              <p>Present this at a plenary session. Not as a report that gets emailed. In person, projected on screen, with the sub-table coordinator presenting their own results. This creates ownership and peer accountability at the structural level.</p>
+              <div class="callout callout--field">
+                <h4>Field note</h4>
+                <p>In Orellana, the first progress check revealed that the Environmental Quality sub-table had the lowest completion rate but the highest attendance. The issue was not engagement but overambitious activity design. Restructuring 4 activities into smaller deliverables solved it by month 4.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 13 -->
+        <div class="timeline-phase">
+          <div class="timeline-dot"></div>
+          <div class="timeline-label">Week 13</div>
+          <div class="timeline-title">Course Correction</div>
+          <div class="timeline-summary">Day 90. The platform has been running for three months. This is not a review meeting. It is a structural decision point. Some things need to change. The question is whether you have the data and the political will to change them.</div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">19</span> The agenda: three hours</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p><strong>Hour 1: Data review.</strong> Present the four metrics from weeks 11-12 to the full plenary. No spin. If the completion rate is 35%, say it is 35%. If two organizations have not attended since the first meeting, name them. Transparency builds the credibility that allows for honest conversation.</p>
+              <p><strong>Hour 2: Structural assessment.</strong> Five questions for the plenary:</p>
+              <ol>
+                <li>Are the sub-table mandates right, or do some need to be merged or split?</li>
+                <li>Is the technical secretariat resourced enough to maintain tracking?</li>
+                <li>Are the right organizations in the right sub-tables?</li>
+                <li>Is the rotating presidency working, or is one sector carrying the load?</li>
+                <li>What is the single biggest obstacle to this platform delivering on its roadmap?</li>
+              </ol>
+              <p><strong>Hour 3: Decisions.</strong> Not recommendations. Decisions. Who is responsible, by when, with what resources. If the plenary cannot make decisions in this meeting, the governance structure needs to be examined. A platform that can only discuss, never decide, is a forum, not a governance mechanism.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <button class="expandable-trigger">
+              <span><span class="number">20</span> The honest conversation</span>
+              <span class="chevron">&#9662;</span>
+            </button>
+            <div class="expandable-content">
+              <p>At day 90, you need to be able to answer one question honestly: <strong>is this platform adding value that did not exist before it was created?</strong></p>
+              <p>If the answer is yes, even partially, you have something to build on. Double down on what is working. Fix what is not. Invest in the sub-tables that are delivering.</p>
+              <p>If the answer is no, you have a harder conversation. It might mean the institutional anchor is not strong enough. It might mean the constitutive agreement does not have enough teeth. It might mean the territory is not ready for this level of coordination.</p>
+              <p>The worst outcome is not failure. It is continuing to operate a platform that everyone attends out of obligation but no one believes in. That consumes resources, burns political goodwill, and makes the next attempt harder.</p>
+              <div class="callout callout--warning">
+                <h4>Warning</h4>
+                <p>Do not confuse activity with impact. A platform that holds meetings on schedule but produces no coordination outcomes is not succeeding. Measure what changed in the territory, not how many meetings were held.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end timeline -->
+
+      <!-- ============ FIVE THINGS THAT WILL BREAK ============ -->
+      <div class="breaks-section">
+        <h2>The Five Things That Will Break</h2>
+        <p>These are not risks. They are certainties. Every multi-stakeholder platform faces them. Knowing they are coming does not prevent them, but it does let you prepare the counter before you are in crisis mode.</p>
+
+        <div class="callout callout--warning">
+          <h4>1. Staff turnover kills institutional memory</h4>
+          <p><strong>The problem:</strong> Government officials rotate every 2-4 years. NGO staff rotate faster. The person who negotiated the constitutive agreement leaves, and their replacement does not understand the political context or feel ownership over the commitments.</p>
+          <p><strong>The counter:</strong> Document everything. Not in reports that sit on shelves. In operational handover documents that a new official can read in 30 minutes and understand the platform's history, their organization's commitments, and the political dynamics they are walking into. Update these documents every 6 months. When a key person leaves, the technical secretariat schedules an onboarding meeting with their replacement within 2 weeks.</p>
+        </div>
+
+        <div class="callout callout--warning">
+          <h4>2. The second meeting problem</h4>
+          <p><strong>The problem:</strong> The first meeting has the energy of novelty. The second meeting has the weight of expectations. If the second meeting feels like a repetition of the first (updates, speeches, vague commitments), attendance drops by 30-40% for the third.</p>
+          <p><strong>The counter:</strong> The second meeting must show that something happened between meetings. Present at least one concrete result from the roadmap, even a small one. "Between our last meeting and today, Organization X completed the baseline water quality assessment for 3 communities." Progress, however modest, signals that this platform produces outcomes, not just conversation.</p>
+        </div>
+
+        <div class="callout callout--warning">
+          <h4>3. Government capture</h4>
+          <p><strong>The problem:</strong> Government institutions have more staff, more budget, and more bureaucratic capacity than any other stakeholder. Over time, they dominate the agenda, control the secretariat, and turn the platform into a government coordination mechanism with civil society observers.</p>
+          <p><strong>The counter:</strong> Structural safeguards in the constitutive agreement. Rotating presidency (enforced, not optional). Sub-table coordinators from different sectors. Technical secretariat reports to the plenary, not to any single member. Budget managed by a neutral entity if possible. And the cultural counter: in every meeting, ensure indigenous authorities and civil society organizations speak before government officials present their updates. Agenda order is a power tool.</p>
+        </div>
+
+        <div class="callout callout--warning">
+          <h4>4. NGO observation trap</h4>
+          <p><strong>The problem:</strong> NGOs join as "observers" or "technical support" to avoid political exposure. They contribute resources and expertise but do not take on commitments or accountability. Over time, this creates a two-tier membership where some organizations are fully invested and others are free-riding on the coordination structure.</p>
+          <p><strong>The counter:</strong> No observer status. Full membership with full responsibilities. If an NGO wants to support the platform, they do so as a member with roadmap commitments alongside everyone else. The alternative (permanent observer status with voice but no commitments) is a structural subsidy for disengagement.</p>
+        </div>
+
+        <div class="callout callout--warning">
+          <h4>5. Private sector ghost membership</h4>
+          <p><strong>The problem:</strong> Private sector organizations (extractive industries, agricultural companies, tourism operators) sign the constitutive agreement, attend the first 2-3 meetings, then send increasingly junior representatives until they stop attending entirely. They remain "members" on paper while contributing nothing.</p>
+          <p><strong>The counter:</strong> Minimum participation requirements in the constitutive agreement. If an organization misses 3 consecutive meetings without justification, their membership is automatically suspended and reported to the plenary. The representative level matters too: require that members send decision-makers, not liaisons. A company that sends a communications assistant to a governance meeting is not participating.</p>
+        </div>
+      </div>
+
+      <!-- ============ AFTER DAY 90 ============ -->
+      <div class="after-90">
+        <h2>What Happens After Day 90</h2>
+        <p>Day 90 is not the finish line. It is the end of the launch sequence. If you have done this right, you now have a signed constitutive agreement, an active roadmap, a functioning accountability system, and a first progress check that tells you what needs to change.</p>
+        <p>The next phase is institutionalization. That means the platform operates without the constant energy of its founders. The technical secretariat runs on routine, not on individual commitment. New staff from member organizations can be onboarded without starting from scratch. The tracking system produces data that drives decisions, not just reports.</p>
+        <p>Most platforms reach day 90. Fewer survive month 6. The ones that make it to year 2 are the ones that built accountability into the structure, not just the culture. Culture fades when champions move on. Structure persists.</p>
+
+        <div class="callout callout--field">
+          <h4>The real measure</h4>
+          <p>One year from launch, ask this: if the founding coordinator left tomorrow, would the platform continue to function? If the answer is no, you built a project, not a governance institution. The 90-day playbook is designed to start you toward the second outcome.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Author CTA -->
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need someone who has run this sequence?</h2>
+      <p>This playbook gives you the week-by-week choreography. The political judgment calls, the in-room facilitation when government and indigenous authorities are both frustrated, the moment when you realize the constitutive agreement needs to be renegotiated at week 6. That requires someone who has made the mistakes already.</p>
+      <p>3 provinces. 22+ organizations each. 79-93 roadmap activities per table.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Resources -->
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../governance-canvas/" class="related-card">
+        <h4>The Governance Canvas</h4>
+        <p>Design your multi-stakeholder platform in one page. Eight structural questions that determine whether 22 organizations will coordinate or collapse.</p>
+      </a>
+      <a href="../cooperation-table-blueprint/" class="related-card">
+        <h4>The Cooperation Table Blueprint</h4>
+        <p>Full replication guide. Governance architecture, constitutive agreements, management model, and the political choreography.</p>
+      </a>
+      <a href="../stakeholder-power-mapping/" class="related-card">
+        <h4>Power Mapping for Conservation Platforms</h4>
+        <p>Map who actually holds influence before the first meeting. Influence vs. interest matrix with field-tested methodology.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+</body>
+</html>

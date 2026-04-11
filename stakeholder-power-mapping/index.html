@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Mapping for Conservation Platforms -- Juan Diego Villacis</title>
+  <meta name="description" content="Interactive stakeholder power mapping tool for conservation platforms. Map formal authority, practical influence, and four dimensions of power before convening.">
+  <meta name="author" content="Juan Diego Villacis">
+  <meta property="og:title" content="Power Mapping for Conservation Platforms">
+  <meta property="og:description" content="Map who actually holds influence before the first meeting. Built for contexts where legitimacy, authority, and funding live in different organizations.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/resource.css">
+
+  <style>
+    /* --- Power Dimension Cards --- */
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: var(--space-lg) 0;
+    }
+    .dimension-card {
+      background: var(--surface-card);
+      padding: 1.5rem;
+    }
+    .dimension-card .dim-number {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .dimension-card h4 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .dimension-card p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .dimension-card:nth-child(1) h4 { color: var(--canopy-light); }
+    .dimension-card:nth-child(2) h4 { color: var(--amber-light); }
+    .dimension-card:nth-child(3) h4 { color: var(--river-light); }
+    .dimension-card:nth-child(4) h4 { color: var(--ube-light); }
+
+    /* --- Interactive Power Map --- */
+    .power-map-wrapper {
+      margin: var(--space-lg) 0;
+    }
+
+    .power-map-container {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .power-map-axes {
+      position: relative;
+    }
+
+    .axis-label-y {
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: rotate(-90deg) translateX(-50%);
+      transform-origin: left center;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .axis-label-x {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: var(--space-xs);
+    }
+
+    .axis-end-label {
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      font-family: var(--sans);
+      letter-spacing: 0.05em;
+    }
+
+    .power-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      aspect-ratio: 1.4 / 1;
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-left: 24px;
+    }
+
+    .quadrant {
+      position: relative;
+      padding: 0.75rem;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quadrant-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .quadrant-desc {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .quadrant-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      flex: 1;
+      align-content: flex-start;
+    }
+
+    /* Q-II: top-left (high authority, low influence) */
+    .quadrant--ii {
+      background: var(--surface-card);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quadrant--ii .quadrant-label { color: var(--amber-light); }
+
+    /* Q-I: top-right (high authority, high influence) */
+    .quadrant--i {
+      background: rgba(10, 46, 26, 0.5);
+      border-bottom: 1px solid var(--line);
+    }
+    .quadrant--i .quadrant-label { color: var(--canopy-light); }
+
+    /* Q-IV: bottom-left (low authority, low influence) */
+    .quadrant--iv {
+      background: var(--surface-up);
+      border-right: 1px solid var(--line);
+    }
+    .quadrant--iv .quadrant-label { color: var(--text-dim); }
+
+    /* Q-III: bottom-right (low authority, high influence) */
+    .quadrant--iii {
+      background: rgba(10, 30, 48, 0.5);
+      border-left: none;
+    }
+    .quadrant--iii .quadrant-label { color: var(--river-light); }
+
+    /* Stakeholder chips */
+    .stakeholder-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      font-family: var(--sans);
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.4;
+    }
+
+    .chip--public { background: rgba(132, 231, 165, 0.15); color: var(--canopy-light); }
+    .chip--indigenous { background: rgba(248, 204, 101, 0.15); color: var(--amber-light); }
+    .chip--ngo { background: rgba(59, 211, 253, 0.15); color: var(--river-light); }
+    .chip--academia { background: rgba(193, 176, 255, 0.15); color: var(--ube-light); }
+    .chip--private { background: rgba(180, 160, 120, 0.15); color: var(--warm-light); }
+
+    /* Add stakeholder form */
+    .add-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .add-form .field-group--full {
+      grid-column: 1 / -1;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+      grid-column: 1 / -1;
+    }
+
+    /* Stakeholder list */
+    .stakeholder-list {
+      margin-top: var(--space-md);
+    }
+
+    .stakeholder-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.85rem;
+    }
+    .stakeholder-row:last-child { border-bottom: none; }
+
+    .stakeholder-row .org-name {
+      flex: 1;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .stakeholder-row .org-sector {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      min-width: 80px;
+    }
+    .stakeholder-row .org-scores {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      font-family: var(--sans);
+    }
+    .stakeholder-row .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .stakeholder-row .remove-btn:hover {
+      color: #e74c3c;
+      background: rgba(231, 76, 60, 0.1);
+    }
+
+    .empty-list {
+      text-align: center;
+      padding: var(--space-md);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    /* --- Phase Timeline (reused from cooperation-table) --- */
+    .phase-timeline {
+      position: relative;
+      margin: var(--space-xl) 0;
+    }
+    .phase-timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line-bright);
+    }
+    .phase-item {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: var(--space-xl);
+    }
+    .phase-dot {
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--canopy-mid);
+      background: var(--black);
+      z-index: 1;
+    }
+    .phase-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--canopy-light);
+      margin-bottom: 0.4rem;
+    }
+    .phase-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .phase-summary {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-sm);
+      line-height: 1.7;
+    }
+
+    .interview-questions {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-sm) 0;
+    }
+    .interview-questions li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .interview-questions li::before {
+      content: 'Q';
+      position: absolute;
+      left: 0;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--canopy-light);
+    }
+
+    /* --- Print --- */
+    @media print {
+      .power-grid { border: 1px solid #999; }
+      .quadrant { border-color: #ccc; }
+      .quadrant--i { background: rgba(132, 231, 165, 0.08); }
+      .quadrant--iii { background: rgba(59, 211, 253, 0.08); }
+      .stakeholder-chip { border: 1px solid #ccc; }
+      .form-actions, .add-form, .remove-btn { display: none !important; }
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .dimension-grid { grid-template-columns: 1fr; }
+      .add-form { grid-template-columns: 1fr; }
+      .power-grid {
+        aspect-ratio: auto;
+      }
+      .quadrant {
+        min-height: 120px;
+      }
+      .phase-item { padding-left: 40px; }
+      .axis-label-y { display: none; }
+      .power-grid { margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+
+  <header class="resource-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../">All Resources</a> / Governance & Coordination</div>
+      <span class="tool-number label--governance">Tool 04</span>
+      <h1>Power Mapping for Conservation Platforms</h1>
+      <p class="subtitle">Map who actually holds influence before the first meeting. Built for contexts where legitimacy, authority, and funding live in different organizations.</p>
+      <p class="author-line">By Juan Diego Villacis. Field-tested across 3 provinces in the Ecuadorian Amazon.</p>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Format:</strong> Interactive mapping tool + process guide</span>
+        <span class="meta-item"><strong>Time:</strong> 16 days to complete</span>
+        <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="resource-body">
+    <div class="container">
+
+      <!-- Section 1: Why power mapping -->
+      <h2>Why power mapping before convening</h2>
+      <p>Every conservation platform makes the same mistake: they invite everyone they can think of to the first meeting and hope the right dynamics emerge. They do not. The organization with the budget dominates the agenda. The indigenous federation with territorial sovereignty sits quietly because no one structured their role. The NGO with the data never gets asked for it because the convener did not know they had it.</p>
+      <p>Power mapping is not an academic exercise. It is the difference between a platform that produces coordinated execution and one that produces meetings. You need to know who can block you, who can fund you, who has the data, and who controls the land before you send a single invitation.</p>
+
+      <!-- Section 2: Four dimensions -->
+      <h2>The four dimensions of power</h2>
+      <p>In conservation governance, power does not live in one place. It is distributed across four dimensions, and they almost never overlap in the same organization.</p>
+
+      <div class="dimension-grid">
+        <div class="dimension-card">
+          <span class="dim-number">Dimension 01</span>
+          <h4>Administrative Authority</h4>
+          <p>Who can issue permits, allocate budgets, and enforce regulations. In Morona Santiago, the Prefectura controls provincial planning and budget allocation. MAATE controls environmental permits. The municipal governments control land use.</p>
+        </div>
+        <div class="dimension-card">
+          <span class="dim-number">Dimension 02</span>
+          <h4>Territorial Legitimacy</h4>
+          <p>Who has historical and legal claim to the land. FPIC rights, indigenous nations, ancestral territories. FICSH in Morona Santiago represents Shuar communities across the entire province. Without them, no conservation agreement has legal or moral standing.</p>
+        </div>
+        <div class="dimension-card">
+          <span class="dim-number">Dimension 03</span>
+          <h4>Technical Capacity</h4>
+          <p>Who has data, expertise, and implementation capability. Conservation International has monitoring systems and donor relationships. Universidad Estatal Amazonica has research infrastructure. WCS has species-specific expertise. This is the dimension most often undervalued in political negotiations.</p>
+        </div>
+        <div class="dimension-card">
+          <span class="dim-number">Dimension 04</span>
+          <h4>Financial Leverage</h4>
+          <p>Who controls or channels the money. GEF through UNDP. The Green Climate Fund through accredited entities. Bilateral cooperation (GIZ, USAID). Provincial budget allocations. The organization that controls funding controls the timeline of everything else.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--field">
+        <h4>Field note</h4>
+        <p>In all three provinces, no single organization scored high on more than two of these dimensions. The Prefectura had administrative authority but limited technical capacity. Conservation International had technical capacity and financial leverage but no territorial legitimacy. FICSH had territorial legitimacy but limited administrative authority. This distribution is why you need a platform in the first place.</p>
+      </div>
+
+      <!-- Section 3: Interactive Power Map -->
+      <h2>The interactive power map</h2>
+      <p>Plot your stakeholders on two axes: formal authority (permits, budgets, legal mandate) and practical influence (information control, relationships, implementation capacity). The quadrant where they land tells you how to engage them.</p>
+
+      <div class="tool-container">
+        <h3>Stakeholder Power Map</h3>
+
+        <div class="power-map-wrapper">
+          <div class="power-map-container">
+            <div class="power-map-axes">
+              <span class="axis-label-y">Formal Authority (low to high)</span>
+              <div class="power-grid">
+                <!-- Top-left: Q-II -->
+                <div class="quadrant quadrant--ii" id="quadrant-ii">
+                  <span class="quadrant-label">Q-II Formal Gatekeepers</span>
+                  <span class="quadrant-desc">High authority, low influence. Can block but rarely drive.</span>
+                  <div class="quadrant-chips" data-quadrant="ii"></div>
+                </div>
+                <!-- Top-right: Q-I -->
+                <div class="quadrant quadrant--i" id="quadrant-i">
+                  <span class="quadrant-label">Q-I Anchor Partners</span>
+                  <span class="quadrant-desc">High authority, high influence. Your platform's center of gravity.</span>
+                  <div class="quadrant-chips" data-quadrant="i"></div>
+                </div>
+                <!-- Bottom-left: Q-IV -->
+                <div class="quadrant quadrant--iv" id="quadrant-iv">
+                  <span class="quadrant-label">Q-IV Peripheral Participants</span>
+                  <span class="quadrant-desc">Low authority, low influence. Inform but don't build around.</span>
+                  <div class="quadrant-chips" data-quadrant="iv"></div>
+                </div>
+                <!-- Bottom-right: Q-III -->
+                <div class="quadrant quadrant--iii" id="quadrant-iii">
+                  <span class="quadrant-label">Q-III Shadow Power</span>
+                  <span class="quadrant-desc">Low authority, high influence. Often controls information or relationships.</span>
+                  <div class="quadrant-chips" data-quadrant="iii"></div>
+                </div>
+              </div>
+              <div class="axis-label-x">Practical Influence (low to high)</div>
+            </div>
+          </div>
+
+          <!-- Add Stakeholder Form -->
+          <div class="add-form">
+            <div class="field-group field-group--full">
+              <label class="field-label" for="org-name">Organization name</label>
+              <input type="text" class="field-input" id="org-name" placeholder="e.g. FICSH, Conservation International, Prefectura de Morona Santiago">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="org-sector">Sector</label>
+              <select class="field-select" id="org-sector">
+                <option value="public">Public Sector</option>
+                <option value="indigenous">Indigenous Authority</option>
+                <option value="ngo">NGO</option>
+                <option value="academia">Academia</option>
+                <option value="private">Private Sector</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="org-authority">Formal Authority (1-3)</label>
+              <select class="field-select" id="org-authority">
+                <option value="1">1 - Low (no permits, no budgets)</option>
+                <option value="2">2 - Medium (some regulatory role)</option>
+                <option value="3">3 - High (controls permits, budgets, or law)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="org-influence">Practical Influence (1-3)</label>
+              <select class="field-select" id="org-influence">
+                <option value="1">1 - Low (limited reach or resources)</option>
+                <option value="2">2 - Medium (some influence on outcomes)</option>
+                <option value="3">3 - High (controls information, money, or key relationships)</option>
+              </select>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn--primary btn--small" id="add-stakeholder">Add Stakeholder</button>
+              <button class="btn btn--ghost btn--small" id="clear-all">Clear All</button>
+            </div>
+          </div>
+
+          <!-- Stakeholder list -->
+          <div class="stakeholder-list" id="stakeholder-list">
+            <div class="empty-list" id="empty-msg">No stakeholders mapped yet. Add your first organization above.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Three must-have tests -->
+      <h2>The three must-have tests</h2>
+      <p>After mapping, run every stakeholder through these three tests. If any stakeholder passes even one, they are not optional.</p>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">01</span>
+          <span>The Veto Test</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p><strong>Can they block a critical process?</strong></p>
+          <p>MAATE can refuse to issue environmental permits. The Prefectura can withhold budget allocations. An indigenous federation can invoke FPIC and halt any activity on their territory. If an organization can stop something essential from happening, they must be inside the platform, not watching from outside.</p>
+          <p>In Morona Santiago, FICSH's ability to block any conservation agreement on Shuar territory made them not just a participant but a co-architect of the entire platform structure. Ignoring veto power does not make it disappear. It makes it adversarial.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">02</span>
+          <span>The Legitimacy Test</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p><strong>Would their absence damage credibility?</strong></p>
+          <p>A conservation platform in the Ecuadorian Amazon without indigenous representation is not a governance mechanism. It is a coordination meeting among outsiders. A platform without the provincial government is an NGO coalition, not an inter-institutional body.</p>
+          <p>Ask: if this organization is not at the table, who will question the platform's right to make decisions? If the answer is "international donors," "local communities," or "the media," their absence is a legitimacy hole that undermines everything you build.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">03</span>
+          <span>The Execution Test</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p><strong>Do they control irreplaceable resources?</strong></p>
+          <p>Conservation International had the monitoring technology and donor relationships that no other organization in Orellana could replicate. Universidad Estatal Amazonica had the only long-term ecological datasets in the province. GIZ had the bilateral funding commitment.</p>
+          <p>If an organization controls a resource, a dataset, a relationship, or a capability that cannot be obtained elsewhere, their participation is not optional. Map what each organization controls that is unique, and you will see which seats at the table are structural necessities.</p>
+        </div>
+      </div>
+
+      <!-- Section 5: Three surprises -->
+      <h2>Three power dynamics that will surprise you</h2>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">01</span>
+          <span>The organization with the least formal authority often controls the room</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>FICSH in Morona Santiago has no regulatory power, no budget authority, and no legal mandate to issue permits. On paper, they should be peripheral. In practice, they controlled every conservation agreement because no activity could proceed on Shuar territory without their consent.</p>
+          <p>Formal authority measures what the law says. Practical influence measures what actually happens. These are different things. Your power map must capture both, which is why this tool uses two axes instead of one.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">02</span>
+          <span>The person who controls information controls the agenda</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>In Sucumbios, the organization that compiled the baseline data for the provincial environmental assessment set the terms for every subsequent discussion. The data defined the problem. The problem defined the priorities. The priorities defined the roadmap.</p>
+          <p>When mapping practical influence, pay close attention to who holds the information. Monitoring data, budget figures, community census results, GIS layers, species inventories. The organization that produces or controls this information has outsized influence on what the platform decides to do, even if they have no formal authority.</p>
+        </div>
+      </div>
+
+      <div class="expandable">
+        <button class="expandable-trigger">
+          <span class="number">03</span>
+          <span>Bilateral relationships matter more than your platform's structure</span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="expandable-content">
+          <p>The most consequential decisions in all three Cooperation Tables were made in bilateral conversations between two organizations, outside the formal meeting. The Prefectura and FICSH agreeing on community priorities before the plenary. Conservation International and GIZ aligning funding commitments before the sub-table session.</p>
+          <p>Your power map should note which organizations have strong pre-existing bilateral relationships. These pairs will drive or block your platform's most important decisions, regardless of your governance structure. Map the relationships, not just the organizations.</p>
+        </div>
+      </div>
+
+      <!-- Section 6: The mapping process -->
+      <h2>The mapping process</h2>
+      <p>A power map built from your desk is a guess. A power map built from conversations is intelligence. Here is the 16-day process.</p>
+
+      <div class="phase-timeline">
+
+        <!-- Step 1 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Days 1-3</div>
+          <div class="phase-title">Step 1: Build initial roster</div>
+          <div class="phase-summary">List every organization operating in the territory. Government agencies, indigenous federations, NGOs, academic institutions, private companies. Do not filter yet. Your goal is completeness, not selectivity. Use existing project documents, provincial registries, and donor reports to build the list. Aim for 30-40 names before filtering.</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Days 4-10</div>
+          <div class="phase-title">Step 2: Key informant interviews</div>
+          <div class="phase-summary">Interview 8-12 people who know the territory's institutional landscape. Former project coordinators, senior government officials, indigenous leaders, long-serving NGO staff. These conversations give you the informal power map that no organizational chart reveals.</div>
+
+          <div class="callout callout--field" style="margin-top: var(--space-sm);">
+            <h4>The five interview questions</h4>
+            <ul class="interview-questions">
+              <li>"If you needed to get a conservation agreement signed in this province, which three organizations would you talk to first?"</li>
+              <li>"Which organization, if they refused to participate, would make a multi-stakeholder platform impossible?"</li>
+              <li>"Who controls the data that everyone else depends on?"</li>
+              <li>"Which two organizations have the strongest bilateral relationship in this territory?"</li>
+              <li>"Who has tried to build something like this before, and why did it succeed or fail?"</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Days 11-12</div>
+          <div class="phase-title">Step 3: Map the four dimensions</div>
+          <div class="phase-summary">For each organization on your roster, score their presence across all four dimensions: administrative authority, territorial legitimacy, technical capacity, and financial leverage. Use a simple 1-3 scale. This is not meant to be precise. It is meant to surface patterns. The organization that scores 3 on territorial legitimacy and 1 on everything else is a very different stakeholder than the one scoring 2 across all four.</div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Day 13</div>
+          <div class="phase-title">Step 4: Plot the canvas</div>
+          <div class="phase-summary">Use the interactive map above. For each organization, translate your four-dimension scores into two composite scores: formal authority (combining administrative authority and territorial legitimacy) and practical influence (combining technical capacity and financial leverage). Plot them. The quadrant distribution tells you the shape of your platform's power landscape.</div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Day 14</div>
+          <div class="phase-title">Step 5: Apply the three tests</div>
+          <div class="phase-summary">Run every organization through the Veto Test, the Legitimacy Test, and the Execution Test. Any organization that passes at least one test is a structural necessity. Remove organizations that fail all three from your convening list. They can be informed stakeholders without being platform members.</div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="phase-item">
+          <div class="phase-dot"></div>
+          <div class="phase-label">Days 15-16</div>
+          <div class="phase-title">Step 6: Validate with two trusted insiders</div>
+          <div class="phase-summary">Share your completed map with two people who know the territory deeply and can tell you what you got wrong. One should be from government. One should be from civil society or an indigenous authority. Their corrections will be the most valuable input in this entire process. They will identify organizations you underrated, relationships you missed, and power dynamics that only emerge in private conversations.</div>
+        </div>
+
+      </div>
+
+      <div class="callout callout--warning">
+        <h4>Do not skip validation</h4>
+        <p>In Orellana, initial desk research placed one NGO in Q-IV (peripheral). Key informant interviews revealed they controlled the only functioning community monitoring network in the province. After validation, they moved to Q-III (shadow power) and became a core sub-table member. Your initial assessment will have at least 2-3 misplacements this significant.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="author-cta">
+    <div class="container">
+      <h2>Need help mapping power in your territory?</h2>
+      <p>The tool gives you the framework. The interviews, political navigation, and interpretation require someone who has mapped power dynamics across indigenous territories, provincial governments, and international organizations before.</p>
+      <p>3 provinces. 66+ organizations mapped. 7 conservation agreements produced.</p>
+      <div class="contact-links">
+        <a href="mailto:89.jdvm@gmail.com">89.jdvm@gmail.com</a>
+        <a href="https://linkedin.com/in/jdv42/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-resources">
+    <h3>Related resources</h3>
+    <div class="related-grid">
+      <a href="../governance-canvas/" class="related-card">
+        <h4>The Governance Canvas</h4>
+        <p>Design your multi-stakeholder platform in one page. Eight structural questions.</p>
+      </a>
+      <a href="../cooperation-table-blueprint/" class="related-card">
+        <h4>The Cooperation Table Blueprint</h4>
+        <p>Full replication guide for building a multi-stakeholder conservation platform.</p>
+      </a>
+      <a href="../first-90-days/" class="related-card">
+        <h4>The First 90 Days</h4>
+        <p>Week-by-week operator's playbook from day one to the first progress check.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Juan Diego Villacis. Quito, Ecuador. All resources free, no email gates.</p>
+  </footer>
+
+  <script src="../shared/js/nav.js"></script>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var STORAGE_KEY = 'power-map-v1';
+    var stakeholders = [];
+
+    // DOM refs
+    var nameInput = document.getElementById('org-name');
+    var sectorSelect = document.getElementById('org-sector');
+    var authoritySelect = document.getElementById('org-authority');
+    var influenceSelect = document.getElementById('org-influence');
+    var addBtn = document.getElementById('add-stakeholder');
+    var clearBtn = document.getElementById('clear-all');
+    var listEl = document.getElementById('stakeholder-list');
+    var emptyMsg = document.getElementById('empty-msg');
+
+    var sectorLabels = {
+      public: 'Public Sector',
+      indigenous: 'Indigenous Authority',
+      ngo: 'NGO',
+      academia: 'Academia',
+      private: 'Private Sector'
+    };
+
+    function getQuadrant(authority, influence) {
+      var highAuth = authority >= 2;
+      var highInf = influence >= 2;
+      if (highAuth && highInf) return 'i';
+      if (highAuth && !highInf) return 'ii';
+      if (!highAuth && highInf) return 'iii';
+      return 'iv';
+    }
+
+    function save() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stakeholders));
+      } catch (e) { /* localStorage unavailable */ }
+    }
+
+    function load() {
+      try {
+        var data = localStorage.getItem(STORAGE_KEY);
+        if (data) {
+          stakeholders = JSON.parse(data);
+        }
+      } catch (e) {
+        stakeholders = [];
+      }
+    }
+
+    function render() {
+      // Clear all quadrant chips
+      var chipContainers = document.querySelectorAll('.quadrant-chips');
+      for (var c = 0; c < chipContainers.length; c++) {
+        chipContainers[c].innerHTML = '';
+      }
+
+      // Clear list
+      listEl.innerHTML = '';
+
+      if (stakeholders.length === 0) {
+        listEl.innerHTML = '<div class="empty-list">No stakeholders mapped yet. Add your first organization above.</div>';
+      }
+
+      for (var i = 0; i < stakeholders.length; i++) {
+        var s = stakeholders[i];
+        var q = getQuadrant(s.authority, s.influence);
+
+        // Create chip
+        var chip = document.createElement('span');
+        chip.className = 'stakeholder-chip chip--' + s.sector;
+        chip.textContent = s.name;
+        chip.title = s.name + ' (' + sectorLabels[s.sector] + ') - Auth: ' + s.authority + ', Inf: ' + s.influence;
+
+        var target = document.querySelector('[data-quadrant="' + q + '"]');
+        if (target) target.appendChild(chip);
+
+        // Create list row
+        var row = document.createElement('div');
+        row.className = 'stakeholder-row';
+        row.innerHTML =
+          '<span class="org-name">' + escapeHtml(s.name) + '</span>' +
+          '<span class="org-sector">' + sectorLabels[s.sector] + '</span>' +
+          '<span class="org-scores">Auth ' + s.authority + ' / Inf ' + s.influence + '</span>' +
+          '<button class="remove-btn" data-index="' + i + '" title="Remove">x</button>';
+        listEl.appendChild(row);
+      }
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    function addStakeholder() {
+      var name = nameInput.value.trim();
+      if (!name) {
+        nameInput.focus();
+        return;
+      }
+
+      stakeholders.push({
+        name: name,
+        sector: sectorSelect.value,
+        authority: parseInt(authoritySelect.value, 10),
+        influence: parseInt(influenceSelect.value, 10)
+      });
+
+      nameInput.value = '';
+      nameInput.focus();
+      save();
+      render();
+    }
+
+    function removeStakeholder(index) {
+      stakeholders.splice(index, 1);
+      save();
+      render();
+    }
+
+    // Event listeners
+    addBtn.addEventListener('click', addStakeholder);
+
+    nameInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addStakeholder();
+      }
+    });
+
+    clearBtn.addEventListener('click', function() {
+      if (stakeholders.length === 0) return;
+      if (confirm('Remove all stakeholders from the map?')) {
+        stakeholders = [];
+        save();
+        render();
+      }
+    });
+
+    listEl.addEventListener('click', function(e) {
+      var btn = e.target.closest('.remove-btn');
+      if (btn) {
+        var idx = parseInt(btn.getAttribute('data-index'), 10);
+        removeStakeholder(idx);
+      }
+    });
+
+    // Init
+    load();
+    render();
+  })();
+  </script>
+
+</body>
+</html>
